@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<!--
+	This is a jQuery Tools standalone demo. Feel free to copy/paste.
+	http://flowplayer.org/tools/demos/
+	Do *not* reference CSS files and images from flowplayer.org when in production  
+	Enjoy!
+-->
+<head>
+	<title>jQuery Tools standalone demo</title>
+
+	{% mark tools %}
+	<!-- include the Tools -->
+	<script src="{{ js.tools }}"></script>
+	{% endmark %}
+
+	<!-- standalone page styling (can be removed) -->
+	<link rel="stylesheet" type="text/css" href="{{ media_url('css/standalone.css') }}"/>	
+
+	{% block head %}{% endblock %}
+</head>
+<body>{% block body %}{% endblock %}</body>
+</html>

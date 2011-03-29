@@ -1,0 +1,20 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}
+{% mark css %}
+	<!-- rangeinput styling -->
+	<link rel="stylesheet" type="text/css" href="css/skin1.css"/>
+{% endmark %}
+{% endblock %}
+
+{% block body %}
+{% mark body %}
+	<!-- HTML5 range input -->
+	<input type="range" name="test" min="100" max="300" value="150" />
+
+	<!-- make it happen -->
+	<script>
+	$(":range").rangeinput();
+	</script>
+{% endmark %}
+{% endblock %}

@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- 
+	Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen 
+	
+	Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+<head>
+    <title>{{ resource.meta.title }}</title>
+    <meta name="description" content="{{ resource.meta.description }}">
+    <meta name="keywords" content="{{ resource.meta.keywords }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="{{ resource.meta.author }}">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="{{ media_url('favicon.ico') }}">
+    <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <div id="top">
+
+        <div id="top-wrap">
+            <a id="top-fp" href-"/index.html">Flowplayer</a>
+            <a id="top-jt" href="/tools/index.html" class="active">jQuery Tools</a>
+
+            <form id="top-search" action="/search.html">
+                <input type="text" name="q" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="wrap">
+
+        <div id="nav" class="clear">
+            <a id="fp1" href="/index.html">Home</a>
+            <a id="fp2" href="/download/index.html">Download</a>
+            <a id="fp3" href="/demos/index.html">Demos</a>
+            <a id="fp4" href="/documentation/index.html">Documentation</a>
+            <a id="fp5" href="/plugins/index.html">Plugins</a>
+            <a id="fp6" href="/forum/index.html">Forums</a>
+        </div>
+
+        <div id="page">
+            {% block main %}{% endblock %}
+        </div>
+
+        <div id="footer" class="clear">
+
+            {% block tweets %}
+            <h2>jQuery Tools Twitter feed</h2>
+
+            <div id="twitter" class="clear">
+
+                <div id="tweets"></div>
+
+                <a id="follow" href="http://twitter.com/jquerytools" title="Follow jQuery Tools on Twitter">
+                    jQuery Tools Twitter feed</a>
+            </div>
+            {% endblock %}
+
+            <div id="footerlinks" class="clear">
+                <a href="https://github.com/jquerytools/jquerytools">github repository</a>
+                <a href="https://github.com/jquerytools/jquerytools/issues">report a bug</a>
+                <a href="/tools-1.1/index.html">version 1.1</a>
+                <a href="http://cloudpanic.com">my blog: <strong>cloudpanic.com</strong></a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    {% block js %}
+    {% endblock %}
+        var _tracker = _gat._getTracker("{{ analytics.id }}");
+        {% if analytics %}_tracker._trackPageview();{% endif %}
+    </script>
+
+</body>
+</html>
