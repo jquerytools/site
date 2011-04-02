@@ -1,0 +1,33 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="{{media_base}}/css/tabs-no-images.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark tabs %}
+<!-- tabs -->
+<ul class="css-tabs">
+  <li><a href="ajax1.htm">Tab 1</a></li>
+  <li><a href="ajax2.htm">Second tab</a></li>
+  <li><a href="ajax3.htm">An ultra long third tab</a></li>
+</ul>
+
+<!-- single pane. it is always visible -->
+<div class="css-panes">
+  <div style="display:block"></div>
+</div>
+{% endmark %}
+
+<script>
+$(function() {
+{% mark js %}
+  $("ul.css-tabs").tabs("div.css-panes > div", {effect: 'ajax'});
+{% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}
+
+
+

@@ -1,0 +1,16 @@
+{% extends "demos/tabs/skin3.htm" %}
+
+{% block body %}
+{{ super() }}
+
+<script>
+{% mark new_js %}
+$(function() {
+  $("#flowtabs").tabs("#flowpanes > div", { history: true });
+});
+{% endmark %}
+</script>
+{% endblock %}
+
+
+

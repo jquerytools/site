@@ -1,0 +1,43 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" href="{{media_base}}/css/tabs-panes.css"
+      type="text/css" media="screen" />
+{% endmark %}{% endblock %}
+
+{% block body %}
+{% mark body %}
+<!-- the tabs -->
+<ul class="tabs">
+  <li><a href="#first">Tab 1</a></li>
+  <li><a href="#second">Tab 2</a></li>
+  <li><a href="#third">Tab 3</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="panes">
+  <div>
+    First pane. <a href="#third">open third tab</a>
+  </div>
+  <div>
+    Second pane. You can open other tabs with normal
+    <a href="#first">anchor links</a>
+  </div>
+  <div>
+    Third tab content
+  </div>
+</div>
+{% endmark %}
+
+<script>
+  {% mark js %}
+  $(function() {
+  // setup ul.tabs to work as tabs for each div directly under div.panes
+  $("ul.tabs").tabs("div.panes > div");
+  });
+  {% endmark %}
+</script>
+{% endblock %}
+
+
+

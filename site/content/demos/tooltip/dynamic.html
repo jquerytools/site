@@ -1,0 +1,114 @@
+===
+index: 7
+title: Dynamic positioning of the tooltip
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/tooltip/dynamic.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  Below you can see triggers whose tooltip is centered on the top edge
+  of the trigger. <a href="#lower">Click here</a> to scroll a little
+  lower and see how the tooltips behave now. We are
+  using <a href="{{content_base}}/tools/tooltip/dynamic.html">dynamic
+  plugin</a> which repositions our tooltips so that it is always
+  visible on the viewport.
+</p>
+
+<a name="lower"></a>
+{{ standalone.body }}
+
+<p>
+  If there is no room on the top edge then the tooltip is shown on the
+  bottom edge. The same happens on every edge of the tooltip: top,
+  bottom, left and right. When there is no room then the opposite edge
+  is used. Note that this demo is only for vertical repositioning.
+</p>
+
+<p>
+  It is possible to change the style, effect and other configuration
+  variables whenever the dynamic repositioning occurs. You can see
+  that in the above example the "slide" effect goes downwards when it
+  is displayed from the bottom edge and we are using a different
+  background image where the arrow points upwards.
+</p>
+
+<p>
+  We are using the <samp>offset</samp> option to position the tooltip
+  a little higher by default. When using the dynamic effect this value
+  is inverted. Higher means lower and further right means further
+  left.
+</p>
+
+<p>
+  The dynamic plugin can be used together with any effect. The above
+  configuration uses the
+  custom <a href="{{content_base}}/tools/tooltip/slide.html">slide
+  effect</a>.
+</p>
+
+<h3>HTML coding</h3>
+
+<p>
+  A <a href="index.html">minimal setup</a> with the tooltip element
+  and the triggers:
+</p>
+
+{% filter syntax('html') %}
+<!-- tooltip triggers -->
+<div id="dyna">
+  <img src="image1.jpg" title="The tooltip text #1"/>
+  <img src="image2.jpg" title="The tooltip text #2"/>
+  <img src="image3.jpg" title="The tooltip text #3"/>
+  <img src="image4.jpg" title="The tooltip text #4"/>
+</div>
+{% endfilter %}
+
+<h3>CSS coding</h3>
+
+<p>
+  When tooltip is repositioned it is assigned new CSS class names. By
+  default we are using "top", "bottom", "left" and "right" to identify
+  which edge is the newly positioned edge. These names can be changed
+  from the plugin's
+  <a href="{{content_base}}/tools/tooltip/index.html#dynamic">configuration</a>.
+  Here are our settings for the repositioned bottom edge.
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_bottom }}
+{% endfilter %}
+
+<h3>JavaScript coding</h3>
+
+<p>
+  After initializing the tooltip we will chain
+  our <samp>dynamic()</samp> plugin. We have used
+  the <samp>bottom</samp> parameter to alter the tooltip configuration
+  for the bottom
+  edge. Every <a href="${jqt}/tooltip/index.html#configuration">configuration
+  option</a> can be used to alter the tooltip's behaviour.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<p>
+  <strong>Note:</strong> the dynamic plugin and the slide effect are
+  not included in the standard jQuery Tools distribution. You must
+  download
+  a <a href="{{content_base}}/download/index.html#combine">custom
+  combination</a> to include those effects.
+</p>
+
+<div class="box petrol">
+  Take a look at a <a href="dynamic.htm">standalone version</a> of
+  this demo. View its source code to get things going on your page.
+</div>
+
+{% endblock %}

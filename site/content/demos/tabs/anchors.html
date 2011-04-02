@@ -1,0 +1,61 @@
+===
+index: 2
+title: Naming the tabs
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/tabs/anchors.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  You can load the page so that a specific tab is initially
+  opened. This happens by naming the tabs and opening the page
+  so that the name is given in the URL's anchor. When this page
+  is opened, the second tab is initially opened. Look for the
+  URL which has the anchor <samp>#second</samp>.
+</p>
+
+{{standalone.body}}
+<script>
+{{standalone.js}}
+</script>
+
+<p>
+  As you can see, the panes have regular anchor links. If those anchor
+  links match the names of the tabs, those tabs are automatically
+  opened.
+</p>
+
+<h3>HTML coding</h3>
+
+<p>
+  Look for the tab names in the <samp>href</samp> attribute and those
+  links inside the panes:
+</p>
+
+<pii:code lang="html">
+  ${html}
+</pii:code>
+
+{% filter syntax('html') %}
+{{ standalone.body }}
+{% endfilter %}
+
+<p>
+  Tab construction is identical to the <a href="index.html">minimal
+  setup</a>. There is nothing special here.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="anchors.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+
+{% endblock %}

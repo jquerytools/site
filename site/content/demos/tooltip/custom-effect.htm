@@ -1,0 +1,51 @@
+{% extends 'demos/tooltip/index.htm' %}
+
+{% block body %}{% mark body %}
+<!-- a couple of trigger elements -->
+<div id="demo">
+  <img src="{{media_base}}/img/photos/1.jpg"
+       title="A must have tool for designing better layouts and more intuitive user-interfaces."/>
+  <img src="{{media_base}}/img/photos/2.jpg"
+       title="Tooltips can be positioned anywhere relative to the trigger element."/>
+  <img src="{{media_base}}/img/photos/3.jpg"
+       title="Tooltips can contain any HTML such as links, images, forms, tables, etc."/>
+  <img src="{{media_base}}/img/photos/4.jpg" style="margin-right:0px"
+       title="There are many built-in show/hide effects and you can also make your own."/>
+</div>
+
+<script>
+$(function() {
+    {% mark effect %}
+    // create custom animation algorithm for jQuery called "bouncy"
+    $.easing.bouncy = function (x, t, b, c, d) {
+        var s = 1.70158;
+        if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+        return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+    }
+
+    // create custom tooltip effect for jQuery Tooltip
+    $.tools.tooltip.addEffect(
+        "bouncy",
+
+	// opening animation
+	function(done) {
+	    this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+	},
+
+	// closing animation
+	function(done) {
+	    this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+		$(this).hide();
+		done.call();
+	    });
+	}
+    );
+    {% endmark %}
+
+    {% mark js %}
+    $("#demo img[title]").tooltip({effect: 'bouncy'});
+    {% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}
+

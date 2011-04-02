@@ -1,0 +1,7 @@
+description: HTML5 range input for humans
+keywords: HTML5 range input, jquery range, jquery rangeinput, javascript range input, skinnable rangeinput
+
+group:
+  title: Range Input
+  slug: rangeinput
+  children: 4

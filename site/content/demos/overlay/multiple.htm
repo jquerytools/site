@@ -1,0 +1,79 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="{{media_url('')}}/demo/overlay/css/overlay-minimal.css"/>
+<style>
+  {% block css_excerpt %}
+  /* override default settings */
+  div.overlay {
+    width:400px;
+    height:250px;
+  }
+  {% endblock %}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<script>
+{% mark js %}
+$(function() {
+    // positions for each overlay
+    var positions = [
+        [0, 530],
+        [400, 20],
+        [400, 530],
+        [0, 20]
+    ];
+
+    // setup triggers
+    $("button[rel]").each(function(i) {
+
+        $(this).overlay({
+
+            // common configuration for each overlay
+            oneInstance: false,
+            closeOnClick: false,
+
+            // setup custom finish position
+            top: positions[i][0],
+            left: positions[i][1],
+
+            // use apple effect
+            effect: 'apple'
+
+        });
+    });
+});
+{% endmark %}
+</script>
+
+{% mark html_excerpt %}
+<!-- overlay buttons -->
+<p>
+  <button rel="div.overlay:eq(0)" type="button">first</button>
+  <button rel="div.overlay:eq(1)" type="button">second</button>
+  <button rel="div.overlay:eq(2)" type="button">third</button>
+  <button rel="div.overlay:eq(3)" type="button">fourth</button>
+</p>
+{% endmark %}
+
+
+{# Create four version of the overlay #}
+
+{% for i in range(1,5) %}
+<div class="overlay">
+  <h2 style="margin:10px 0">Overlay <me>#{{i}}</me></h2>
+  <p style="float: left; margin:0px 20px 20px 0;">
+    <img src="{{media_url('')}}/img/title/tools24.png" />
+  </p>
+  <p>
+    Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos himenaeos. Donec lorem ligula, elementum
+    vitae, imperdiet a, posuere nec, ante. Quisque mattis massa id
+    metus.
+  </p>
+</div>
+{% endfor %}
+{% endmark %}{% endblock %}
+

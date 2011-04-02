@@ -1,0 +1,97 @@
+===
+index: 1
+title: Basics of using the tooltip
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/tooltip/index.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  Here we have four <samp>img</samp> tags and their <samp>title</samp>
+  attribute working as the tooltip. This kind of simple syntax will
+  also show the browser's standard tooltips even though JavaScript is
+  not enabled. This whole setup can be enabled with one JavaScript
+  one-liner.
+</p>
+
+{{ standalone.body }}
+
+<h3>HTML coding</h3>
+
+<p>
+  You need two things: the elements that show the tooltips when the
+  cursor is placed on top of them, these elements are
+  called <strong>triggers</strong>. You also need one or more tooltip
+  elements. In this setup we have a single tooltip element that works
+  for all of the triggers:
+</p>
+
+{% filter syntax('css') %}
+<!-- elements with tooltips -->
+<div id="demo">
+  <img src="image1.jpg" title="The tooltip text #1"/>
+  <img src="image2.jpg" title="The tooltip text #2"/>
+  <img src="image3.jpg" title="The tooltip text #3"/>
+  <img src="image4.jpg" title="The tooltip text #4"/>
+</div>
+{% endfilter %}
+
+<p>
+  Trigger elements can be anything such
+  as <samp>a</samp>, <samp>div</samp>, <samp>samp</samp>
+  and <samp>table</samp> elements.
+</p>
+
+<h3>CSS coding</h3>
+
+<p>
+  By default the Tooltip generates the tooltip element automatically
+  and assigns the CSS class name <samp>tooltip</samp> to it. It should
+  be initially hidden by the CSS by setting <samp>display:
+  none</samp>. We have no specific styling for the trigger elements.
+</p>
+
+{% filter syntax('css')  %}
+{{ standalone.css_detail }}
+{% endfilter %}
+
+<h3>JavaScript coding</h3>
+
+<p>
+  Tooltip activation starts by selecting the trigger elements with
+  jQuery. Here we select all <samp>img</samp> tags that have
+  a <samp>title</samp> attribute and are nested inside an element with
+  id <samp>demo</samp>. We supply one argument for the tooltip
+  initialization call which is a jQuery selector to the tooltip
+  element.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<p>
+  The default behaviour is that the tooltip is positioned on the
+  top/center of the trigger and it slides upwards. Of course, the
+  positioning and the sliding effect can be altered in the
+  configuration as will be seen in the upcoming demos.
+</p>
+
+<p>
+  Enclosing your call inside <samp>$(document).ready</samp> executes
+  the script right after the document is scriptable. Read more about
+  that in the
+  <a href="{{content_base}}/documentation/basics.html#document_ready">User's
+  Manual</a>.
+</p>
+
+<div class="box petrol">
+  Here is the <a href="index.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+
+{% endblock %}
