@@ -1,0 +1,63 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<!-- style for the range inputs only -->
+<link rel="stylesheet" type="text/css"
+      href="${jqt}/demos/rangeinput/css/small.css"/>
+
+<!-- style for the "surroundings" -->
+<link rel="stylesheet" type="text/css"
+      href="${jqt}/demos/rangeinput/css/multiple.css"/>
+
+<!-- IE6 tweaks are needed. Didn't bother finish this. sorry. -->
+<!--[if lt IE 7]>
+<style>
+  #controls { background-image:none; } 
+  .vertical { width:120px; }
+</style>
+<![endif]-->
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<div id="controls">
+  <fieldset>
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  /> 
+    <input type="range"  />
+  </fieldset>
+
+  <fieldset>
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" disabled />
+  </fieldset>
+</div>
+<p class="clear:both;height:10px"></p>
+
+<script>
+  {% mark js %}
+    $(":range").rangeinput({ precision: 1, value: 50.5 });
+  {% endmark %}
+</script>
+{% endmark %}{% endblock %}
+

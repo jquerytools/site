@@ -1,0 +1,41 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+#layer {
+	height:120px;
+	width:400px;
+
+	/* must be absolutely positioned so that overlapping will occur */
+	position:absolute;
+	background-color:#123;
+	padding:20px;
+	color:white;
+	font-size:30px;
+	margin:30px;
+}
+
+#flash {
+	width:786px;
+	height:300px;
+	${!empty plain ? 'margin-left:-19px' : ''}
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<!-- overlayed element. must be positioned absolutely -->
+<div id="layer">This layer is on top of the Flash object</div>
+
+<!-- the flash container -->
+<div id="flash"></div>
+{% endmark %}
+
+<script>
+{% mark js %}
+// wmode parameter does the trick
+flashembed("flash", {src: "/swf/flash10.swf", wmode: 'opaque'});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

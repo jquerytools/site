@@ -1,0 +1,84 @@
+===
+index: 1
+title: Minimal setup for dateinput
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/dateinput/index.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p class="more">
+  Call <samp>$(":date").dateinput()</samp> and your <samp>&lt;input
+  type="date" /&gt;</samp>'s will work. Here's one.
+</p>
+
+{{ standalone.body }}
+
+<p class="less" style="width:400px">
+  <small>
+    You can navigate between days with your <samp>Arrow Keys</samp> or
+    with <strong>VIM</strong> keyboard
+    shortcuts <samp>HJKL</samp>. <samp>Page UP/DOWN</samp> navigates
+    between months and <samp>Enter</samp> selects the
+    day. The <samp>Home</samp> key will navigate to the current day.
+  </small>
+</p>
+
+<h3>The code</h3>
+
+<p>
+  Here is the entire code for the above example:
+</p>
+
+{% filter syntax('html') %}
+<script src="http://cdn.jquerytools.org/${v.jqt}/form/jquery.tools.min.js">
+</script>
+
+<!-- dateinput styling -->
+<link rel="stylesheet" type="text/css" href="dateinput.css"/>
+
+<!-- HTML5 date input -->
+<input type="date" />
+
+<!-- make it happen -->
+<script>
+  $(":date").dateinput();
+</script>
+{% endfilter %}
+
+<p>
+  The HTML5 date input is now powered with jQuery Tools cross-browser
+  dateinput that can be skinned with CSS. If we use a browser that
+  supports date inputs natively, the input field's type is changed
+  to <samp>text</samp> so that the native version is not disturbing
+  us. It is only being displayed if JavaScript is disabled.
+</p>
+
+<p>
+  You need to place the <samp>script</samp> block <em>after</em> the
+  HTML code or you can alternatively use
+  jQuery's <samp>$(document).ready</samp> to execute the script as
+  soon as the webpage's Document Object Model (DOM) has been
+  loaded. Read more about that from
+  the <a href="${jqt}/documentation/basics.html#document_ready">User's
+  Manual</a>.
+</p>
+
+<h3>Skinning with CSS</h3>
+
+<p>
+  Here we use following <a href="css/skin1.css">CSS file</a> for the
+  look and feel of the calendar control. Take a look at
+  the <a href="${jqt}/dateinput/index.html#skinning">skinning
+  documentation</a> to understand how it works.
+</p>
+
+<div class="box petrol">
+  Here is the <a href="index.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}
+

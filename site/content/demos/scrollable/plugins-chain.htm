@@ -1,0 +1,40 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-navigator.css" />
+<style>
+.scrollable img {
+	width:100px;
+	margin:20px 5px 20px 21px;
+}
+
+.scrollable img.hover {
+	background-color:#123;
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<!-- wrapper for navigator elements -->
+<div class="navi"></div>
+{% endmark %}
+
+{% include "demos/scrollable/scrollable.fragment.html" %}
+
+<br clear="all" />
+
+<!-- javascript coding -->
+<script>
+$(document).ready(function() {
+{% mark js %}
+// heeeeeeeeeeere we go.
+$("#${rootId}").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({
+	interval: 3000
+});
+{% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}

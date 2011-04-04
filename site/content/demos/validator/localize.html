@@ -1,0 +1,39 @@
+===
+index: 6
+title: Localizing the validator
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/validator/localize.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p class="more">
+  Terveisi&auml; &auml;idille! Junassa on hauska matkustaa. Kokoomus
+  haisee. Some random finnish. Here is the mandatory localization
+  example.
+</p>
+
+{{ standalone.body }}
+
+<h3>JavaScript coding</h3>
+
+<p>
+  We use <samp>$.tools.validator.localize</samp> method to supply a
+  different language for all build-in validators. Look
+  for <a href="${jqt}/validator/#localization">localization
+  documentation</a> for the details.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="localize.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}
+

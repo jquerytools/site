@@ -1,0 +1,61 @@
+===
+index: 5
+title: Calendar that is always available
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/dateinput/static.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p class="more">
+  You can configure the dateinput to be always visible. Now you can
+  build applications where the calendar is a core part of the user
+  interface.
+</p>
+
+{{ standalone.body }}
+
+<h3>Dateinput configuration</h3>
+
+<p>
+  There is no special configuration variables to make this
+  possible. We do some simple scripting instead. The logic is simple:
+  1. show the dateinput when page loads and 2. disable closing of
+  dateinput. When user clicks on a date we update our large "day
+  display" with a custom formatted date string.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<h3>HTML layout</h3>
+
+<p>
+  We make a separate wrapper element for the dateinput and the
+  associative calendar and we adjust it's dimensions with CSS. The day
+  display is a simple DIV that get's filled when a day is selected.
+</p>
+
+{% filter syntax('html') %}
+{{ standalone.html_excerpt }}
+{% endfilter %}
+
+<h3>CSS coding</h3>
+
+<p>
+  Here is the styling of the wrapper element and the day display.
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_excerpt }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="static.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}

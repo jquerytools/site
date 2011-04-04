@@ -1,0 +1,34 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% include "demos/scrollable/scrollable.fragment.html" %}
+
+<!-- javascript coding -->
+<script>
+{% mark easing %}
+// custom easing called "custom"
+$.easing.custom = function (x, t, b, c, d) {
+	var s = 1.70158;
+	if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+	return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+}
+{% endmark %}
+
+{% mark js %}
+// use the custom easing
+$("div.scrollable").scrollable({easing: 'custom', speed: 700, circular: true});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}
+
+
+
+
+

@@ -1,0 +1,7 @@
+description: HTML5 form validation made easy
+keywords: jquery validator, jquery form validation, jquery validation, form validation, html5 form validation
+
+group:
+  title: Validator
+  slug: validator
+  children: 6

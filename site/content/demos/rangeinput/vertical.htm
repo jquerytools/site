@@ -1,0 +1,46 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/rangeinput/css/skin1.css"/>
+<style>
+{% mark css %}
+/* Override skin1.css to make it vertical */
+
+/* height is now larger than width  */
+.slider {
+		height:300px;
+		width:9px;
+		margin:0 0 0 60px;
+	}
+
+	/* tweak drag handle position */
+	.handle {
+		top:0;
+		left:-10px;
+	}
+
+	/* position progressbar on the bottom edge */
+	.progress {
+		width:9px;
+		position:absolute;
+		bottom:0;
+	}
+{% endmark %}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<input type="range" max="10"  value="5" />
+<input type="range" max="1"   step="0.1" value="0.2" />
+<input type="range" max="100" step="5" />
+<input type="range" min="400" max="1000" step="1" value="500" />
+{% endmark %}
+
+<script>
+{% mark js %}
+$(":range").rangeinput({ progress: true, max: 100 });
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'standalone.j2' %}
+
+{#
+<c:set var="preload" value="${empty param.preload ? preload : param.preload}"/>
+<c:set var="images" value="02, 03, 04, 06, 07, 09, 11, 12, 15, 16, 17, 19, 20, 22, 23, 59"/>
+#}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css" href="boxed-02.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<!-- include reflection plugin -->
+<script src="reflection.min.js"></script>
+
+<!-- thumbnail scrollable -->
+<div class="navi prev"></div>
+<div id="thumbnails">
+  <div class="items">
+    <c:forTokens items="${images}" delims=", " var="img">
+      <div><img src="img/thumb/${img}.jpg" /></div>
+    </c:forTokens>
+  </div>
+</div>
+
+<div class="navi next"></div>
+<br clear="all" />
+
+<!-- overlay -->
+<div id="box">
+  <!-- overlay scrollable -->
+  <div id="images">
+
+    <div class="items">
+
+      <c:forTokens items="${images}" delims=", " var="img">
+	<c:if test="${preload}"><div title="${img}"></c:if>
+	<c:if test="${!preload}"><div><img src="img/${img}.jpg" /></c:if>
+
+	<div class="info">
+	  <h3>A Blue Flower</h3>
+	  <p>
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit
+	    amet, consectetur.
+          </p>
+	  <p class="copy">
+	    Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+	  </p>
+	</div>
+	</div>
+      </c:forTokens>
+      </div>
+    </div>
+
+    <!-- prev/next buttons -->
+    <div class="navi prev"></div>
+    <div class="navi next"></div>
+    <a class="close" href="#"> &nbsp; &nbsp; &nbsp; </a>
+  </div>
+</div>
+
+<script>
+  $(function() {
+
+  {% mark js1 %}
+  // thumbnail scrollable
+  $("#thumbnails").scrollable({size: ${skin == 'boxed' ? 5 : 3}, clickable: false}).find("img").each(function(index) {
+
+  // thumbnail images trigger the overlay
+  $(this).overlay({
+
+  effect: 'apple',
+  target: '#box',
+  mask: { maskId: 'mask' },
+
+  // when box is opened, scroll to correct position (in 0 seconds)
+  onLoad: function() {
+  $("#images").data("scrollable").seekTo(index, 0);
+  }
+  });
+  });
+  {% endmark %}
+
+  {% mark js2 %}
+  // scrollable inside the box.
+  $("#images").scrollable();
+
+  {% block no_preload_js2 %}
+  // enable tooltips for the images
+  $("#images img").tooltip({
+  position: "bottom center",
+  offset: [-75, -30],
+  opacity: 0.8,
+  effect: 'fade',
+
+  // position tooltips relative to the parent scrollable
+  relative: true
+  });
+  {% endblock %}
+  {% endmark %}
+
+  {% mark js3 %}
+  // enable reflections
+  $("#thumbnails img").reflect({height: 0.5, opacity: 0.6});
+  {% endmark %}
+
+  {% block extra_script %}{% endblock %}
+  });
+</script>
+{% endmark %}{% endblock %}
+
+
+
+

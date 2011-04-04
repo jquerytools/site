@@ -1,0 +1,74 @@
+===
+index: 4
+title: Another gallery with multiple scrollables
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/scrollable/multiple-scrollables.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  Here is another innovative way of scrolling images. Click on the
+  images to see it in action. Use the <strong>left/right keys</strong>
+  to navigate between images within a single scrollable:
+</p>
+
+<div style="margin:20px -20px">
+  {{ standalone.body }}
+</div>
+
+<h3 style="clear: both">HTML coding</h3>
+
+<p>
+  Here is a setup for a single scrollable. You can have as many of
+  these on your page as you want.
+</p>
+
+{% filter syntax('html') %}
+  <!-- scroll #1 -->
+  <div class="scroll">
+    <div class="pics">
+      <div style="background-image:url(my-image-01.jpg)"></div>
+      <div style="background-image:url(my-image-02.jpg)"></div>
+      <div style="background-image:url(my-image-03.jpg)"></div>
+    </div>
+  </div>
+{% endfilter %}
+
+<h3>CSS coding</h3>
+
+<p>
+  Here is our CSS code. Nothing really special here. Scrollables are
+  placed side by side with the <samp>float: left</samp> setting. We
+  have a separate CSS block for the activated scrollable item that can
+  be styled.
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_excerpt }}
+{% endfilter %}
+
+<h3>JavaScript coding</h3>
+
+<p>
+  Here we enable our scrollables. All scrollables have
+  the <samp>circular</samp> configuration option set
+  to <samp>true</samp> so that there is no beginning or end. We also
+  add a custom click handler which seeks the scrollable forward using
+  the <samp>next()</samp> method of
+  the <a href="${jqt}/scrollable/index.html#api">Scrollable API</a>.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="multiple-scrollables.htm">standalone
+  version</a> of this demo. You can freely study and copy its source
+  code.
+</div>
+{% endblock %}

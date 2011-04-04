@@ -1,0 +1,48 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<!-- wrapper, inputs and labels  -->
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/flight.css"/>
+
+<!-- calendar styling -->
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/flight-calendar.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<form id="flight">
+  <label>
+    Arrival <br/>
+    <input type="date" name="arrival" value="Today"/>
+  </label>
+
+  <label>
+    Departure <br/>
+    <input type="date" name="departure" data-value="7" value="After one week"/>
+  </label>
+</form>
+{% endmark %}
+
+<script>
+{% mark js %}
+$(":date").dateinput({ trigger: true, format: 'dd mmmm yyyy', min: -1 })
+{% endmark %}
+
+{% mark js2 %}
+// use the same callback for two different events. possible with bind
+$(":date").bind("onShow onHide", function()  {
+	$(this).parent().toggleClass("active");
+});
+{% endmark %}
+
+{% mark js3 %}
+// when first date input is changed
+$(":date:first").data("dateinput").change(function() {
+	// we use it's value for the seconds input min option
+	$(":date:last").data("dateinput").setMin(this.getValue(), true);
+});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

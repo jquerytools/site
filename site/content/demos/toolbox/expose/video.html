@@ -1,0 +1,78 @@
+===
+index: 4
+title: Exposing videos with a custom mask
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/toolbox/expose/video.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  Here we have customized the mask with a logo. Click on the video and
+  you can see it above the video. We have also customized the close
+  effect on the expose by giving it a fierce magenta colored "flash"
+  effect. Click on the following video and wait for it to finish (or
+  press the ESC key).
+</p>
+
+{{ standalone.body }}
+
+<h3>CSS code</h3>
+
+<p>
+  By default, the Expose tool uses the <samp>id</samp> "mask" for the
+  mask. You can customize it by simply adjusting its CSS
+  properties. Here are our customizations for this demo:
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_excerpt }}
+{% endfilter %}
+
+<h3>HTML code</h3>
+
+<p>
+  This time we are exposing our video player and this is the only
+  relevant HTML code. The player is surrounded with an additional box
+  that is styled with a black background color and gradient. The
+  styling is, of course, done with CSS:
+</p>
+
+{% filter syntax('html') %}
+{{ standalone.html_excerpt }}
+{% endfilter %}
+
+<h3>The configuration</h3>
+
+<p>
+  We have tweaked quite a few of the configuration variables and each
+  one is commented. We have also set two callback
+  functions <samp>onBeforeClose</samp> and <samp>onBeforeLoad</samp>
+  to achieve the magenta colored "flash" effect when the exposing
+  closes. Note that the player is paused when the exposing is
+  closed. Upon construction,
+  the <a href="${jqt}/toolbox/expose.html#api">expose API</a> is
+  returned by enabling the <samp>api</samp> variable. We use this
+  variable in the Flowplayer configuration below:
+</p>
+
+<p>
+  Here we call the <samp>load</samp> and <samp>close</samp> methods of
+  the Expose API at the proper places:
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<div class="box petrol">
+  Show this demo as a <a href="video.htm">standalone page</a>
+</div>
+{% endblock %}
+
+
+
+

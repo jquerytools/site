@@ -1,0 +1,41 @@
+{% extends 'demos/combine/portfolio/index.htm' %}
+
+{% block extra_script %}
+    {% mark js4 %}
+    // when scrollable moves ...
+    $("#images").data("scrollable").onBeforeSeek(function() {
+
+    var i = this.getIndex();
+
+    // grab previous/current/next items and place the image inside them
+    this.getItems().slice(Math.max(i-2, 0), i+2).each(function() {
+
+    var el = $(this);
+
+    // if image has not already been created ...
+    if (!el.find("img").length) {
+
+    // create it
+    var img = $("<img/>");
+    img.attr("src", "img/" + el.attr("title") + ".jpg");
+    el.prepend(img).removeAttr("title");
+
+
+    // and initialize the tooltip for it
+    img.tooltip({
+    position: 'bottom center',
+    offset: [-85, -30],
+    opacity: 0.8,
+    effect: 'fade',
+
+    // position tooltips relative to the parent scrollable
+    relative: true
+    });
+    }
+    });
+    });
+    {% endmark %}
+{% endblock %}
+
+{% block no_preload_js2 %}
+{% endblock %}

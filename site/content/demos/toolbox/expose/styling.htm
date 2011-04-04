@@ -1,0 +1,48 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+{% mark css_excerpt %}
+#exposeMask {
+  background:#072a88 url(${jqt}/img/mask/mask_star_1600px.jpg) no-repeat 50% 0;
+}
+{% endmark %}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<div style="margin:0 auto;width:300px">
+  <img src="${cdn}${jqt}/img/mask/ball_large.png" id="ball"
+       style="width:130px" />
+</div>
+{% endmark %}
+
+<!-- This JavaScript snippet activates those tabs -->
+<script>
+$(function() {
+{% mark js %}
+	// setup exposing
+	$("#ball").click(function()  {
+
+		var el = $(this);
+
+		el.expose({
+
+			// grow the ball when exposing starts
+			onBeforeLoad: function() {
+				el.animate({width: 298});
+			},
+
+			// shrink the ball when exposing closes
+			onBeforeClose: function() {
+				el.animate({width: 130});
+			}
+		});
+	});
+{% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}
+
+

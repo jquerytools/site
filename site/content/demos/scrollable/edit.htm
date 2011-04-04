@@ -1,0 +1,36 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+{# <%@ include file="plugins/navigator.htm" %> #}
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<div id="newItem" style="display:none">
+	<div class="added">
+		<!-- scrollable items can have anything and any amount -->
+		<img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+		<img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+		<h3>New Item</h3>
+	</div>
+</div>
+{% endmark %}
+<script>
+  {% mark js %}
+function addItem() {
+  // get handle to scrollable API
+  var api = $(".scrollable").data("scrollable");
+
+  // use API to add our new item. after the item is being added
+  // seek to the end
+  api.addItem($("#newItem div").clone()).end();
+}
+  {% endmark %}
+</script>
+
+<p style="margin:15px 0 0 37px">
+  <button type="button" onclick="addItem()">add item</button>
+</p>
+{% endmark %}{% endblock %}
+
+

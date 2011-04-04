@@ -1,0 +1,73 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<!-- dateinput styling -->
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/large.css"/>
+<style>
+{% mark css %}
+#calendar {
+	height:400px;
+	width:410px;
+	float:left;
+}
+
+#theday {
+	-moz-border-radius:5px;
+	background-color:#36387B;
+	color:#FFFFFF;
+	float:left;
+	font-size:90px;
+	height:80px;
+	line-height:50px;
+	margin-top:30px;
+	padding:60px;
+	text-shadow:0 0 5px #DDDDDD;
+	width:117px;
+}
+
+#theday span {
+	display:block;
+	font-size:16px;
+	text-align:center;
+}
+{% endmark %}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<!-- wrapper element -->
+<div id="calendar">
+  <input type="date" name="mydate" value="0" />
+</div>
+
+<!-- large date display -->
+<div id="theday"></div>
+{% endmark %}
+
+<br clear="all"/>
+
+<!-- make it happen -->
+<script>
+$(function() {
+{% mark js %}
+// initialize dateinput
+$(":date").dateinput( {
+
+	// closing is not possible
+	onHide: function()  {
+		return false;
+	},
+
+	// when date changes update the day display
+	change: function(e, date)  {
+		$("#theday").html(this.getValue("dd<span>mmmm yyyy</span>"));
+	}
+
+// set initial value and show dateinput when page loads
+}).data("dateinput").setValue(0).show();
+{% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/validator/css/form.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% include "demos/validator/form.fragment.html" %}
+
+<script>
+{% mark js %}
+// initialize validator and add a custom form submission logic
+$("#myform").validator().submit(function(e) {
+
+var form = $(this);
+
+// client-side validation OK.
+if (!e.isDefaultPrevented()) {
+
+// submit with AJAX
+$.getJSON("server-fail.js?" + form.serialize(), function(json) {
+
+// everything is ok. (server returned true)
+if (json === true)  {
+form.load("success.php");
+
+// server-side validation failed. use invalidate() to show errors
+} else {
+form.data("validator").invalidate(json);
+}
+});
+
+// prevent default form submission logic
+e.preventDefault();
+}
+});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

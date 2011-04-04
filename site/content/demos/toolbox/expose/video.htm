@@ -1,0 +1,98 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+  {% mark css_excerpt %}
+#exposeMask {
+	/* use a custom background color and image on the mask */
+	background:#123 url(${cdn}/img/player/acme-gray.png) 50px 366px no-repeat;
+}
+{% endmark %}
+
+/* player splash image styling */
+#player {
+	background:#333 url(${cdn}/img/home/flow_eye.jpg) no-repeat 37px 0;
+	width:500px;
+	height:300px;
+	display:block;
+	text-align:center;
+	margin:10px auto;
+}
+
+#player img {
+	margin-top:110px;
+	border:0px;
+}
+
+/* style for the player's wrapper element */
+#player_wrap {
+	background:#000 url(${cdn}/img/global/gradient/h300.png) 0 0 repeat-x;
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<script src="${cdn}/js/flowplayer-${v.core}.min.js"></script>
+
+{# <%@ include file="../../standalone.jsf" %> #}
+
+<!-- javascript coding -->
+<script>
+// execute your scripts when the the DOM is ready. this is a good habit
+$(function() {
+
+{% mark js %}
+// install flowplayer.
+$f("player", "/swf/flowplayer-${v.core}.swf", {
+
+	// when playback starts, perform exposing
+	onStart: function() {
+
+		$("#player").expose({
+
+			// mask lets 20% of the content show through
+			opacity: 0.8,
+
+			// close expose slowly
+			closeSpeed: 'slow',
+
+			// we only want to close exposing when playback is finished
+			// (or the ESC button is pressed)
+			closeOnClick: false,
+
+			// when the mask closes, alter its background color
+			onBeforeClose: function() {
+				$f().pause();
+				this.getMask().css({backgroundColor: '#b8128f'});
+			},
+
+			// when the mask loads again, use the original background color
+			onBeforeLoad: function() {
+				this.getMask().css({backgroundColor: null});
+			}
+		});
+	},
+
+	onResume: function() {
+		$.mask.load();
+	},
+
+	// when playback finishes, close the expose
+	onFinish: function() {
+		$.mask.close();
+	}
+
+});
+{% endmark %}
+});
+</script>
+
+<!-- the player -->
+{% mark html_excerpt %}
+<div class="black box" id="player_wrap">
+	<a id="player" href="${v.promo}">
+		<img src="${cdn}/img/player/btn/play_text_large.png" alt="Show me" />
+	</a>
+</div>
+{% endmark %}
+{% endmark %}{% endblock %}

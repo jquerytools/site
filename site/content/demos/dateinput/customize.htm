@@ -1,0 +1,33 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/skin1.css"/>
+
+<style>
+  /* a little more width for input fields */
+  .date { width:230px;	}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<input type="date" name="date1" value="Today" />
+<input type="date" name="date2" value="10 days from now" min="2010-03-01" max="2012-01-01" />
+<input type="date" name="date3" value="15" min="-25" max="25" data-value="15"/>
+{% endmark %}
+
+<script>
+  {% mark js %}
+$(":date").dateinput({
+	format: 'dddd dd, mmmm yyyy',	// the format displayed for the user
+	selectors: true,             	// whether month/year dropdowns are shown
+	min: -100,                    // min selectable day (100 days backwards)
+	max: 100,                    	// max selectable day (100 days onwards)
+	offset: [10, 20],            	// tweak the position of the calendar
+	speed: 'fast',               	// calendar reveal speed
+	firstDay: 1                  	// which day starts a week. 0 = sunday, 1 = monday etc..
+});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

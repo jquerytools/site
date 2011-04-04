@@ -1,0 +1,86 @@
+===
+index: 2
+title: Styling the mask with a background image
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/toolbox/expose/styling.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+<style>
+#mask {
+  background-position:50% -10px !important;
+}
+#ball {
+  margin-left:95px;
+}
+</style>
+{% endblock %}
+
+{% block demo %}
+<p>
+  <strong>Click on the ball</strong> to see a highly visual exposing
+  experience! The background image can really make a difference.
+</p>
+
+{{ standalone.body }}
+
+<h3>Mask styling</h3>
+
+<p>
+  Our mask has a custom background color and image. It is horizontally
+  centered and vertically positioned so that it will match the center
+  of the exposed ball. By default the tool uses the
+  id <samp>mask</samp>.
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_excerpt }}
+{% endfilter %}
+
+<p>
+  The background image is a JPG image with a fixed background
+  color. In the <a href="${jqt}/toolbox/expose.html#graphics">expose
+  graphics zip</a> we also have a PNG version of the "star" which can
+  be used together with any background color. Of course the PNG
+  version has a much larger file size because it has alpha
+  transparency.
+</p>
+
+<h3>HTML coding</h3>
+
+<p>
+  The ball is centered and its initial width has been shrunken a
+  bit. Its original width is 298 pixels.
+</p>
+
+{% filter syntax('html') %}
+{{ standalone.html_excerpt }}
+{% endfilter %}
+
+<h3>JavaScript coding</h3>
+
+<p>
+  Here we set up exposing for the ball image. We have two callback
+  functions that perform the growing/shrinking
+  animation. The <samp>click</samp> event is a normal jQuery event and
+  inside that you'll get the handle to
+  the <a href="${jqt}/toolbox/expose.html">exposing API</a>
+  with <samp>$(this).expose().load();</samp>.
+</p>
+
+<p>
+  The document height is larger after the ball size has grown. We use
+  the <samp>fit()</samp> method to resize the mask to fill the whole
+  document after the ball has been resized.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="styling.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}

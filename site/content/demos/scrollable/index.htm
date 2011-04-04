@@ -1,0 +1,26 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="{{media_url('')}}/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="{{media_url('')}}/css/scrollable-buttons.css" />
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<!-- HTML structures -->
+{% mark html_excerpt %}
+{% include "demos/scrollable/scrollable.fragment.html" %}
+{% endmark %}
+
+<!-- javascript coding -->
+<script>
+{% mark js %}
+$(function() {
+  // initialize scrollable
+  $(".scrollable").scrollable();
+});
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}
+

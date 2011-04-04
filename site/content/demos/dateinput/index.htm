@@ -1,0 +1,17 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<!-- dateinput styling --> 
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/skin1.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<!-- HTML5 date input -->
+<input type="date" name="mydate" />
+
+<!-- make it happen -->
+<script>
+  $(":date").dateinput();
+</script>
+{% endmark %}{% endblock %}

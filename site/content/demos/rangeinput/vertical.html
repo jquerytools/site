@@ -1,0 +1,72 @@
+===
+index: 2
+title: A couple of vertical ranges
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/rangeinput/vertical.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p class="more">
+  These ranges are initialized with a
+  single <samp>$(":range").rangeinput()</samp> call and they share a
+  common configuration. Each input overrides the common configuration
+  with their own attributes.
+</p>
+
+{{ standalone.body }}
+
+<br clear="all" />
+
+<h3>Initialization</h3>
+
+<p>
+  The tool is smart enough to realize that these ranges are vertical
+  by inspecting their dimensions. The <samp>progress</samp> option
+  enables the yellow progressbar which is styled with
+  CSS. The <samp>max</samp> option specifies the maximum value which
+  is being overridden by the individual ranges.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js }}
+{% endfilter %}
+
+
+<h3>HTML coding</h3>
+
+<p>
+  Here are the rangeinput elements. The shared configuration options
+  are overridden with the
+  HTML5 <samp>min</samp>, <samp>max</samp>, <samp>step</samp>
+  and <samp>value</samp> attributes. See
+  the <a href="${jqt}/rangeinput/#configuration">rangeinput
+  configuration</a> for the descriptions and default values of these
+  options.
+</p>
+
+{% filter syntax('html') %}
+{{ standalone.html_excerpt }}
+{% endfilter %}
+
+<h3>CSS coding</h3>
+
+<p>
+  We use the <a href="css/skin1.css">same CSS file</a> as in our
+  previous horizontal range example, we just override some of its
+  directives:
+</p>
+
+{% filter syntax('css') %}
+{{ standalone.css_excerpt }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="vertical.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}
+

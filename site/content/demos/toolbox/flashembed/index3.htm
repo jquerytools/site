@@ -1,0 +1,20 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<div id="player" style="width:500px;height:300px"></div>
+
+<script>
+flashembed("player", "/swf/flowplayer-${v.core}.swf", {
+	config: {
+		clip:  {
+			autoPlay: false,
+			autoBuffering: true,
+			url: 'http://e1h13.simplecdn.net/flowplayer/flowplayer.flv'
+		}
+	}
+});
+</script>
+{% endmark %}{% endblock %}

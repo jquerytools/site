@@ -1,0 +1,86 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+
+<style>
+  {% mark css_excerpt %}
+/* styling for the image wrapper  */
+#image_wrap {
+    /* dimensions */
+    width:677px;
+    margin:15px 0 15px 40px;
+    padding:15px 0;
+
+    /* centered */
+    text-align:center;
+
+    /* some "skinning" */
+    background-color:#efefef;
+    border:2px solid #fff;
+    outline:1px solid #ddd;
+    -moz-ouline-radius:4px;
+}
+{% endmark %}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% mark html_excerpt %}
+<!-- wrapper element for the large image -->
+<div id="image_wrap">
+  <!-- Initially the image is a simple 1x1 pixel transparent GIF -->
+  <img src="${cdn}${jqt}/img/blank.gif" width="500" height="375" />
+</div>
+{% endmark %}
+
+<!-- HTML structures -->
+{% include "demos/scrollable/scrollable.fragment.html" %}
+
+<script>
+$(function() {
+{% mark js %}
+$(".scrollable").scrollable();
+
+$(".items img").click(function() {
+	// see if same thumb is being clicked
+	if ($(this).hasClass("active")) { return; }
+
+	// calclulate large image's URL based on the thumbnail URL (flickr specific)
+	var url = $(this).attr("src").replace("_t", "");
+
+	// get handle to element that wraps the image and make it semi-transparent
+	var wrap = $("#image_wrap").fadeTo("medium", 0.5);
+
+	// the large image from www.flickr.com
+	var img = new Image();
+
+
+	// call this function after it's loaded
+	img.onload = function() {
+
+		// make wrapper fully visible
+		wrap.fadeTo("fast", 1);
+
+		// change the image
+		wrap.find("img").attr("src", url);
+
+	};
+
+	// begin loading the image from www.flickr.com
+	img.src = url;
+
+	// activate item
+	$(".items img").removeClass("active");
+	$(this).addClass("active");
+
+// when page loads simulate a "click" on the first image
+}).filter(":first").click();
+{% endmark %}
+});
+</script>
+{% endmark %}{% endblock %}
+

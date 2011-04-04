@@ -1,0 +1,14 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/dateinput/css/large.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<input type="date" name="test" />
+
+<script>
+  $(":date").dateinput();
+</script>
+{% endmark %}{% endblock %}

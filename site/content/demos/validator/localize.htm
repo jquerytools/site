@@ -1,0 +1,28 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/validator/css/form.css"/>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% include "demos/validator/form.fragment.html" %}
+
+<script>
+{% mark js %}
+// supply the language
+$.tools.validator.localize("fi", {
+	'*'			: 'Virheellinen arvo',
+	':email'  	: 'Virheellinen s&auml;hk&ouml;postiosoite',
+	':number' 	: 'Arvon on oltava numeerinen',
+	':url' 		: 'Virheellinen URL',
+	'[max]'	 	: 'Arvon on oltava pienempi, kuin $1',
+	'[min]'		: 'Arvon on oltava suurempi, kuin $1',
+	'[required]'	: 'Kent&auml;n arvo on annettava'
+});
+
+// use the finnish language in the validator
+$("#myform").validator({ lang: 'fi' });
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}

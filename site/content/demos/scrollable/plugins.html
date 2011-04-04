@@ -1,0 +1,186 @@
+===
+index: 6
+title: Scrollable plugins in action
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/scrollable/plugins-navigator.htm' as navigator %}
+{% refer to 'demos/scrollable/plugins-chain.htm' as chain %}
+{% refer to 'demos/scrollable/plugins-autoscroll.htm' as autoscroll %}
+
+{% block extra_css %}
+{{ navigator.css }}
+{{ chain.css }}
+{{ autoscroll.css }}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/css/scrollable-navigator.css" />
+<style>
+div.demowrap {
+  margin:10px -15px;
+}
+#content div.box {
+  outline-width:0px;
+}
+</style>
+{% endblock %}
+
+{% block demo %}
+<p>
+  Here are the available plugins in action:
+</p>
+
+<ol>
+  <li><a href="#navigator">Navigator</a></li>
+  <li><a href="#autoscroll">Autoscroll</a></li>
+  <li><a href="#circular">Mousewheel</a></li>
+</ol>
+
+<p>
+  You can additionally see a demo where all the plugins
+  are <a href="#chain">used together</a>. Each demo here is built upon
+  the <a href="index.html">minimal setup</a>.
+</p>
+
+<a name="navigator"></a>
+<h2>Navigator plugin</h2>
+
+<p>
+  Provides navigation buttons for switching between pages.
+</p>
+
+<div class="demowrap">
+  {{ navigator.body }}
+</div>
+
+<h4>HTML setup</h4>
+
+<p>
+  By default the plugin searches for an element whose CSS class name
+  is "navi" and auto-generates the navigational buttons inside this
+  element. In our previous setup we have placed the
+  following <samp>DIV</samp> above the scrollable:
+</p>
+
+{% filter syntax('html') %}
+{{ navigator.html_excerpt }}
+{% endfilter %}
+
+<p>
+  Afterwards the plugin will transform the empty <samp>DIV</samp> into
+  the following structure:
+</p>
+
+{% filter syntax('html') %}
+<!-- wrapper -->
+<div class="navi">
+  <a href="0" class="active"/>
+  <a href="1" class=""/>
+  <a href="2" class=""/>
+</div>
+{% endfilter %}
+
+<p>
+  We have styled the navigator with
+  the <a href="${jqt}/css/scrollable-navigator.css">scrollable-navigator.css</a>
+  file which looks like this:
+</p>
+
+{% filter syntax('css') %}
+{% include "media/demos/scrollable/css/scrollable-navigator.css" %}
+{% endfilter %}
+
+<p>
+  You can alternatively generate the navigator links manually as we do
+  in our <a href="../one-sized.html">next demo</a>.
+</p>
+
+<h4>JavaScript setup</h4>
+
+{% filter syntax('js') %}
+{{ navigator.js }}
+{% endfilter %}
+
+<p>
+  View the <a class="standalone" href="navigator.htm">standalone
+  demo</a> and
+  the <a href="${jqt}/scrollable/index.html#navigator">documentation</a>
+  of the navigator plugin.
+</p>
+
+<a name="autoscroll"></a>
+<h2>Autoscroll plugin</h2>
+
+<p>
+  Makes the scrolling automatic. You can play with the action buttons
+  below the scrollable. The autoscrolling will pause if you interact
+  with the scrollable with your mouse.
+</p>
+
+<div class="demowrap">
+  {{ autoscroll.body }}
+</div>
+
+
+<h4>JavaScript setup</h4>
+
+<p>
+  This time we have supplied two configuration options for the
+  plugin. By disabling the <samp>autoplay</samp> configuration option,
+  the autoscroll won't start when the page loads. Just like all the
+  tools, the plugins also support the <samp>api</samp> configuration
+  option so that you have an easy access to the tool's programming
+  interface. The API is being used by the action buttons.
+</p>
+
+{% filter syntax('js') %}
+{{ autoscroll.js }}
+{% endfilter %}
+
+<h4>Action buttons</h4>
+
+<p>
+  The difference between <samp>pause</samp> and <samp>stop</samp> is
+  that when the autoscroll is in the paused state the playback will
+  resume if the user interacts with the scrollable with the mouse.
+</p>
+
+{% filter syntax('html') %}
+{{ autoscroll.html_excerpt }}
+{% endfilter %}
+
+<p>
+  View the <a class="standalone" href="autoscroll.htm">standalone
+  demo</a> and
+  the <a href="${jqt}/scrollable/index.html#autoscroll">documentation</a>
+  of the autoscroll plugin.
+</p>
+
+<a name="chain"></a>
+<h2>Chaining plugins</h2>
+
+<p>
+  Here we use all the plugins together. We have also
+  enabled <samp>mousewheel</samp> and <samp>circular</samp> options.
+</p>
+
+<div class="demowrap">
+  {{ chain.body }}
+</div>
+
+<h4>JavaScript setup</h4>
+
+{% filter syntax('js') %}
+{{ chain.js }}
+{% endfilter %}
+
+<p>
+  View the <a class="standalone" href="chain.htm">standalone demo</a>.
+</p>
+
+<p>
+  <a href="${jqt}/credits.html" id="credits">Photo credits &raquo;</a>
+</p>
+{% endblock %}

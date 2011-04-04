@@ -1,0 +1,43 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+#fail2 {
+	width:400px;
+	border:1px outset #ccc;
+	background-color:#efefef;
+	padding:10px;
+	font-family:"bitstream vera sans", "lucida console", "verdana";
+}
+
+#fail2 img {
+	float:left;
+	margin-right:10px;
+}
+
+#fail2 h3 {
+	margin-top:0px;
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<!-- here is the container with the default error message inside it -->
+<div id="fail2">
+  <img src="${jqt}/img/flashplayer_100x100.jpg" />
+  <h3>Get Adobe Flash Player</h3>
+
+  <p>
+    You must have the latest Flash player installed.  You
+    can <a href="http://get.adobe.com/flashplayer/">download it
+    here</a>.
+  </p>
+
+  <br clear="all" />
+</div>
+
+<!-- place flash in our container and require version 20 and above -->
+<script>
+  flashembed("fail2", {src: "/swf/clock.swf", version: [20, 0]});
+</script>
+{% endmark %}{% endblock %}

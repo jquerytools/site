@@ -1,0 +1,39 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+#flash2 {
+	width:787px;
+	height:300px;
+	background-image:url(${cdn}${jqt}/img/flashembed/splash.jpg);
+	text-align:center;
+	cursor:pointer;
+}
+
+#flash2 img {
+	margin-top:110px;
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<script>
+{% mark js %}
+// use the jQuery alternative for flashembed.domReady
+$(function() {
+
+	// bind an onClick event for this second Flash container
+	$("#flash2").click(function() {
+
+		// same as in previous example
+		$(this).flashembed("/swf/flash10.swf");
+	});
+});
+{% endmark %}
+</script>
+
+<div id="flash2">
+  <img src="${cdn}/img/player/btn/play_text_large.png" alt="" />
+</div>
+{% endmark %}{% endblock %}
+

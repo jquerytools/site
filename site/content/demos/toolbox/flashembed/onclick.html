@@ -1,0 +1,61 @@
+===
+index: 3
+title: Loading flash on a mouse click
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/toolbox/flashembed/onclick1.htm' as flash1 %}
+{% refer to 'demos/toolbox/flashembed/onclick2.htm' as flash2 %}
+
+{% block extra_css %}
+{{ flash1.css }}
+{{ flash2.css }}
+{% endblock %}
+
+{% block demo %}
+<p>
+  Many times it's good practice to defer loading of the Flash object
+  until the user clicks on the Flash container. This makes the page
+  load faster, especially if the Flash component is large. Here we
+  have an example:
+</p>
+
+{{ flash1.body }}
+
+<h3>The setup</h3>
+
+<p>
+  This is our HTML/JavaScript setup. You can find a standalone
+  version <a href="onclick1.htm">here</a> which includes the CSS
+  settings for the container.
+</p>
+
+{% filter syntax('html') %}
+{{ flash1.body }}
+{% endfilter %}
+
+<h2>Same with jQuery</h2>
+
+<p>
+  The above example uses traditional event binding using
+  the <samp>onClick</samp> event listener. Some users don't like this
+  because it allows you to bind only one event listener for the
+  element. For this reason, we have a jQuery example of this same
+  scenario:
+</p>
+
+{{ flash2.body }}
+
+<p>
+  We have set a background image for the container and
+  the <samp>H2</samp> title has been replaced with a play button.
+</p>
+
+{% filter syntax('js') %}
+{{ flash2.js }}
+{% endfilter %}
+
+<p>
+  You can find a standalone version of this jQuery
+  example <a href="onclick2.htm">here</a>.
+</p>
+{% endblock %}

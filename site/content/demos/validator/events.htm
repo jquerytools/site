@@ -1,0 +1,90 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css"
+      href="${cdn}${jqt}/demos/validator/css/form.css"/>
+
+<style>
+  /* styling of the info box */
+  #info {
+  background-color:#163356;
+  color:#fff;
+  width:400px;
+  padding:20px;
+  margin:5px auto;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  }
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{% include "demos/validator/form.fragment.html" %}
+
+<!-- info box -->
+<div id="info">Here comes the validator events</div>
+
+<script>
+  {% mark js %}
+$("#myform").bind("onFail", function(e, errors)  {
+
+	// we are only doing stuff when the form is submitted
+	if (e.originalEvent.type == 'submit') {
+
+		// loop through Error objects and add the border color
+		$.each(errors, function()  {
+			var input = this.input;
+			input.css({borderColor: 'red'}).focus(function()  {
+				input.css({borderColor: '#444'});
+			});
+		});
+	}
+});
+{% endmark %}
+{% mark js2 %}
+// get handle to the info box
+var info = $("#info");
+
+// initialize validator and supply the onBeforeValidate event in configuration
+$("#myform").validator({
+	onBeforeValidate: function(e, els)  {
+		info.empty();
+		showEvent("onBeforeValidate", els);
+	}
+
+// use jQuery's bind method
+}).bind("onBeforeFail", function(e, els)  {
+	showEvent("onBeforeFail", els);
+
+// another listener with bind
+}).bind("onFail", function(e, els)  {
+	showEvent("onFail", els.length + " inputs");
+});
+
+// get handle to the Validator API
+var api = $("#myform").data("validator");
+
+// use API to assign an event listener
+api.onSuccess(function(e, els) {
+	showEvent("onSuccess", els);
+
+	// we don't want to submit the form. just show events.
+	return false;
+});
+
+// event handler just for a single field
+$(":email").oninvalid(function(e, message) {
+	showEvent("oninvalid", $(this));
+});
+
+// this function is used to show error on the info box
+window.showEvent = function(eventName, input) {
+	var inputName = input.jquery ? input.attr("name") : input;
+	info.append("<p><strong>" + eventName + "</strong>: " + inputName  + "</p>").fadeIn();
+};
+{% endmark %}
+</script>
+{% endmark %}{% endblock %}
+
+
+

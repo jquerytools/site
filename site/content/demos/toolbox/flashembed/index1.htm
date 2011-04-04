@@ -1,0 +1,21 @@
+{% extends 'standalone.j2' %}
+
+{% block head %}{% mark css %}
+<style>
+#clock {
+	width: 250px;
+	height: 250px;
+}
+</style>
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+<div id="clock"></div>
+
+<script>
+flashembed("clock", "/swf/clock.swf");
+</script>
+{% endmark %}{% endblock %}
+
+
+

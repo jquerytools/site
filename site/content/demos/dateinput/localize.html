@@ -1,0 +1,59 @@
+===
+index: 6
+title: Localizing the Dateinput (french)
+===
+{% extends 'demo.j2' %}
+{% refer to 'demos/dateinput/localize.htm' as standalone %}
+
+{% block extra_css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block demo %}
+<p class="more">
+  Une vente solidaire est organis&eacute;e pour leur venir en aide. A random
+  copy-paste from the web. Anyway here is the mandatory French
+  localization.
+</p>
+
+<div style="width:360px;margin:0 auto">
+  {{ standalone.body }}
+</div>
+
+<h3>$.tools.dateinput.localize</h3>
+
+<p>
+  The localization is done
+  with <samp>$.tools.dateinput.localize</samp> <em>before</em> the
+  dateinput initialization as follows:
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js_excerpt }}
+{% endfilter %}
+
+<p>
+  For maximum safety we suggest that you encode special characters
+  with the corresponding HTML entities. There are many lists on the
+  web. I used <a href="http://www.pemberley.com/janeinfo/latin1.html"
+  class="external">this one</a>.
+</p>
+
+<h3>Using the new language</h3>
+
+<p>
+  You'll use the <samp>lang</samp> option for dateinput to enable the
+  new language. Note that this value can be dynamically set depending
+  on the user's location on the globe.
+</p>
+
+{% filter syntax('js') %}
+{{ standalone.js2 }}
+{% endfilter %}
+
+<div class="box petrol">
+  Here is the <a href="localize.htm">standalone version</a> of this
+  demo. You can freely study and copy its source code.
+</div>
+{% endblock %}
+
