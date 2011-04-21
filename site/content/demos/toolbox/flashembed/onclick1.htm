@@ -9,7 +9,6 @@
 	border:1px outset #000;
 	text-align:center;
 	cursor:pointer;
-	${!empty plain ? 'margin-left:-20px' : ''}
 }
 
 #flash h2 {
@@ -32,7 +31,7 @@
 document.getElementById("flash").onclick = function() {
 
 	// when being clicked -> load flash inside "this".
-	flashembed(this, "/swf/flash10.swf");
+	flashembed(this, "{{ media_url('swf/global/flash10.swf') }}");
 }
 </script>
 {% endmark %}{% endblock %}

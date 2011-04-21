@@ -41,7 +41,7 @@ img {
 
 
 #thumbs {
-	background:url(${cdn}${jqt}/img/demo-navi.jpg) no-repeat;
+	background:url({{ media_url('img/demo-navi.jpg') }}) no-repeat;
 	height:90px;
 	position:absolute;
 	top:425px;
@@ -55,7 +55,7 @@ img {
 }
 
 .t a {
-	background:transparent url(${cdn}${jqt}/img/demo-navi.jpg) no-repeat scroll -21px -90px;
+	background:transparent url({{ media_url('img/demo-navi.jpg') }}) no-repeat scroll -21px -90px;
 	margin-left:11px;
 	display:block;
 	width:99px;
@@ -124,8 +124,8 @@ img {
     <!-- tabs -->
     <div class="tool">
 
-      <a href="${jqt}/tabs/index.html">
-	<img src="${cdn}${jqt}/img/hero/tabs.jpg"/></a>
+      <a href="{{ content_url('/tabs/index.html') }}">
+	<img src="{{ media_url('img/hero/tabs.jpg') }}"/></a>
 
       <div class="details">
 	<strong>Tabs</strong> is the most popular JavaScript tool on
@@ -138,8 +138,8 @@ img {
     <!-- tooltip -->
     <div class="tool">
 
-      <a href="${jqt}/tooltip/index.html">
-	<img src="${cdn}${jqt}/img/hero/tooltip.jpg"/></a>
+      <a href="{{ content_url('/tooltip/index.html') }}">
+	<img src="{{ media_url('img/hero/tooltip.jpg') }}"/></a>
 
       <div class="details">
 	<strong>Tooltip</strong> helps you to build easier user
@@ -152,8 +152,8 @@ img {
     <!-- overlay -->
     <div class="tool">
 
-      <a href="${jqt}/overlay/index.html">
-	<img src="${cdn}${jqt}/img/hero/overlay.jpg"/></a>
+      <a href="{{ content_url('/overlay/index.html') }}">
+	<img src="{{ media_url('img/hero/overlay.jpg') }}"/></a>
 
       <div class="details">
 	<strong>Overlay</strong> is a significant part of the
@@ -166,8 +166,8 @@ img {
     <!-- scrollable -->
     <div class="tool">
 
-      <a href="${jqt}/scrollable/index.html">
-	<img src="${cdn}${jqt}/img/hero/scrollable.jpg"/></a>
+      <a href="{{ content_url('scrollable/index.html') }}">
+	<img src="{{ media_url('img/hero/scrollable.jpg') }}"/></a>
 
       <div class="details">
 	<strong>Scrollable</strong> is the most successful tool in
@@ -179,8 +179,8 @@ img {
     <!-- FORM -->
     <div class="tool">
 
-      <a href="${jqt}/release-notes/index.html#form">
-	<img src="${cdn}${jqt}/img/hero/form.jpg"/></a>
+      <a href="{{ content_url('release-notes/index.html') }}#form">
+	<img src="{{ media_url('img/hero/form.jpg') }}"/></a>
 
       <div class="details">
 	<strong>FORM</strong> is a collection of essential form
@@ -193,8 +193,8 @@ img {
     <!-- toolbox -->
     <div class="tool">
 
-      <a href="${jqt}/toolbox/flashembed.html">
-	<img src="${cdn}${jqt}/img/hero/toolbox/toolbox.jpg"/></a>
+      <a href="{{ content_url('toolbox/flashembed.html') }}">
+	<img src="{{ media_url('img/hero/toolbox/toolbox.jpg') }}"/></a>
 
       <div class="details">
 	<strong>TOOLBOX</strong> is a set of small niceties. Take
@@ -212,7 +212,7 @@ img {
 
     <img style="margin:-17px 0 28px 0" width="721" height="346"
 	 alt="jQuery Tools. The ultimate UI library for web"
-	 src="${cdn}${jqt}/img/hero/jquerytools.jpg" />
+	 src="{{ media_url('img/hero/jquerytools.jpg') }}" />
 
     <div class="details">
       <strong>jQuery Tools</strong> is a collection of the most

@@ -24,7 +24,7 @@
 {% block body %}{% mark body %}
 <!-- here is the container with the default error message inside it -->
 <div id="fail2">
-  <img src="${jqt}/img/flashplayer_100x100.jpg" />
+  <img src="{{ media_url('img/flashplayer_100x100.jpg') }}" />
   <h3>Get Adobe Flash Player</h3>
 
   <p>
@@ -38,6 +38,6 @@
 
 <!-- place flash in our container and require version 20 and above -->
 <script>
-  flashembed("fail2", {src: "/swf/clock.swf", version: [20, 0]});
+  flashembed("fail2", {src: "{{ media_url('swf/global/clock.swf') }}", version: [20, 0]});
 </script>
 {% endmark %}{% endblock %}

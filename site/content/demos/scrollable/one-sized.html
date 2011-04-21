@@ -18,7 +18,7 @@ margin:0px !important;
 {% block demo %}
 <p>
   This demo continues from
-  this <a href="${jqt}/demos/tabs/skins.html">tabs demo</a> and makes
+  this <a href="{{ content_url('demos/tabs/skins.html') }}">tabs demo</a> and makes
   it scrollable. Try clicking on the tabs, content area and the action
   buttons below the scrollable. This scrollable is configured to
   be <samp>circular</samp> (no beginning or end) and it uses
@@ -34,7 +34,7 @@ margin:0px !important;
 
 <p>
   The trick here is to enable scrolling on the tab panes and
-  the <a href="${jqt}/scrollable/index.html#navigator">navigator
+  the <a href="{{ content_url('scrollable/index.html') }}#navigator">navigator
   plugin</a> is enabled for the tabs. This time navigator items are
   not auto-generated and we make them ourselves as follows:
 </p>
@@ -87,8 +87,9 @@ margin:0px !important;
 
 <p>
   Just like the tabs demo this setup has also been styled with
-  this <a href="${jqt}/css/tabs-flowplayer-v2.css">CSS file</a> and it
-  has been overridden with the following settings to enable scrolling:
+  this <a href="{{ media_url('css/tabs-flowplayer-v2.css') }}">CSS
+  file</a> and it has been overridden with the following settings to
+  enable scrolling:
 </p>
 
 {% filter syntax('css') %}
@@ -109,7 +110,7 @@ margin:0px !important;
   Enclosing your call inside <samp>$(document).ready</samp> executes
   the script right after the document is scriptable. Read more about
   that
-  from <a href="${jqt}/documentation/basics.html#document_ready">User's
+  from <a href="{{ content_url('documentation/basics.html') }}#document_ready">User's
   Manual</a>.
 </p>
 
@@ -119,6 +120,6 @@ margin:0px !important;
 </div>
 
 <p>
-  <a href="${jqt}/credits.html" id="credits">Photo credits &raquo;</a>
+  <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
 </p>
 {% endblock %}

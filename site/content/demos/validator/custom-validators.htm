@@ -3,11 +3,11 @@
 {% block head %}{% mark css %}
 <!-- same styling as in minimal setup -->
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/demos/validator/css/form.css"/>
+      href="{{ media_url('css/validator/form.css') }}"/>
 
 <!-- override it to have a columned layout -->
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/demos/validator/css/columns.css"/>
+      href="{{ media_url('css/validator/columns.css') }}"/>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}

@@ -1,25 +1,27 @@
 {% extends 'standalone.j2' %}
 
-{#
-<c:set var="preload" value="${empty param.preload ? preload : param.preload}"/>
-<c:set var="images" value="02, 03, 04, 06, 07, 09, 11, 12, 15, 16, 17, 19, 20, 22, 23, 59"/>
-#}
-
 {% block head %}{% mark css %}
-<link rel="stylesheet" type="text/css" href="boxed-02.css"/>
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/portfolio-demo.css') }}"/>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% with images = ["02", "03", "04", "06", "07", "09", "11", "12", "15",
+                  "16", "17", "19", "20", "22", "23", "59" ],
+        preload = 0 %}
+
 <!-- include reflection plugin -->
-<script src="reflection.min.js"></script>
+<script src="{{ media_url('js/portfolio-demo/reflection.min.js') }}"></script>
 
 <!-- thumbnail scrollable -->
 <div class="navi prev"></div>
 <div id="thumbnails">
   <div class="items">
-    <c:forTokens items="${images}" delims=", " var="img">
-      <div><img src="img/thumb/${img}.jpg" /></div>
-    </c:forTokens>
+    {% for img in images %}
+    <div>
+      <img src="{{ media_url('img/portfolio-demo') }}/thumb/{{img}}.jpg" />
+    </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -33,23 +35,28 @@
 
     <div class="items">
 
-      <c:forTokens items="${images}" delims=", " var="img">
-	<c:if test="${preload}"><div title="${img}"></c:if>
-	<c:if test="${!preload}"><div><img src="img/${img}.jpg" /></c:if>
+      {% for img in images %}
+      {% if preload %}
+      <div title="{{ img }}"> {# Starting a div, end it below #}
+      {% else %}
+      <div><img src="{{ media_url('img/portfolio-demo') }}/{{img}}.jpg"></div>
+      {% endif %}
 
-	<div class="info">
-	  <h3>A Blue Flower</h3>
-	  <p>
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit
-	    amet, consectetur.
-          </p>
-	  <p class="copy">
-	    Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
-	  </p>
-	</div>
-	</div>
-      </c:forTokens>
+      <div class="info">
+	<h3>A Blue Flower</h3>
+	<p>
+          Neque porro quisquam est qui dolorem ipsum quia dolor sit
+	  amet, consectetur.
+        </p>
+	<p class="copy">
+	  Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+	</p>
       </div>
+
+      {% if preload %}
+      </div> {# Close the div #}
+      {% endif %}
+      {% endfor %}
     </div>
 
     <!-- prev/next buttons -->
@@ -64,7 +71,7 @@
 
   {% mark js1 %}
   // thumbnail scrollable
-  $("#thumbnails").scrollable({size: ${skin == 'boxed' ? 5 : 3}, clickable: false}).find("img").each(function(index) {
+  $("#thumbnails").scrollable({size: 5, clickable: false}).find("img").each(function(index) {
 
   // thumbnail images trigger the overlay
   $(this).overlay({
@@ -107,6 +114,7 @@
   {% block extra_script %}{% endblock %}
   });
 </script>
+{% endwith %}
 {% endmark %}{% endblock %}
 
 

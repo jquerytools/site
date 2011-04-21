@@ -1,20 +1,34 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-{# <%@ include file="plugins/navigator.htm" %> #}
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+<div class="navi"></div>
+{% with scrollable_id = "scrollable"%}
+{% include "demos/scrollable/scrollable.fragment.html" %}
+{% endwith %}
+<br clear="all" />
+
 {% mark html_excerpt %}
 <div id="newItem" style="display:none">
-	<div class="added">
-		<!-- scrollable items can have anything and any amount -->
-		<img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-		<img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
-		<h3>New Item</h3>
-	</div>
+  <div class="added">
+    <!-- scrollable items can have anything and any amount -->
+    <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+    <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+    <h3>New Item</h3>
+  </div>
 </div>
 {% endmark %}
+
+<p style="margin:15px 0 0 37px">
+  <button type="button" onclick="addItem()">add item</button>
+</p>
+
 <script>
   {% mark js %}
 function addItem() {
@@ -26,11 +40,13 @@ function addItem() {
   api.addItem($("#newItem div").clone()).end();
 }
   {% endmark %}
+
+$(document).ready(function() {
+{% mark js %}
+// initialize scrollable together with the navigator plugin
+$("#scrollable").scrollable().navigator();
+{% endmark %}
+});
 </script>
-
-<p style="margin:15px 0 0 37px">
-  <button type="button" onclick="addItem()">add item</button>
-</p>
 {% endmark %}{% endblock %}
-
 

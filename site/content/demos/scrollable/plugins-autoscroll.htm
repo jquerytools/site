@@ -8,12 +8,14 @@
 }
 </style>
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% with scrollable_id = "autoscroll" %}
+
 {% include "demos/scrollable/scrollable.fragment.html" %}
 
 <br clear="all" />
@@ -33,13 +35,15 @@
 $(document).ready(function() {
 {% mark js %}
 // initialize scrollable together with the autoscroll plugin
-var root = $("#${rootId}").scrollable({circular: true}).autoscroll({ autoplay: false });
+var root = $("#{{scrollable_id}}").scrollable({circular: true}).autoscroll({ autoplay: false });
 
 // provide scrollable API for the action buttons
 window.api = root.data("scrollable");
 {% endmark %}
 });
 </script>
+
+{% endwith %}
 {% endmark %}{% endblock %}
 
 

@@ -13,12 +13,12 @@
     <meta name="author" content="{{ resource.meta.author }}">
     <meta name="Robots" content="index,follow" />
 
-    <link rel="shortcut icon" href="{{ media_url('favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ media_url('img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
     {% block extra_css %}{% endblock %}
 
+    <script src="{{ jqt.js }}"></script>
     {% block extra_head %}{% endblock %}
-    <script src="{{ js.tools }}"></script>
   </head>
   <body>
 
@@ -35,17 +35,44 @@
 
     <div id="wrap">
 
-      <div id="nav" class="clear">
+      <div id="globalnav" class="clear">
         <a id="fp1" href="/index.html">Home</a>
         <a id="fp2" href="/download/index.html">Download</a>
         <a id="fp3" href="/demos/index.html">Demos</a>
         <a id="fp4" href="/documentation/index.html">Documentation</a>
-        <a id="fp5" href="/plugins/index.html">Plugins</a>
-        <a id="fp6" href="/forum/index.html">Forums</a>
+        <a id="fp5" href="/forum/index.html">Forums</a>
       </div>
 
-      <div id="page">
+      <div id="content">
         {% block main %}{% endblock %}
+      </div>
+      <div id="right">
+        {% block right_navigation %}
+        <p>
+          <strong>ERR:</strong> Run the navigation script to generate
+          the navigation links.
+        </p>
+        {% endblock %}
+
+        <script>
+          $("#right a[href={{ content_url('tools/documentation/index.html') }}]").addClass("active");
+        </script>
+        <p style="text-align:center;margin:30px 40px 30px 0">
+	  <a style="font-size:10px;color:#666"
+	     href="https://github.com/jquerytools/jquerytools/issues">report
+            a bug &raquo;</a>
+        </p>
+        <a href="/tools/release-notes/index.html">
+	  <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
+	       style="margin-left:10px"
+	       alt="Introducing jQuery Tools 1.2" />
+        </a>
+        <p style="margin:15px 0 0 22px">
+	  <a style="font-size:11px;color:#333"
+	     href="{{ content_url('release-notes/version-1.2.x.html') }}">
+            What's new in v1.2.5 &raquo;
+          </a>
+        </p>
       </div>
 
       <div id="footer" class="clear">
@@ -78,6 +105,7 @@
       </div>
     </div>
 
+    {% block extra_script %}{% endblock %}
     <script>
       {% block js %}
       {% endblock %}

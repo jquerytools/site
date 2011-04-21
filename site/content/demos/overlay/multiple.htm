@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_url('')}}/demo/overlay/css/overlay-minimal.css"/>
+      href="{{ media_url('css/overlay-basic.css') }}"/>
 <style>
   {% block css_excerpt %}
   /* override default settings */
@@ -65,7 +65,7 @@ $(function() {
 <div class="overlay">
   <h2 style="margin:10px 0">Overlay <me>#{{i}}</me></h2>
   <p style="float: left; margin:0px 20px 20px 0;">
-    <img src="{{media_url('')}}/img/title/tools24.png" />
+    <img src="{{ media_url('img/title/tools24.png') }}" />
   </p>
   <p>
     Class aptent taciti sociosqu ad litora torquent per conubia

@@ -1,0 +1,901 @@
+{% extends "userguide.j2" %}
+{% refer to 'demos/dateinput/flight.htm' as standalone %}
+
+{% block css %}
+{{ standalone.css }}
+{% endblock %}
+
+{% block content %}
+<h1 style="background:url({{ media_url('img/hero/dateinput.jpg') }}) no-repeat -14px 34px">
+  jQuery Dateinput @ jQuery Tools
+  <em>HTML5 date input for humans</em>
+</h1>
+
+<p class="more" style="margin-top:0">
+  This tool brings <strong>HTML5</strong> date input to all browsers
+  in such a way that you can make it look and behave like you
+  want. This small screen candy weights only <strong>2.0 Kb</strong>.
+</p>
+
+<div style="margin:20px 0">
+  {{ standalone.body }}
+</div>
+
+
+<p class="less" style="margin-bottom:30px">
+  <small>
+    When the calendar is visible you can navigate between days with
+    your <samp>Arrow Keys</samp> or with <strong>VIM</strong> keyboard
+    shortcuts <samp>HJKL</samp>. <samp>PageUp</samp>
+    and <samp>PageDown</samp> navigates between months
+    and <samp>Enter</samp> selects the day. The <samp>Home</samp> key
+    will navigate to the present day and <samp>backspace</samp> clears
+    the input.
+  </small>
+</p>
+
+<div class="feat">
+  <h3 class="first">HTML5 date input</h3>
+  <p>
+    This tool brings HTML5 <samp>&lt;input type="date" /&gt;</samp>
+    support to all browsers in a consistent and standardized
+    manner <em>today.</em> The date field is just like any
+    other <samp>form</samp> field which can be scripted and
+    submitted. Opera will render date input even if JavaScript is
+    disabled.
+  </p>
+</div>
+<div class="feat last">
+  <h3 class="first">For nerds and humans</h3>
+  <p>
+    Call <samp>$(":date").dateinput();</samp> and all your HTML5 date
+    inputs are working. End users can select dates with the mouse or
+    with the keyboard arrow keys. Hackers can use <strong>VIM</strong>
+    keyboard shortcuts (<strong>HJKL</strong>) to navigate between
+    dates and months.
+  </p>
+</div>
+<div class="feat">
+  <h3>Styleable</h3>
+  <p>
+    You can design calendars that fit the overall feel of your
+    site. You can use images and the latest CSS3 techniques if you
+    like. CSS class names can be changed and <samp>table</samp>s are
+    not used, so you can even design your own layout: be it single row
+    or vertical. Professional example skins are provided, and you can
+    use them for free.
+  </p>
+</div>
+<div class="feat last">
+  <h3>File size: 2.0 Kb</h3>
+  <p>
+    This tool give you all the features and configuration options
+    you'll possibly need, such as localization, formatting,
+    year/selectors, a <a href="#api">scripting API</a> and
+    an <a href="#events">event model</a>. A smaller codebase is easier
+    to control and results in snappier behaviour.
+  </p>
+</div>
+<br clear="all" />
+
+
+
+<h2>Demos</h2>
+
+<ul>
+  <c:forEach items="${f:getDemo(context.toolDemos2, 'dateinput/index.html').category.demos}" var="demo">
+    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
+  </c:forEach>
+</ul>
+
+
+
+<a name="configuration"></a>
+<h2>Configuration</h2>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">css</td>
+    <td><code>Object</code></td>
+    <td>
+      Values for the <samp>id</samp> and <samp>class</samp> attributes
+      of the dateinput. See <a href="#skinning">skinning</a> for more
+      details.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">firstDay</td>
+    <td><code>0</code></td>
+    <td>
+      Specifies the first day of the week. Sunday = 0, Monday = 1 and
+      so on &hellip;.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">format</td>
+    <td><code>'mm/dd/yy'</code></td>
+    <td>
+      Specifies how the date value is formatted in the input
+      field. See <a href="#formatting">formatting</a> for more
+      details.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">lang</td>
+    <td><code>'en'</code></td>
+    <td>
+      Language to be used. Only English is built-in,
+      but <a href="#localizing">localization</a> is possible.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">max</td>
+    <td><code>0</code></td>
+    <td>
+      Latest selectable date. See <a href="#values">supplying date
+      values</a> for more details.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">min</td>
+    <td><code>0</code></td>
+    <td>
+      Earliest selectable date. See <a href="#values">supplying date
+      values</a> for more details.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">offset</td>
+    <td><code>[0, 0]</code></td>
+    <td>
+      The dateinput is positioned right below the input field. You can
+      fine tune the position with this property. For example, the
+      value <samp>[10, -20]</samp> moves the tooltip position 10px
+      downwards and 20px to the left. The first value modifies the
+      vertical positioning from the top edge of the tooltip and the
+      second value modifies the horizontal positioning from the left
+      edge of the tooltip. Positive values move the tooltip downwards
+      (first value) or to the right (second value), while negative
+      values move the tooltip upwards (first value) or to the left
+      (second value).
+    </td>
+  </tr>
+
+  <tr>
+    <td class="code">selectors</td>
+    <td><code>false</code></td>
+    <td>
+      Whether month and year dropdown menus are displayed.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">speed</td>
+    <td><code>100</code></td>
+    <td>
+      The speed (in milliseconds) at which the dateinput reveals itself.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">trigger</td>
+    <td><code>false</code></td>
+    <td>
+      Whether a trigger element is generated after the input
+      field. This is an <samp>A</samp> tag with a CSS class
+      name <samp>caltrigger</samp> (can be changed) that opens up the
+      calendar when clicked.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">value</td>
+    <td></td>
+    <td>
+      Initial value to be displayed for the user. This can either be a
+      valid <a href="#values">date value</a> or any string such as
+      "Today".
+    </td>
+  </tr>
+  <tr>
+    <td class="code">yearRange</td>
+    <td><code>[-5, 5]</code></td>
+    <td>
+      Range of years displayed relative to the current year.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="attributes"></a>
+<h3>Input attributes</h3>
+
+<p>
+  You can also configure the dateinput by supplying attributes for the
+  input field. For example:
+</p>
+
+{% filter syntax('html') %}
+<input type="date" class="date" data-value="2004-03-20" min="2004-02-20"/>
+{% endfilter %}
+
+<p>
+  Here are all attributes supported by this tool. They are all are
+  valid HTML5 attributes.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">disabled</td>
+    <td>
+      Whether the dateinput is completely disabled. The user cannot
+      focus on the input element at all. This attribute can be toggled
+      dynamically by scripting.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">max</td>
+    <td>
+      Latest selectable date. See <a href="#values">supplying date
+      values</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">min</td>
+    <td>
+      Earliest selectable date. See <a href="#values">supplying date
+      values</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">readonly</td>
+    <td>
+      When enabled, the dateinput can only be opened and browsed but
+      no date can be selected. This attribute can be toggled
+      dynamically by scripting.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">value</td>
+    <td>
+      Initial value. See <a href="#values">supplying date values</a>
+      for more information.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">data-value</td>
+    <td>
+      Initial <a href="#values">date value</a>. This is the primary
+      means of providing the initial value because
+      the <samp>value</samp> attribute is shown to the user and is
+      typically <a href="_formatted">formatted</a> or it can be any
+      string such as "Today".
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="values"></a>
+<h3>Supplying date values</h3>
+
+<p>
+  This tool accepts date values from various places: configuration,
+  JavaScript API and from input attributes.
+</p>
+
+{% filter syntax('js') %}
+  // supply date values from the configuration
+  $(":date").dateinput({ value: new Date(2010, 3, 3), min: -10, max: 30 });
+
+  // supply date values from the API
+  var api = $(":date").data("dateinput");
+
+  api.setValue('2012-10-10');
+
+  // set as JavaScript Date object
+  api.setValue(date);
+
+  // an empty argument moves the calendar to currently selected month
+  api.setValue();
+
+  // chaining is possible
+  api.setValue(date).setMax(10);
+{% endfilter %}
+
+{% filter syntax('html') %}
+  <!-- supply a date value from an input attribute -->
+  <input type="date" min="-20" max="2013-03-10" />
+{% endfilter %}
+
+<p>
+  You can supply the value in three different ways.
+</p>
+
+<ol>
+  <li>
+    A <strong>rfc3339</strong> formatted string such
+    as <samp>2015-11-25</samp>
+  </li>
+  <li>
+    A <strong>number</strong> such as <samp>20</samp>. this is the
+    number of days from the present date. A positive value moves
+    forward (to the future) and a negative value goes backward (to the
+    past)
+  </li>
+  <li>A <strong>JavaScript Date</strong> object</li>
+</ol>
+
+
+
+<a name="formatting"></a>
+<h2>Formatting</h2>
+
+<p>
+  Formatting specifies how the dates are displayed for the user. The
+  formatting pattern can be set in the <samp>format</samp>
+  configuration variable or fed as argument to
+  the <samp>getDate()</samp> function in the API. Here are a few
+  examples:
+</p>
+
+<pii:code>
+  $(".date").dateinput({
+
+  // this is displayed to the user
+  format: 'You selected: dddd / dd.mm.yyyy',
+
+  // a different format is sent to the server
+  change: function() {
+  var isoDate = this.getValue('yyyy-mm-dd');
+
+  $("#backendValue").val(isoDate);
+  }
+  });
+</pii:code>
+
+<p>
+  Formatting characters can be mixed with other characters and you can
+  specify as many as you like.
+</p>
+
+<h3>List of formatting characters</h3>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Characters</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">d</td>
+    <td>Day of the month as digits; no leading zero for single-digit days.</td>
+  </tr>
+  <tr>
+    <td class="code">dd</td>
+    <td>Day of the month as digits; leading zero for single-digit days.</td>
+  </tr>
+  <tr>
+    <td class="code">ddd</td>
+    <td>Day of the week as a three-letter abbreviation.</td>
+  </tr>
+  <tr>
+    <td class="code">dddd</td>
+    <td>Day of the week represented by its full name.</td>
+  </tr>
+  <tr>
+    <td class="code">m</td>
+    <td>Month as digits; no leading zero for single-digit months.</td>
+  </tr>
+  <tr>
+    <td class="code">mm</td>
+    <td>Month as digits; leading zero for single-digit months.</td>
+  </tr>
+  <tr>
+    <td class="code">mmm</td>
+    <td>Month as a three-letter abbreviation.</td>
+  </tr>
+  <tr>
+    <td class="code">mmmm</td>
+    <td>Month represented by its full name.</td>
+  </tr>
+  <tr>
+    <td class="code">yy</td>
+    <td>Year as last two digits; leading zero for years less than 10.</td>
+  </tr>
+  <tr>
+    <td class="code">yyyy</td>
+    <td>Year represented by four digits.</td>
+  </tr>
+</table>
+
+
+
+<a name="skinning"></a>
+<h2>Skinning</h2>
+
+<p>
+  Skinning is the same as writing CSS against the dateinput HTML
+  layout. Here is an
+  example <a href="{{ media_url('css/dateinput/skin1.css') }}">CSS
+  file</a> and
+  the <a href="{{content_url('documentation/dateinput/layout.htm')}}">default
+  HTML layout</a>. This tool allows you to customize
+  the <samp>id</samp> and class names with the <samp>css</samp>
+  configuration option. For example:
+</p>
+
+{% filter syntax('js') %}
+$(".date").dateinput({
+  css: {
+    prefix: null,
+    root: 'dateinput',
+    head: 'datehead'
+  }
+});
+{% endfilter %}
+
+
+<h3>Prefix</h3>
+
+<p>
+  All <samp>id</samp>s and class names are prefixed by the value
+  specified in the <samp>prefix</samp> property, allowing you to give
+  them one common "namespace". This avoids potential clashes with
+  other CSS names in your web application. By setting this value
+  to <samp>null</samp> the prefix is not used, allowing you to use
+  shorter names. The following table lists all properties supported by
+  the <samp>css</samp> configuration option. By default the tool uses
+  a prefix "cal" which is colored blue in the default value column.
+</p>
+
+<h3>CSS names</h3>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Element</th>
+      <th nowrap>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">input</td>
+    <td>class</td>
+    <td><samp>input</samp></td>
+    <td>date</td>
+    <td>The date input field</td>
+  </tr>
+  <tr>
+    <td class="code">root</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>root</td>
+    <td>The root element for the dateinput.</td>
+  </tr>
+  <tr>
+    <td class="code">head</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>head</td>
+    <td>
+      Dateinput header that contains next/prev month buttons and
+      dropdown menus.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">title</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>title</td>
+    <td>Title of the dateinput.</td>
+  </tr>
+  <tr>
+    <td class="code">prev</td>
+    <td>id</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>prev</td>
+    <td>Previous month link.</td>
+  </tr>
+  <tr>
+    <td class="code">next</td>
+    <td>id</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>next</td>
+    <td>Next month link.</td>
+  </tr>
+  <tr>
+    <td class="code">disabled</td>
+    <td>class</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>disabled</td>
+    <td>
+      Class name for a prev/next month navigation button which cannot
+      be pressed.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">month</td>
+    <td>id</td>
+    <td><samp>select</samp></td>
+    <td><samp>cal</samp>month</td>
+    <td>Month selector.</td>
+  </tr>
+  <tr>
+    <td class="code">year</td>
+    <td>id</td>
+    <td><samp>select</samp></td>
+    <td><samp>cal</samp>year</td>
+    <td>Year selector.</td>
+  </tr>
+  <tr>
+    <td class="code">body</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>body</td>
+    <td>Dateinput body that contains the day names and the weeks.</td>
+  </tr>
+  <tr>
+    <td class="code">days</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>days</td>
+    <td>
+      Container for day names. Individual days are <samp>span</samp> elements.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">weeks</td>
+    <td>id</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>weeks</td>
+    <td>Container for weeks.</td>
+  </tr>
+  <tr>
+    <td class="code">week</td>
+    <td>class</td>
+    <td><samp>div</samp></td>
+    <td><samp>cal</samp>week</td>
+    <td>Container for days. Individual days are <samp>a</samp> elements.</td>
+  </tr>
+  <tr>
+    <td class="code">off</td>
+    <td>class</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>off</td>
+    <td>
+      Class name for a day that is not within range (older or newer
+      than max/min days).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">sunday</td>
+    <td>class</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>sunday</td>
+    <td>Class name for Sundays.</td>
+  </tr>
+  <tr>
+    <td class="code">current</td>
+    <td>id</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>current</td>
+    <td><samp>id</samp> for the currently selected day.</td>
+  </tr>
+  <tr>
+    <td class="code">today</td>
+    <td>id</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>today</td>
+    <td><samp>id</samp> for the present day.</td>
+  </tr>
+  <tr>
+    <td class="code">focus</td>
+    <td>class</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>focus</td>
+    <td>
+      Class name for a day that has been focused via keyboard
+      navigation.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">trigger</td>
+    <td>class</td>
+    <td><samp>a</samp></td>
+    <td><samp>cal</samp>trigger</td>
+    <td>
+      Class name for the trigger element after the input field if
+      the <samp>trigger</samp> configuration variable is enabled
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="api"></a>
+<h2>Scripting API</h2>
+
+<p>
+  First make sure you have familiarized yourself
+  with <a href="{{ content_url('documentation/scripting.html') }}">jQuery Tools
+  scripting</a>.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th style="width:150px">Method</th>
+      <th nowrap>Return value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">addDay(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Adds days to the currently selected date. The amount of days is
+      specified in the argument. Without an argument one day is added
+      and a negative argument moves backwards. Does not have any
+      effect when the calendar is opened.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">addMonth(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Adds months to the currently selected date. The amount of months
+      is specified in the argument. Without an argument one month is
+      added and a negative argument moves backwards. If you call this
+      method while the calendar is opened then the calendar seeks
+      forward and backward but the value does not change.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">addYear(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Adds years to the currently selected date. The amount of years
+      is specified in the argument. Without an argument one year is
+      added and a negative argument moves backwards. If you call this
+      method while the calendar is opened then the calendar seeks
+      forward and backward but the value does not change.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getConf()</td>
+    <td><code>Object</code></td>
+    <td>
+      Returns the configuration of the current instance.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getCalendar()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the root element for the calendar.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getInput()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the input field associated with the dateinput.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getValue()</td>
+    <td><code>Date</code></td>
+    <td>
+      Returns the currently selected date.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getValue(format)</td>
+    <td><code>String</code></td>
+    <td>
+      Returns the current date, <a href="#formatting">formatted</a>
+      with the pattern given as the argument.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">hide()</td>
+    <td><code>API</code></td>
+    <td>
+      Hides the calendar.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">isOpen()</td>
+    <td><code>boolean</code></td>
+    <td>
+      Whether calendar is opened (<samp>true</samp>) or closed
+      (<samp>false</samp>).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">setMax(value, [fit])</td>
+    <td><code>API</code></td>
+    <td>
+      Sets the latest selectable date. See <a href="#values">supplying
+      date values</a>. If the <samp>fit</samp> argument
+      is <samp>true</samp> and the current value is later than the
+      maximum value then the current value is changed to the maximum
+      value. By default <samp>fit</samp> is <samp>false</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">setMin(value, [fit])</td>
+    <td><code>API</code></td>
+    <td>
+      Earliest selectable date. See <a href="#values">supplying date
+      values</a>. If the <samp>fit</samp> argument
+      is <samp>true</samp> and the current value is earlier than the
+      minimum value then the current value is changed to the minimum
+      value. By default <samp>fit</samp> is <samp>false</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">setValue(date)</td>
+    <td><code>API</code></td>
+    <td>
+      Sets the current date to the one given in the argument. Must be
+      a JavaScript <samp>Date</samp> object. If the argument is empty
+      and the calendar is opened then the calendar is moved to the
+      month where the currently selected date is.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">setValue(year, month, day)</td>
+    <td><code>API</code></td>
+    <td>
+      Sets the current date.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">show()</td>
+    <td><code>API</code></td>
+    <td>
+      Shows the calendar.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">today()</td>
+    <td><code>API</code></td>
+    <td>
+      Goes to today.
+    </td>
+  </tr>
+
+</table>
+
+
+
+<a name="events"></a>
+<h2>Events</h2>
+
+<p>
+  First make sure you have read
+  about <a href="{{ content_url('documentation/scripting.html') }}#events">Events in
+  jQuery Tools</a>. All event listeners receive
+  the <a href="{{ content_url('documentation/scripting.html') }}#event_object">Event
+  Object</a> as the first argument. Here is an example:
+</p>
+
+{% filter syntax('js') %}
+// select an input field and assign an event listener to it.
+$(":input.date").change(function(event, date) {
+  console.info("a date was selected", date);
+});
+{% endfilter %}
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th nowrap>When does it occur?</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">onBeforeShow</td>
+    <td>
+      Before the dateinput is shown.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onShow</td>
+    <td>
+      After the dateinput is completely shown (after an optional
+      animation).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">change</td>
+    <td>
+      When a date was selected and the field value has been
+      changed. Note that the name is the same as the
+      jQuery's <samp>change</samp> method and that you can bind the
+      event directly with this function. For other events you must use
+      the <samp>bind</samp> method. This leads to more fluent syntax
+      as demonstrated in the example above.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onHide</td>
+    <td>
+      When the dateinput is closed. Returning <samp>false</samp> here
+      will not hide the calendar.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="localizing"></a>
+<h2>Localization</h2>
+
+<p>
+  You can localize the dateinput to your language with a
+  static <samp>$.tools.dateinput.localize</samp> call, after which you
+  can use the dateinput with another language. The tool uses the
+  following call internally to enable English localization:
+</p>
+
+{% filter syntax('js') %}
+  // built-in localization
+  $.tools.dateinput.localize("en", {
+  months: 'January,February,March,April,May,June,July,August,September,October,November,December',
+  shortMonths:  'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+  days:         'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday',
+  shortDays:    'Sun,Mon,Tue,Wed,Thu,Fri,Sat'
+  });
+{% endfilter %}
+
+<p>
+  To add the French localization you should do the following:
+</p>
+
+{% filter syntax('js') %}
+  // example French localization
+  $.tools.dateinput.localize("fr",  {
+  months:      'janvier,f&eacute;vrier,mars,avril,mai,juin,juillet,ao&ucirc;t,' +
+  'septembre,octobre,novembre,d&eacute;cembre',
+  shortMonths: 'jan,f&eacute;v,mar,avr,mai,jun,jul,ao&ucirc;,sep,oct,nov,d&eacute;c',
+  days:        'dimanche,lundi,mardi,mercredi,jeudi,vendredi,samedi',
+  shortDays:   'dim,lun,mar,mer,jeu,ven,sam'
+  });
+{% endfilter %}
+
+<p>
+  <strong>Note:</strong> the '<samp>+</samp>' above is only to
+  indicate the list of months is shown on two lines.
+</p>
+
+<p>
+  Notice that all special characters need to be escaped. I
+  used <a href="http://www.pemberley.com/janeinfo/latin1.html"
+  class="external">this list</a> to find the special entities for
+  French characters. After the localization is in place you can use
+  the French language by supplying <samp>lang: 'fr'</samp> in your
+  configuration. Or you can make French the default language by
+  editing
+  the <a href="{{ content_url('documentation/basics.html') }}#global_configuration">global
+  configuration</a> as follows: <samp>$.tools.dateinput.conf.lang =
+  'fr';</samp>
+</p>
+
+{% endblock %}

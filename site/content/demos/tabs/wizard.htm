@@ -1,11 +1,11 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-<link rel="stylesheet" type="text/css" href="{{media_base}}/css/tabs.css"/>
-<link rel="stylesheet" type="text/css" href="../../css/tabs-panes.css"/>
+<link rel="stylesheet" type="text/css" href="{{media_url('css/tabs.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{media_url('css/tabs-panes.css') }}"/>
 <style>
   div.panes div {
-  background:#fff url(${cdn}/img/global/gradient/h300.png) repeat-x 0 5px;
+  background:#fff url({{ media_url('img/gradient/h300.png') }}) repeat-x 0 5px;
   -background:#fff;
   height:172px;
   }
@@ -25,9 +25,9 @@
 <div id="wizard">
   <!-- tabs -->
   <ul class="tabs">
-    <li><a href="#" class="w2">Personal info</a></li>
-    <li><a href="#" class="w2">Shopping basket</a></li>
-    <li><a href="#" class="w2">Review order</a></li>
+    <li><a href="#" class="l">Personal info</a></li>
+    <li><a href="#" class="l">Shopping basket</a></li>
+    <li><a href="#" class="l">Review order</a></li>
   </ul>
 
   <!-- panes -->

@@ -11,14 +11,14 @@ title: jQuery tools home page setup
 
 {% block demo %}
 <p>
-  This document describes how the jQuery Tools <a href="${jqt}/">home
+  This document describes how the jQuery Tools <a href="{{ content_url('') }}">home
   page</a> has been done. We recommend opening
   the <a href="home.htm">standalone version</a> of the demo in another
   browser window or tab while reading this document.
 </p>
 
 <a href="home.htm">
-  <img src="${cdn}${jqt}/img/demo.jpg" style="margin:20px -20px;border:0" />
+  <img src="{{ media_url('img/demo.jpg') }}" style="margin:20px -20px;border:0" />
 </a>
 
 <h3>HTML coding</h3>
@@ -99,10 +99,11 @@ title: jQuery tools home page setup
   principles on the scrollable elements as in
   the <a href="index.html">minimal setup</a> (as always). The
   navigator items are done with a CSS sprite technique using this
-  single <a href="${jqt}/img/demo-navi.jpg">background image</a>. We
-  define a different background position for each thumbnail and the
-  position is changed when the item is being clicked, mouseovered or
-  it is active. Here is the CSS setup for the first thumbnail.
+  single <a href="{{ media_url('img/demo-navi.jpg') }}">background
+  image</a>. We define a different background position for each
+  thumbnail and the position is changed when the item is being
+  clicked, mouseovered or it is active. Here is the CSS setup for the
+  first thumbnail.
 </p>
 
 {% filter syntax('css') %}

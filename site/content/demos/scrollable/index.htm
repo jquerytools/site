@@ -2,15 +2,17 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_url('')}}/css/scrollable-horizontal.css" />
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
 <link rel="stylesheet" type="text/css"
-      href="{{media_url('')}}/css/scrollable-buttons.css" />
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
 <!-- HTML structures -->
 {% mark html_excerpt %}
+{% with scrollable_id = "scrollable" %}
 {% include "demos/scrollable/scrollable.fragment.html" %}
+{% endwith %}
 {% endmark %}
 
 <!-- javascript coding -->

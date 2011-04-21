@@ -1,7 +1,7 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-<script src="${cdn}/js/flowplayer-${v.js_core}.min.js"></script>
+<script src="{{ flowplayer.js }}"></script>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
@@ -19,7 +19,7 @@
 flowplayer("player", {
 
 	// our Flash component
-	src: "/swf/flowplayer-${v.core}.swf",
+	src: "{{ flowplayer.swf }}",
 
 	// we need at least this version
 	version: [9, 115],

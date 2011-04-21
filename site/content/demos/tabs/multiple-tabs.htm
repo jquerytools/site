@@ -1,7 +1,7 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/tabs.css" />
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/tabs.css') }}" />
 <style>
   div.wrap {
   width:700px;
@@ -9,7 +9,7 @@
   }
 
   .wrap .pane  {
-  background:#fff url(${cdn}/img/global/gradient/h150.png) repeat-x 0 20px;
+  background:#fff url({{ media_url('img/gradient/h150.png') }}) repeat-x 0 20px;
   display:none;
   padding:20px;
   border:1px solid #999;

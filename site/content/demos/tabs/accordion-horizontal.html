@@ -44,22 +44,22 @@ title: Horizontal accordion using the tabs
   <div id="accordion">
 
     <!-- 1st header and pane -->
-    <img src="/img/title/streaminge.png" />
+    <img src="{{ media_url('img/title/streaminge.png') }}" />
     <div style="width:200px; display:block"> .. pane content .. </div>
 
     <!-- 2nd header and pane -->
-    <img src="/img/title/flash.png" />
+    <img src="{{ media_url('img/title/flash.png') }}" />
     <div> .. pane content ..</div>
 
     <!-- 3rd header and pane -->
-    <img src="/img/title/streaming.png" />
+    <img src="{{ media_url('img/title/streaming.png') }}" />
     <div> .. pane content ..</div>
   </div>
 {% endfilter %}
 
 <p>
-  We are using the CSS file: 
-  <a href="{{media_base}}/css/tabs-accordion-horizontal.css">tabs-accordion-horizontal.css</a>
+  We are using the CSS file:
+  <a href="{{ media_url('css/tabs-accordion-horizontal.css') }}">tabs-accordion-horizontal.css</a>
   for styling. Note that the initially opened pane must have
   an <em>inline style</em> declaration for its width and display. The
   width specifies the pane width when it is opened and the display

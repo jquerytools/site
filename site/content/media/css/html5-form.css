@@ -1,0 +1,287 @@
+/* overlay trigger */
+#see {
+    background:transparent url({{ media_url('img/seeitinaction.png') }}) no-repeat scroll 0 0;
+    display:block;
+    height:44px;
+    overflow:hidden;
+    text-indent:-999em;
+    width:159px;
+    margin:30px 0 0 0;
+    cursor:pointer;
+}
+
+#see:hover {
+    background-position:0 -44px ;
+}
+
+#see:focus {
+    background-position:0 -88px ;
+}
+
+
+/* overlay root element */
+#sheet {
+    width:800px;
+    height:550px;
+    position:absolute;
+    font-size:11px;
+    display:none;
+    -webkit-box-shadow: 0 0 30px #777;
+    -moz-box-shadow: 0 0 30px #777;
+}
+
+/* some border radius for various elements and different browsers. CSS isn't perfect */
+.rounded, #sheet input, .error {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+
+/* tab pane layout */
+.pane {
+    padding:50px;
+    display:none;
+    padding-top:350px;
+}
+
+.description {
+    font-size:11px;
+    color:#555;
+    padding:10px 20px;
+}
+
+/* adjust for browsers that support range input
+   input[type=range] {
+   width:230px;
+   height:28px;
+   background-color:#777;
+   padding:0;
+   margin:0;
+   border:0;
+   }
+
+input[type=date] {
+font-size:14px;
+}
+*/
+
+/* individual panes */
+#pane1 { padding-top:50px; display:block; background:#fff url({{ media_url('img/html5-form/form.jpg') }}) no-repeat -20px 15px; }
+#pane2 { background:#fff url({{ media_url('img/html5-form/code.jpg') }}) no-repeat 100px 0; padding-top:375px; }
+#pane3 { background:#fff url({{ media_url('img/html5-form/firefox.gif') }}) no-repeat -69px -59px; }
+#pane4 { background:#fff url({{ media_url('img/html5-form/opera.gif') }}) no-repeat -4px -47px; }
+#pane5 { background:#fff url({{ media_url('img/html5-form/ie.gif') }}) no-repeat -71px -90px;  padding-top:255px; }
+
+#pane5 .description {
+    background-color:#fff;
+    margin:-9px;
+}
+
+/* the form */
+#myform {
+    background-color:#777;
+    background-color:rgba(0, 0, 0, 0.55);
+    padding:15px;
+    padding-bottom:10px;
+    width:570px;
+    margin:5px 0 0 73px;
+}
+
+#myform p {
+    clear:left;
+}
+
+fieldset {
+    float:left;
+    margin-left:15px;
+    padding:0;
+    border:0;
+    width:245px;
+}
+
+.last {
+    margin-right:0;
+}
+
+legend {
+    color:#fff;
+    font-size:20px;
+    text-shadow:0 1px 0 #000;
+    padding:0;
+    margin-bottom:-3px;
+}
+
+
+label {
+    display:block;
+    margin:3px;
+    color:#ddd;
+    font-size:11px;
+    text-shadow:0 1px 0 #000;
+}
+
+input {
+    border:1px solid;
+    border-color:#ccc #ddd #ddd #ccc;
+    padding:6px;
+    background-color:rgba(255, 255, 255, 0.9);
+    font-size:15px;
+    color:#555;
+    text-shadow:0 1px 0 #fff;
+    width:90%;
+}
+
+input:focus {
+    background-color:#fff;
+    color:#000;
+}
+
+input[required] {
+    font-weight:bold;
+}
+
+/* validation error message */
+.error {
+    background-color:#E8FF6D;
+    padding:4px;
+    color:#000;
+    -webkit-box-shadow: #000 0 0 12px;
+    -moz-box-shadow: #000 0 0 12px;
+}
+
+/* ..with a pure CSS arrow */
+.error em {
+    border:10px solid;
+    border-color:#E8FF6D transparent transparent;
+    bottom:-17px;
+    display:block;
+    height:0;
+    left:10px;
+    position:absolute;
+    width:0;
+}
+
+/* field with validation error */
+.invalid {
+    background-color:rgba(221, 233, 255, 0.898) !important;
+}
+
+/* date input */
+.date {
+    width:193px;
+    background:#666 none repeat scroll 0 0;
+    color:#fff;
+    text-shadow:0 0 1px #000;
+}
+
+.date:focus {
+    background-color:#333;
+    color:#fff;
+}
+
+/* datepicker trigger element */
+.picktrigger {
+    background:#333;
+    cursor:pointer;
+    display:block;
+    float:right;
+    height:32px;
+    width:32px;
+}
+
+.picktrigger:hover {
+    background:#000;
+}
+
+.high {
+    padding:15px 0 0 15px;
+    clear:both;
+}
+
+/* override slider width from external stylesheet */
+#sheet .slider {
+    width:175px;
+}
+
+/* buttons */
+#sheet button {
+    background:#0150D1 url({{ media_url('img/gradient/h30.png') }}) repeat-x 0 0;
+    border:1px solid #d1ddc7;
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+    padding:6px 15px;
+    text-align:center;
+    text-decoration:none;
+    text-shadow:0 1px 0 #000;
+    cursor:pointer;
+    height:auto;
+    outline:0;
+}
+
+#sheet button:hover {
+    background-position:0 -12px;
+}
+
+#sheet button:active {
+    background-position:0 -30px;
+}
+
+
+/* tabs */
+#navi {
+    background:#f4f4f4 url({{ media_url('img/html5-form/navi.png') }}) repeat-x 0 0;
+    position:absolute;
+    bottom:2px;
+    height:120px;
+    width:640px;
+    padding:0 80px;
+}
+
+#navi a  {
+    display:block;
+    float:left;
+    text-align:center;
+    color:#666;
+    width:125px;
+    cursor:pointer;
+    font-size:11px;
+}
+
+#navi a:hover {
+    color:#333;
+}
+
+#navi a.current {
+    background:url({{ media_url('img/html5-form/arrow.png') }}) no-repeat 50% 0;
+    color:#000 !important;
+    cursor:default;
+}
+
+#navi span {
+    display:block;
+    height:85px;
+    width:120px;
+    margin-top:10px;
+    background:url({{ media_url('img/html5-form/tabs.png') }}) no-repeat 20px 5px;
+}
+
+#nav2 span { background-position:20px -95px; }
+#nav3 span { background-position:20px -195px; }
+#nav4 span { background-position:20px -292px; }
+#nav5 span { background-position:20px -399px; }
+
+
+/* make some elements sit over the mask */
+.error, #calroot {
+    z-index:10000;
+}
+
+/* overlay close button */
+div.close {
+    right:-15px;
+    top:-15px;
+}

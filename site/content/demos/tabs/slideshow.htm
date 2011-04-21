@@ -2,14 +2,14 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/css/tabs-slideshow.css"/>
+      href="{{ media_url('css/tabs-slideshow.css') }}"/>
 <!--
    fix IE "black box" problems with PNG images when opacity is being animated
 -->
 <!--[if IE]>
 <style type="text/css">
   .images img {
-    background:#efefef url(/img/global/gradient/h300.png) repeat-x 0 -22px;
+    background:#efefef url({{ media_url('img/gradient/h300.png') }}) repeat-x 0 -22px;
   }
 </style>
 <![endif]-->
@@ -25,7 +25,7 @@
   <!-- first slide -->
   <div>
     <h3>First pane</h3>
-    <img src="{{media_base}}/img/title/screens.png" alt="Flying screens"
+    <img src="{{ media_url('img/title/screens.png') }}" alt="Flying screens"
          style="float:left;margin:0 30px 20px 0" />
 
     <p style="font-weight:bold">
@@ -45,7 +45,7 @@
   <!-- second slide -->
   <div>
     <h3>Second pane</h3>
-    <img src="{{media_base}}/img/title/eye192.png" alt="Flying screens"
+    <img src="{{ media_url('img/title/eye192.png') }}" alt="Flying screens"
          style="float:left;margin:0 30px 20px 0" />
 
     <p style="font-weight:bold">

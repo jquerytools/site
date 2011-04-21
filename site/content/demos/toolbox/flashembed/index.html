@@ -36,7 +36,7 @@ title: Basics of Flash embedding
 <p>
   It is recommended that you use the minified (.min) version to reduce
   the download size. You can get the
-  script <a href="${jqt}/download/">here</a>. Second, you have to have
+  script <a href="{{ content_url('download/') }}">here</a>. Second, you have to have
   a HTML container for the object; we are using a <samp>DIV</samp>
   element in our example. We use an <samp>id</samp> attribute to
   reference this container later in the embedding.
@@ -55,7 +55,7 @@ title: Basics of Flash embedding
 </p>
 
 {% filter syntax('js') %}
-flashembed("clock", "/swf/clock.swf");
+flashembed("clock", "{{ media_url('swf/global/clock.swf') }}");
 {% endfilter %}
 
 <p>
@@ -94,7 +94,7 @@ flashembed("clock", "/swf/clock.swf");
 </p>
 
 {% filter syntax('js') %}
-flashembed("info", "/swf/flashvars.swf", {
+flashembed("info", "{{ media_url('swf/global/flashvars.swf') }}", {
 
   // these properties are given for the Flash object
   name1: 'configuration value #1',
@@ -129,7 +129,7 @@ flashembed("info", "/swf/flashvars.swf", {
 </p>
 
 {% filter syntax('js') %}
-flashembed("player", "/swf/flowplayer-${v.core}.swf", {
+flashembed("player", "{{ flowplayer.swf }}", {
 
   // "config" parameter is a complex JSON object, not just a simple value
   config: {

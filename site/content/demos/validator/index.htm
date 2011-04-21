@@ -2,13 +2,17 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/demos/validator/css/form.css"/>
+      href="{{ media_url('css/validator/form.css') }}"/>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% mark html_excerpt %}
 {% include "demos/validator/form.fragment.html" %}
+{% endmark %}
 
 <script>
+{% mark js %}
 $("#myform").validator();
+{% endmark %}
 </script>
 {% endmark %}{% endblock %}

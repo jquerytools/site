@@ -25,7 +25,7 @@ title: Handling old flash versions
 
 {% filter syntax('js') %}
 flashembed("clock", {
-  src: "/swf/clock.swf",
+  src: "{{ media_url('swf/global/clock.swf') }}",
   version: [20, 0]
 });
 {% endfilter %}

@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-wizard.css"/>
+      href="{{ media_url('css/scrollable-wizard.css') }}"/>
 <!-- a little more standalone page styling 
 <style>
   body {
@@ -145,7 +145,8 @@
 	</h2>
 
 
-	<img src="${cdn}/img/logo/eye.png" style="margin:30px 0 0 140px" />
+	<img src="{{ media_url('img/title/eye.png') }}"
+             style="margin:30px 0 0 140px" />
 
 	<p style="margin-top:30px">
 	  <button type="button" class="prev">&laquo; Back</button>

@@ -32,7 +32,7 @@ $(function() {
 	  place Flash object inside each tag and configure it with the
 	  replacement text and its style. external CSS has no effect
 	*/
-	flashembed(this, "/swf/itc_century.swf", {
+	flashembed(this, "{{ media_url('swf/global/itc_century.swf') }}", {
 	    txt: $(this).html(),
 	    css: '* { color: #666666; } '+
                  'a {color: #007766; text-decoration:underline}'

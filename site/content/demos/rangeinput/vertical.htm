@@ -2,9 +2,9 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/demos/rangeinput/css/skin1.css"/>
+      href="{{ media_url('css/rangeinput/skin1.css') }}"/>
 <style>
-{% mark css %}
+{% mark css_excerpt %}
 /* Override skin1.css to make it vertical */
 
 /* height is now larger than width  */

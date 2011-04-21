@@ -1,0 +1,54 @@
+{% extends "root.j2" %}
+
+{% block extra_head %}
+<script>
+$(function() {
+  var page = location.href.split("/").pop().split("#").shift() || 'index.html';
+  $("ul.tabs a[href*=" +page+ "]").addClass("current");
+  $("#right ul a[href*=/configuration]").addClass("selected");
+  $("#biglink").addClass("current").click(function() { return false; });
+});
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+p.more, p.more a {
+  font-size:16px;
+  margin:20px 0;
+  letter-spacing:-1px;
+}
+#content .plus {
+  list-style-image:url({{ media_url('img/plus.png') }});
+}
+#content .minus {
+  list-style-image:url({{ media_url('img/plus.png') }});
+}
+h1.hero_title {
+  background:url( {{media_url('img/hero/usersguide.jpg')}} ) no-repeat 0 10px;
+  margin-bottom:-360px;
+}
+</style>
+{% endblock %}
+
+
+{% block main %}
+<h1 class="hero_title">
+  jQuery Tools Users Guide - Common practices for each of the tools
+</h1>
+
+<ul class="tabs" style="position:relative;top:-25px;">
+  <li><a href="{{ content_url('documentation/index.html') }}">Introduction</a>
+  <li><a href="{{ content_url('documentation/basics.html') }}">The Basics</a>
+  <li><a class="w1" href="{{ content_url('documentation/scripting.html') }}">
+      Scripting &amp; Events
+  </a></li>
+  <li><a href="{{ content_url('documentation/performance.html') }}">
+      Performance
+  </a></li>
+</ul>
+
+{% block content %}
+{% endblock %}
+
+{% endblock %}

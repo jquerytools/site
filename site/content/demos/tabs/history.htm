@@ -1,7 +1,12 @@
-{% extends "demos/tabs/skin3.htm" %}
+{% refer to 'demos/tabs/skin3.htm' as parent %}
 
-{% block body %}
-{{ super() }}
+{% block head %}{% mark css %}
+{{ parent.css }}
+{% endmark %}{% endblock %}
+
+{% block body %}{% mark body %}
+{{ parent.tab_html }}
+{{ parent.pane_html }}
 
 <script>
 {% mark new_js %}
@@ -10,7 +15,7 @@ $(function() {
 });
 {% endmark %}
 </script>
-{% endblock %}
+{% endmark %}{% endblock %}
 
 
 

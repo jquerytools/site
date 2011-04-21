@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/css/tabs-flowplayer-v2.css"/>
+      href="{{ media_url('css/tabs-flowplayer-v2.css') }}"/>
 <style>
   #flowtabs li {
   list-style-image:none !important;
@@ -31,6 +31,7 @@
 </ul>
 {% endmark %}
 
+{% mark pane_html %}
 <!-- panes -->
 <div id="flowpanes">
 
@@ -40,7 +41,7 @@
   <div>
     <h2>Lorem ipsum dolor sit amet</h2>
 
-    <img src="${cdn}/img/title/screens.png" alt="Flying screens"
+    <img src="{{ media_url('img/title/screens.png') }}" alt="Flying screens"
          style="float:left;margin:0 30px 200px 0" />
 
     <p style="font-weight:bold">
@@ -63,7 +64,7 @@
   <div>
     <h2>Lorem ipsum dolor sit amet</h2>
 
-    <img src="${cdn}/img/title/eye192.png" alt="Flying screens"
+    <img src="{{ media_url('img/title/eye192.png') }}" alt="Flying screens"
          style="float:left;margin:0 30px 200px 0" />
 
     <p>
@@ -101,7 +102,7 @@
       eget dui volutpat molestie.
     </p>
 
-    <img src="${cdn}/img/title/eye192.png" alt="Flying screens" />
+    <img src="{{ media_url('img/title/eye192.png') }}" alt="Flying screens" />
 
   </div>
 
@@ -124,12 +125,13 @@
     </p>
   </div>
 </div>
+{% endmark %}
 
 <script>
   $(function() {
-  {% mark js %}
+  {% block js %}{% mark js %}
     $("#flowtabs").tabs("#flowpanes > div");
-  {% endmark %}
+  {% endmark %}{% endblock %}
   });
 </script>
 {% endmark %}{% endblock %}

@@ -1,0 +1,64 @@
+
+/* slider root */
+.slider {
+    background:url({{ media_url('img/rangeinput/small-horizontal.png') }}) no-repeat  0 -5px;
+    width:94px;
+    height:5px;
+    cursor:pointer;
+    position: relative;
+    float:left;
+}
+
+/* drag handle */
+.handle {
+    background:transparent url({{ media_url('img/rangeinput/small-horizontal.png') }}) no-repeat scroll -97px 0;
+    height:13px;
+    position:absolute;
+    top:-5px;
+    width:12px;
+    cursor:move;
+}
+
+/* input field */
+.range {
+    font-size:10px;
+    border:0;
+    background:none;
+    width: 30px;
+    margin:-5px 0 10px 0;
+    float:left;
+    color:#fff;
+    text-align:center;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+}
+
+/* input field while focused */
+.range:focus {
+    background-color:#000;
+}
+
+/* cute little CSS3 selector */
+.range[readonly]:focus {
+    background-color:transparent;
+}
+
+
+/* vertical version */
+.vertical .slider {
+    background:url({{ media_url('img/rangeinput/small-vertical.png') }}) no-repeat  -4px -17px;
+    height:94px;
+    width: 5px;
+    margin:5px 13px 0 0;
+}
+
+.vertical .handle {
+    background:transparent url({{ media_url('img/rangeinput/small-vertical.png') }}) no-repeat scroll -1px -2px;
+    top:0;
+    margin-left:-2px;
+}
+
+.vertical .range {
+    margin:-13px 13px 0 -30px;
+}
+

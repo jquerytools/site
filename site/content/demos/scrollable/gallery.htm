@@ -2,9 +2,9 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
 
 <style>
   {% mark css_excerpt %}
@@ -33,12 +33,14 @@
 <!-- wrapper element for the large image -->
 <div id="image_wrap">
   <!-- Initially the image is a simple 1x1 pixel transparent GIF -->
-  <img src="${cdn}${jqt}/img/blank.gif" width="500" height="375" />
+  <img src="{{ media_url('img/blank.gif') }}" width="500" height="375" />
 </div>
 {% endmark %}
 
 <!-- HTML structures -->
+{% with scrollable_id = "scrollable" %}
 {% include "demos/scrollable/scrollable.fragment.html" %}
+{% endwith %}
 
 <script>
 $(function() {

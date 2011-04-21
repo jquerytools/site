@@ -1,9 +1,9 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-horizontal.css" />
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-buttons.css" />
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-navigator.css" />
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/scrollable-horizontal.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/scrollable-buttons.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/scrollable-navigator.css') }}" />
 <style>
 .scrollable img {
 	width:100px;
@@ -17,6 +17,8 @@
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% with scrollable_id = "chained" %}
+
 {% mark html_excerpt %}
 <!-- wrapper for navigator elements -->
 <div class="navi"></div>
@@ -31,10 +33,11 @@
 $(document).ready(function() {
 {% mark js %}
 // heeeeeeeeeeere we go.
-$("#${rootId}").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({
+$("#{{ scrollable_id }}").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({
 	interval: 3000
 });
 {% endmark %}
 });
 </script>
+{% endwith %}
 {% endmark %}{% endblock %}

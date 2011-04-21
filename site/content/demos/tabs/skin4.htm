@@ -4,7 +4,7 @@
 <style>
   /* navigation */
   #nav {
-  background:#ddd url(${cdn}/img/global/gradient/h300_reverse.png);
+  background:#ddd url({{ media_url('img/gradient/h300_reverse.png') }});
   border-bottom:1px solid #CCCCCC;
   height:156px;
   width:745px;
@@ -37,7 +37,7 @@
   }
 
   #nav a.current {
-  background:url(${cdn}${jqt}/img/tabs/down_large.jpg);
+  background:url({{ media_url('img/tabs/down_large.jpg') }});
   }
 
   #nav img {
@@ -55,7 +55,7 @@
 
   /* panes */
   #panes {
-  background:#fff url(${cdn}/img/global/gradient/h300_reverse.png) repeat scroll 0 0;
+  background:#fff url({{ media_url('img/gradient/h300_reverse.png') }}) repeat scroll 0 0;
   border-color:#ccc;
   border-style:solid;
   border-width:1px 1px 0;

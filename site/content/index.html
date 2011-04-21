@@ -1,0 +1,38 @@
+{% extends 'root.j2' %}
+
+{% block extra_css %}
+<style>
+#tools_index #content {
+	background-image:none;
+	float:none;
+	margin-top:25px;
+	padding:0;
+	width:100%;
+}
+
+#right {
+	display:none;
+}
+
+#tease {
+	background-image:url({{ media_url('img/1.2/banner.jpg') }});
+	margin-top:30px;
+	display:block;
+	height:148px;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+<script>$(function() { $("#jqt1").addClass("active"); });</script>
+
+{% refer to "demos/scrollable/home.htm" as home %}
+{{home.css}}
+{{home.body}}
+
+<a id="tease" href="release-notes/"></a>
+
+<br clear="all" />
+{% endblock %}
+
+

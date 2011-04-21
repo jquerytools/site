@@ -7,13 +7,13 @@
 {% mark css_bottom %}
 /* override the arrow image of the tooltip */
 .tooltip.bottom {
-  background:url({{media_base}}/img/tooltip/black_arrow_bottom.png);
+  background:url({{ media_url('img/tooltip/black_arrow_bottom.png') }});
   padding-top:40px;
   height:55px;
 }
 
 .tooltip.bottom {
-  background:url({{media_base}}/img/tooltip/black_arrow_bottom.png);
+  background:url({{ media_url('img/tooltip/black_arrow_bottom.png') }});
 }
 {% endmark %}
 </style>
@@ -21,11 +21,11 @@
 <!--[if lt IE 7]>
 <style>
 .tooltip {
-  background-image:url({{media_base}}/img/tooltip/black_arrow.gif);
+  background-image:url({{ media_url('img/tooltip/black_arrow.gif') }});
 }
 
 .tooltip.bottom {
-  background:url({{media_base}}/img/tooltip/black_arrow_bottom.gif);
+  background:url({{ media_url('img/tooltip/black_arrow_bottom.gif') }});
 }
 </style>
 <![endif]-->
@@ -33,13 +33,13 @@
 
 {% block body %}{% mark body %}
 <div id="dyna">
-  <img src="{{media_base}}/img/photos/1.jpg"
+  <img src="{{ media_url('img/photos/1.jpg') }}"
        title="A must have tool for designing better layouts and more intuitive user-interfaces."/>
-  <img src="{{media_base}}/img/photos/2.jpg"
+  <img src="{{ media_url('img/photos/2.jpg') }}"
        title="Tooltips can be positioned anywhere relative to the trigger element."/>
-  <img src="{{media_base}}/img/photos/3.jpg"
+  <img src="{{ media_url('img/photos/3.jpg') }}"
        title="Tooltips can contain any HTML such as links, images, forms, tables, etc."/>
-  <img src="{{media_base}}/img/photos/4.jpg" style="margin-right:0px"
+  <img src="{{ media_url('img/photos/4.jpg') }}" style="margin-right:0px"
        title="There are many built-in show/hide effects and you can also make your own."/>
 </div>
 

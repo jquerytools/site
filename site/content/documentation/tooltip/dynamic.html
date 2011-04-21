@@ -1,0 +1,133 @@
+{% extends "documentation/tooltip/index.html" %}
+{% refer to 'demos/tooltip/dynamic.htm' as demo %}
+
+{% block css %}
+{{ demo.css }}
+{% endblock %}
+
+{% block content %}
+<h1 style="background:url({{ media_url('img/hero/tooltip.jpg') }}) no-repeat -9px 25px">
+  jQuery Tooltip dynamic positioning
+</h1>
+
+<h2 class="first"><strong>Dynamic plugin</strong> for Tooltip</h2>
+
+<p>
+  <a href="#lower">Click here</a> to scroll a little lower and see how
+  the tooltips behave. We are using the dynamic plugin to reposition
+  our tooltips so that they are always visible in the viewport.
+</p>
+
+<a name="lower"></a>
+{{ demo.body }}
+
+<p>
+  If there is no room on the top edge then the tooltip is shown on the
+  bottom edge. The same happens on every edge of the
+  tooltip: <samp>top, bottom, left</samp> and <samp>right</samp>. The
+  opposite edge is always used.
+</p>
+
+
+<a name="features"></a>
+<h2>Features</h2>
+
+<ul>
+  <li>Can be used with any effect</li>
+  <li>
+    You can use a custom CSS class name for any repositioned
+    edge. This allows you to style the tooltip differently for each
+    edge.
+  </li>
+  <li>
+    You can change the effect and any other configuration variable
+    dynamically whenever repositioning occurs.
+  </li>
+  <li>
+    The tooltip's <samp>offset</samp> configuration variable is
+    inverted. Higher means lower and further right means further left.
+  </li>
+  <li>
+    Small file size: only about 2Kb of minified code. Incomparable.
+  </li>
+</ul>
+
+
+<a name="usage"></a>
+<h2>Usage</h2>
+
+<p>
+  Here is the JavaScript setup for the example above:
+</p>
+
+{% filter syntax('js') %}
+{{ demo.js }}
+{% endfilter %}
+
+<p>
+  Read the <a href="{{ content_url('demos/tooltip/dynamic.html') }}">full
+  documentation</a> for this example.
+</p>
+
+
+<a name="dynamic"></a>
+<h2>Configuration</h2>
+
+<p>
+  Here is a full list of available configuration options for this
+  plugin:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">classNames</td>
+    <td><code>'top right bottom left'</code></td>
+    <td>
+      The CSS class names assigned for the tooltip when repositioning
+      occurs. The names are given as a single string where names for
+      different edges are separated with spaces. Note that you must
+      follow the default pattern for designating different edges if
+      you change the class names.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">top</td>
+    <td><code></code></td>
+    <td>
+      An object with alternate configuration options that will
+      override the default settings when the tooltip is repositioned
+      on the top edge. For example: <samp>{offset: [40, -30], effect:
+      'toggle', opacity: 0.9}</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">right</td>
+    <td><code></code></td>
+    <td>
+      Alternate configuration options for the right edge.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">bottom</td>
+    <td><code></code></td>
+    <td>
+      Alternate configuration options for the bottom edge.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">left</td>
+    <td><code></code></td>
+    <td>
+      Alternate configuration options for the left edge.
+    </td>
+  </tr>
+
+</table>
+{% endblock %}

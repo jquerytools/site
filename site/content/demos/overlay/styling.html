@@ -37,7 +37,7 @@ title: Overlays with different styles
 <p>
   Each of our overlays has a class <samp>overlay</samp> which defines
   a common style for each overlay. This common style is taken from
-  this <a href="{{media_base}}/css/overlay-apple.css">stylesheet</a>. Each
+  this <a href="{{ media_url('css/overlay-apple.css') }}">stylesheet</a>. Each
   overlay has a unique <samp>id</samp> attribute which allows them to
   be customized separately.
 </p>
@@ -56,7 +56,7 @@ title: Overlays with different styles
 <!-- third overlay, background image can, of course, be defined with
      the style attribute -->
 <div class="overlay" id="custom2"
-     style="background-image:url(/img/overlay/flowplayer.png)">
+     style="background-image:url({{ media_url('img/overlay/flowplayer.png') }})">
 </div>
 
 <!-- rest of the overlays ... -->

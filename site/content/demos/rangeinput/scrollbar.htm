@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/demos/rangeinput/css/scrollbar.css"/>
+      href="{{ media_url('css/rangeinput/scrollbar.css') }}"/>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
@@ -10,7 +10,7 @@
 <!-- our scrollable element -->
 <div id="scrollwrap">
   <div id="scroll">
-    jQuery TOOLS ${v.jqt} Rangeinput. HTML5 ranges for humans.
+    jQuery TOOLS {{ jqt.v }}  Rangeinput. HTML5 ranges for humans.
   </div>
 </div>
 

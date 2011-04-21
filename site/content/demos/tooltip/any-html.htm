@@ -5,7 +5,7 @@
   {% mark css_excerpt %}
   /* trigger button */
   #download_now {
-    background:transparent url(/img/home/download.png) no-repeat scroll 0 0;
+    background:transparent url({{ media_url('img/downloadnow.png') }}) no-repeat scroll 0 0;
     display:block;
     height:44px;
     margin-bottom:30px;
@@ -28,7 +28,7 @@
   /* tooltip styling */
   .tooltip {
     display:none;
-    background:url(${cdn}${jqt}/img/tooltip/black_arrow_big.png);
+    background:url({{ media_url('img/tooltip/black_arrow_big.png') }});
     height:163px;
     padding:40px 30px 10px 30px;
     width:310px;
@@ -59,17 +59,17 @@
 <!-- tooltip element -->
 <div class="tooltip">
 
-  <img src="{{media_base}}/img/title/eye.png" alt="Flying screens"
-       style="float:left;margin:0 15px 20px 0" />
+  <img src="{{ media_url('img/title/eye.png') }}" alt="Flying screens"
+       style="float:left; margin:0 15px 20px 0" />
 
   <table style="margin:0">
     <tr>
       <td class="label">File</td>
-      <td>flowplayer-${v.core}.zip</td>
+      <td>flowplayer-{{ flowplayer.v }}.zip</td>
     </tr>
     <tr>
-      <td class="label">Date</td>
-      <td>${context.latestVersion.created}</td>
+      <td class="label">Version</td>
+      <td>{{ flowplayer.date }}</td>
     </tr>
     <tr>
       <td class="label">Size</td>
@@ -81,7 +81,7 @@
     </tr>
   </table>
 
-  <a href="/3.2/">What's new in 3.2</a>
+  <a href="{{ content_url('release-notes') }}">What's new in 3.2</a>
 </div>
 {% endmark %}
 

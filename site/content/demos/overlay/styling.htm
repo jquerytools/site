@@ -2,12 +2,12 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_url('')}}/demos/overlay/css/overlay-apple.css"/>
+      href="{{ media_url('css/overlay-apple.css') }}"/>
 <!-- override styles for some of the overlays -->
 <style>
 {% mark css_excerpt %}
 #custom {
-    background-image:url(${cdn}/img/commerce/box-512.png);
+    background-image:url({{ media_url('img/global/commerce/box-512.png') }});
     width:512px;
     height:531px;
     padding:0px;
@@ -17,11 +17,11 @@
     top:-10px;
 }
 #petrol {
-    background-image:url(${cdn}/img/overlay/petrol.png);
+    background-image:url({{ media_url('img/overlay/petrol.png') }});
     color:#fff;
 }
 #apple {
-    background-image:url(${cdn}/img/overlay/apple.png);
+    background-image:url({{ media_url('img/overlay/apple.png') }});
     color:#fff;
     padding:50px 70px;
 }
@@ -49,7 +49,7 @@
 
 {% macro content() %}
 <h2 style="margin:0px">Here is my overlay</h2>
-<img src="${cdn}/img/title/eye192.png"
+<img src="{{media_url('img/title/eye192.png') }}"
      style="float: left; margin:0px 20px 0 0;" />
 
 <p>
@@ -89,11 +89,10 @@
 </div>
 
 <div class="apple_overlay" id="custom">
-  {{ content() }}
 </div>
 
 <div class="apple_overlay" id="custom2"
-     style="background-image:url({{media_url('')}}/img/overlay/flowplayer.png)">
+  style="background-image:url({{ media_url('img/overlay/flowplayer.png') }})">
   {{ content() }}
 </div>
 

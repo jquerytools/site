@@ -54,7 +54,7 @@ title: Minimal setup for scrollable
         <div class="item">
 
           <!-- image -->
-          <img src="http://farm1.static.flickr.com/${img}_m.jpg" />
+          <img src="http://path/to/my/image.jpg" />
 
           <!-- title -->
           <h3>1. Barcelona Pavilion</h3>
@@ -86,7 +86,7 @@ title: Minimal setup for scrollable
 
 <p>
   We have used the
-  following <a href="${jqt}/css/scrollable-vertical.css">CSS file</a>
+  following <a href="{{ media_url('css/scrollable-vertical.css') }}">CSS file</a>
   for the above setup. Here are the crucial parts from the CSS file
   that are required for a vertical scrollable:
 </p>
@@ -135,7 +135,7 @@ title: Minimal setup for scrollable
 <p>
   We use the <samp>mousewheel</samp> configuration to enable scrolling
   with the mousewheel. You need to make sure
-  that <a href="${jqt}/toolbox/mousewheel.html">mousewheel tool</a> is
+  that <a href="{{ content_url('toolbox/mousewheel.html') }}">mousewheel tool</a> is
   included on your page.
 </p>
 
@@ -146,7 +146,7 @@ title: Minimal setup for scrollable
 <p>
   <strong>Note:</strong> this mousewheel tool is not included in the
   standard jQuery Tools distribution. You must download
-  a <a href="${jqt}/download/index.html#combine">custom
+  a <a href="{{ content_url('download/index.html') }}#combine">custom
   combination</a> that includes this tool.
 </p>
 
@@ -157,6 +157,6 @@ title: Minimal setup for scrollable
 </div>
 
 <p>
-  <a href="${jqt}/credits.html" id="credits">Photo credits &raquo;</a>
+  <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
 </p>
 {% endblock %}

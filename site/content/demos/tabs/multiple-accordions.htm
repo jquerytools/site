@@ -8,7 +8,7 @@
   .accordion {
 
     /* some decorations for the accordion root element */
-    background:#333 url(/img/global/gradient/h300.png) 0 0;
+    background:#333 url({{ media_url('img/gradient/h300.png') }}) 0 0;
     width: 300px;
     border:1px solid #333;
 
@@ -24,7 +24,7 @@
 
   /* accordion header */
   .accordion h2 {
-  background:#ccc url(/img/global/gradient/h30.png);
+  background:#ccc url({{ media_url('img/gradient/h30.png') }});
   margin:0;
   padding:5px 15px;
   font-size:14px;
@@ -68,7 +68,7 @@
   <h2>First pane</h2>
 
   <div class="pane" style="display:block">
-    <img src="{{media_base}}/img/title/javascript24.png"
+    <img src="{{ media_url('img/title/javascript24.png') }}"
          alt="JavaScript tools" style="float:left; margin:0 15px 15px 0" />
 
     <h3>Lorem ipsum dolor</h3>

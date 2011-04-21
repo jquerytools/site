@@ -1,22 +1,23 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
+<!-- styling of an exposed element -->
 <style>
-  {% mark css_excerpt %}
+{% mark css_excerpt %}
 #exposeMask {
-	/* use a custom background color and image on the mask */
-	background:#123 url(${cdn}/img/player/acme-gray.png) 50px 366px no-repeat;
+/* use a custom background color and image on the mask */
+background:#123 url({{ media_url('img/player/acme-gray.png') }}) 50px 366px no-repeat;
 }
 {% endmark %}
 
 /* player splash image styling */
 #player {
-	background:#333 url(${cdn}/img/home/flow_eye.jpg) no-repeat 37px 0;
-	width:500px;
-	height:300px;
-	display:block;
-	text-align:center;
-	margin:10px auto;
+background:#333 url({{ media_url('img/flow_eye.jpg') }}) no-repeat 37px 0;
+width:500px;
+height:300px;
+display:block;
+text-align:center;
+margin:10px auto;
 }
 
 #player img {
@@ -26,24 +27,21 @@
 
 /* style for the player's wrapper element */
 #player_wrap {
-	background:#000 url(${cdn}/img/global/gradient/h300.png) 0 0 repeat-x;
+	background:#000 url({{ media_url('img/gradient/h300.png') }}) 0 0 repeat-x;
 }
 </style>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
-<script src="${cdn}/js/flowplayer-${v.core}.min.js"></script>
-
-{# <%@ include file="../../standalone.jsf" %> #}
-
 <!-- javascript coding -->
+<script src="{{ flowplayer.js }}"></script>
 <script>
 // execute your scripts when the the DOM is ready. this is a good habit
 $(function() {
 
 {% mark js %}
 // install flowplayer.
-$f("player", "/swf/flowplayer-${v.core}.swf", {
+$f("player", "{{ flowplayer.swf }}", {
 
 	// when playback starts, perform exposing
 	onStart: function() {
@@ -90,9 +88,9 @@ $f("player", "/swf/flowplayer-${v.core}.swf", {
 <!-- the player -->
 {% mark html_excerpt %}
 <div class="black box" id="player_wrap">
-	<a id="player" href="${v.promo}">
-		<img src="${cdn}/img/player/btn/play_text_large.png" alt="Show me" />
-	</a>
+  <a id="player" href="http://blip.tv/file/get/KimAronson-TwentySeconds6421.m4v">
+    <img src="{{ media_url('img/global/player/btn/play_text_large.png') }}" alt="Show me" />
+  </a>
 </div>
 {% endmark %}
 {% endmark %}{% endblock %}

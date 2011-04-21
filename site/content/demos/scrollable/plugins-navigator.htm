@@ -1,12 +1,17 @@
 {% extends 'standalone.j2' %}
 
 {% block head %}{% mark css %}
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-horizontal.css" />
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-buttons.css" />
-<link rel="stylesheet" type="text/css" href="${cdn}${jqt}/css/scrollable-navigator.css" />
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
+<link rel="stylesheet" type="text/css"
+      href="{{ media_url('css/scrollable-navigator.css') }}" />
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% with scrollable_id = "navigator" %}
+
 {% mark html_excerpt %}
 <!-- wrapper for navigator elements -->
 <div class="navi"></div>
@@ -21,10 +26,12 @@
 $(document).ready(function() {
 {% mark js %}
 // initialize scrollable together with the navigator plugin
-$("#${rootId}").scrollable().navigator();
+$("#{{ scrollable_id }}").scrollable().navigator();
 {% endmark %}
 });
 </script>
+
+{% endwith %}
 {% endmark %}{% endblock %}
 
 

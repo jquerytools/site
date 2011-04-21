@@ -2,12 +2,12 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/demos/overlay/css/overlay-apple.css"/>
+      href="{{ media_url('css/overlay-apple.css') }}"/>
 <style>
 {% mark css_excerpt %}
 /* black version of the overlay. simply uses a different background image */
 div.apple_overlay.black {
-background-image:url({{media_base}}/img/overlay/transparent.png);
+background-image:url({{ media_url('img/overlay/transparent.png') }});
 color:#fff;
 }
 {% endmark %}
@@ -41,13 +41,13 @@ cursor:pointer;
 <!--[if lt IE 7]>
 <style>
   div.apple_overlay {
-    background-image:url({{media_base}}/img/overlay/overlay_IE6.gif);
+    background-image:url({{ media_url('img/overlay/overlay_IE6.gif') }});
     color:#fff;
   }
 
   /* default close button positioned on upper right corner */
   div.apple_overlay div.close {
-    background-image:url({{media_base}}/img/overlay/overlay_close_IE6.gif);
+    background-image:url({{ media_url('img/overlay/overlay_close_IE6.gif') }});
   }
 </style>
 <![endif]-->
@@ -57,15 +57,15 @@ cursor:pointer;
 {% block body %}{% mark body %}
 <!-- trigger elements -->
 <div id="apple">
-  <img src="{{media_url('')}}/img/photos/gustavohouse.jpg" rel="#photo1"/>
-  <img src="{{media_url('')}}/img/photos/alexanderplatz-station.jpg"
+  <img src="{{ media_url('img/photos/gustavohouse.jpg') }}" rel="#photo1"/>
+  <img src="{{ media_url('img/photos/alexanderplatz-station.jpg') }}"
        rel="#photo2"/>
 </div>
 
 {% mark apple_overlays %}
 <!-- overlayed element, which is styled with external stylesheet -->
 <div class="apple_overlay black" id="photo1">
-  <img src="{{media_url('')}}/img/photos/gustavohouse-medium.jpg" />
+  <img src="{{ media_url('img/photos/gustavohouse-medium.jpg') }}" />
   <div class="details">
     <h2>Berlin Gustavohouse</h2>
     <p>
@@ -76,7 +76,7 @@ cursor:pointer;
 </div>
 
 <div class="apple_overlay" id="photo2">
-  <img src="{{media_url('')}}/img/photos/alexanderplatz-station-medium.jpg" />
+  <img src="{{ media_url('img/photos/alexanderplatz-station-medium.jpg') }}" />
   <div class="details">
     <h2>Berlin Alexanderplatz Station</h2>
     <p>

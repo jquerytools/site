@@ -2,12 +2,12 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_url('')}}/demos/overlay/css/overlay-apple.css"/>
+      href="{{ media_url('css/overlay-apple.css') }}"/>
 <style>
   {% mark css_excerpt %}
   /* use a semi-transparent image for the overlay */
   #overlay {
-    background-image:url(${cdn}/img/overlay/transparent.png);
+    background-image:url({{media_url('img/overlay/transparent.png') }});
     color:#efefef;
     height:450px;
   }

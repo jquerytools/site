@@ -21,7 +21,7 @@ div.clock {
 {% mark js %}
 <script>
 $(function() {
-	$("div.clock").flashembed("/swf/clock.swf");
+	$("div.clock").flashembed("{{ media_url('swf/global/clock.swf') }}");
 });
 </script>
 {% endmark %}

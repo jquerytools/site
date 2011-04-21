@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-navig.css" />
+      href="{{ media_url('css/scrollable-navigator.css') }}" />
 <style>
   /* main vertical scroll */
   #main {
@@ -21,7 +21,7 @@
   .page {
   padding:10px;
   height: 450px;
-  background:#222 url(${cdn}/img/global/gradient/h600.png) 0 0 repeat-x;
+  background:#222 url({{ media_url('img/gradient/h600.png') }}) 0 0 repeat-x;
   width:520px;
   }
 

@@ -18,7 +18,6 @@
 #flash {
 	width:786px;
 	height:300px;
-	${!empty plain ? 'margin-left:-19px' : ''}
 }
 </style>
 {% endmark %}{% endblock %}
@@ -35,7 +34,7 @@
 <script>
 {% mark js %}
 // wmode parameter does the trick
-flashembed("flash", {src: "/swf/flash10.swf", wmode: 'opaque'});
+flashembed("flash", {src: "{{ media_url('swf/global/flash10.swf') }}", wmode: 'opaque'});
 {% endmark %}
 </script>
 {% endmark %}{% endblock %}

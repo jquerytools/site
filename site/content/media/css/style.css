@@ -1,5 +1,4 @@
-
-/*{{{ very basic styles */
+/* very basic styles */
 
 body {
     margin:0;
@@ -18,7 +17,7 @@ a {
 }
 
 a.external {
-    background:transparent url(/img/global/external.png) no-repeat scroll right 0;
+    background:transparent url({{ media_url('img/global/external.png') }}) no-repeat scroll right 0;
     padding-right:15px;
 }
 
@@ -83,7 +82,7 @@ a:active {
 }
 
 #content ul li, #right .smaller li {
-    list-style-image:url(/img/global/bullet.png);
+    list-style-image:url({{ media_url('img/bullet.png') }});
 }
 
 #right .smaller {
@@ -105,10 +104,10 @@ body.ie7 #content ul, body.ie7 #content ol {
     -webkit-border-radius:5px;
 }
 
-/*}}}*/
 
 
-/*{{{ typo */
+
+/* typo */
 
 h1, h2, h3, h4 {
     font-weight:normal;
@@ -165,14 +164,14 @@ p.more, p.more a {
 .center {
     text-align:center;
 }
-/*}}}*/
 
 
-/*{{{  global switch, user account  */
+
+/*  global switch, user account  */
 
 #global {
     height: 34px;
-    background: #000 url(../img/global/main.png) repeat-x;
+    background: #000 url({{ media_url('img/global/main.png')}}) repeat-x;
     margin-bottom:25px;
 }
 
@@ -202,7 +201,7 @@ p.more, p.more a {
     width:275px;
     overflow: hidden;
     text-indent: -999em;
-    background:#fff url(../img/global/main.png) no-repeat 0 -40px;
+    background: #fff url({{ media_url('img/global/main.png') }}) no-repeat 0 -40px;
 }
 
 #global_fp:hover 	{ background-position: 0 -80px;  }
@@ -222,7 +221,7 @@ p.more, p.more a {
 
 #gsearch input {
     border:0;
-    background:transparent url(../img/global/main.png) no-repeat scroll -9px -237px;
+    background:transparent url({{ media_url('img/global/main.png') }}) no-repeat scroll -9px -237px;
     width:125px;
     padding:4px 10px;
     font-size:11px;
@@ -237,7 +236,7 @@ p.more, p.more a {
 
 #gsearch button {
     border:0;
-    background: transparent url(../img/global/main.png) no-repeat scroll -8px -263px;
+    background: transparent url({{ media_url('img/global/main.png') }}) no-repeat scroll -8px -263px;
     text-indent:-999em;
     width:78px;
     height:23px;
@@ -281,7 +280,7 @@ p.more, p.more a {
 }
 
 .account {
-    background:#000 url(../img/global/gradient/h150_reverse.png);
+    background:#000 url({{ media_url('img/gradient/h150_reverse.png') }});
     _background-image:none;
     padding:0 10px;
     width:140px;
@@ -381,10 +380,10 @@ p.more, p.more a {
     cursor:pointer;
     display:block;
 }
-/*}}}*/
 
 
-/*{{{ flowplayer & jquery Tools navi */
+
+/* flowplayer & jquery Tools navi */
 
 
 /* global navigations */
@@ -406,7 +405,7 @@ p.more, p.more a {
     width: 160px;
     overflow: hidden;
     text-indent: -999em;
-    background-image: url(../img/global/navi-3.2.png);
+    background-image: url({{ media_url('img/global/navi-3.2.png') }});
     background-repeat: no-repeat;
 }
 
@@ -454,7 +453,7 @@ p.more, p.more a {
 /* jQuery Tools navi */
 #nav2 a {
     width: 192px;
-    background-image: url(../img/global/navi-jqt.png);
+    background-image: url({{ media_url('img/global/navi-jqt.png') }});
 }
 
 #jqt1 { background-position: 0 0; width: 203px !important; }
@@ -486,10 +485,10 @@ p.more, p.more a {
 #jqt4.active { background-position: -587px -126px !important; }
 #jqt5.active { background-position: -779px -126px !important; }
 
-/*}}}*/
 
 
-/*{{{ global elements */
+
+/* global elements */
 
 #wrap {
     margin:10px auto;
@@ -497,7 +496,7 @@ p.more, p.more a {
 }
 
 #content {
-    background:#fff url(/img/global/content_top.jpg) no-repeat;
+    background:#fff url({{ media_url('img/global/content_top.jpg') }}) no-repeat;
     float:left;
     min-height:400px;
     padding:20px;
@@ -525,11 +524,11 @@ p.more, p.more a {
     margin-top:355px;
 }
 
-body.tools #content, body.tools #right {
+#content, #right {
     margin-top:250px;
 }
 
-body.tools #content h1 {
+#content h1 {
     height:345px;
     text-indent:-999em;
     top:-339px;
@@ -627,7 +626,7 @@ body.tools #content h1 {
 }
 
 a#demos, a#tutorials {
-    background:transparent url(/img/global/demos_tutorials.jpg) no-repeat 0 0;
+    background:transparent url({{ media_url('img/global/demos_tutorials.jpg') }}) no-repeat 0 0;
     display:block;
     float:left;
     height:77px;
@@ -659,10 +658,10 @@ a#demos.selected, a#tutorials.selected {
     color:#789;
 }
 
-/*}}}*/
 
 
-/*{{{ RIGHT */
+
+/* RIGHT */
 #right h3 {
     letter-spacing:0;
 }
@@ -751,7 +750,7 @@ a#demos.selected, a#tutorials.selected {
 }
 
 #right h2 {
-    background:url(/img/global/sidenav.png) no-repeat;
+    background:url({{ media_url('img/global/sidenav.png') }}) no-repeat;
     font-size:12px;
     height:16px;
     line-height:16px;
@@ -776,21 +775,21 @@ a#demos.selected, a#tutorials.selected {
 
 
 #right .inside, #right .box ul {
-    background:url(/img/global/sidenav_strip.jpg) no-repeat;
+    background:url({{ media_url('img/global/sidenav_strip.jpg') }}) no-repeat;
 }
 
 #right .gradient {
-    background:#f0f6f7 url(/img/global/gradient/h300.png) repeat-x;
+    background:#f0f6f7 url({{ media_url('img/gradient/h300.png') }}) repeat-x;
     margin:0 3px;
     padding:6px 8px;
 }
 
 #right .gradient.ruby {
-    background:#fff url(/img/global/gradient/h150.png) repeat-x;
+    background:#fff url({{ media_url('img/gradient/h150.png') }}) repeat-x;
 }
 
 #right .clear {
-    background:url(/img/global/sidenav.png) no-repeat 0 -353px;
+    background:url({{ media_url('img/global/sidenav.png') }}) no-repeat 0 -353px;
     height:10px;
 }
 
@@ -843,7 +842,7 @@ span.icon {
     height:24px;
     float:left;
     margin:-3px 8px 0 -4px;
-    background:url(/img/title/plugins_small.png);
+    background:url({{ media_url('img/global/title/plugins_small.png') }});
 }
 
 span.icon.js {
@@ -858,13 +857,13 @@ span.icon.tools {
     background-position:0 -74px;
 }
 
-/*}}}*/
 
 
-/*{{{ BOXES */
+
+/* BOXES */
 
 
-/*{{{ code */
+/* code */
 
 pre, code, .code {
     font-family:'andale mono','bitstream vera sans mono','lucida console','courier new',monospace;
@@ -891,7 +890,7 @@ pre, code, .code {
 
 
 #content .box.code {
-    background:#f9f9fa url(/img/box/code_lines.png) 0px -3px repeat-y;
+    background:#f9f9fa url({{ media_url('img/global/box/code_lines.png') }}) 0px -3px repeat-y;
     padding:0px 14px 0px 35px;
 }
 
@@ -906,10 +905,10 @@ pre, code, .code {
     background-image:none;
     outline:0;
 }
-/*}}}*/
 
 
-/*{{{ #content box, listing, .tip  */
+
+/* #content box, listing, .tip  */
 
 #content .box, table.listing, .tip {
     border:1px solid #ccc;
@@ -938,7 +937,7 @@ pre, code, .code {
 }
 
 .tip {
-    background:url(/img/global/gradient/h150.png) repeat-x;
+    background:url({{ media_url('img/gradient/h150.png') }}) repeat-x;
 }
 
 
@@ -989,7 +988,7 @@ pre, code, .code {
 
 /* info, alert */
 #content .box.info, #content .box.alert {
-    background-image:url(/img/global/info.png);
+    background-image:url({{ media_url('img/global/info.png') }});
     background-position:6px center;
     background-repeat:no-repeat;
     padding:15px 50px;
@@ -1007,16 +1006,16 @@ pre, code, .code {
 }
 
 #content .box.alert {
-    background-image:url(/img/global/alert.png);
+    background-image:url({{ media_url('img/global/alert.png') }});
 }
 
-/*}}}*/
 
 
-/*}}}*/
 
 
-/*{{{ forms */
+
+
+/* forms */
 form {
     margin:10px 0;
 }
@@ -1099,10 +1098,10 @@ td.blank {
     height:30px;
 }
 
-/*}}}*/
 
 
-/*{{{ buttons */
+
+/* buttons */
 
 button {
     border-width:1px;
@@ -1128,7 +1127,7 @@ button em {
 
 /* button.custom */
 button.custom {
-    background:transparent url(/img/form/btn/normal.png) 0 0 no-repeat;
+    background:transparent url({{ media_url('img/form/btn/normal.png') }}) 0 0 no-repeat;
     height:32px;
     width:99px;
     border:0;
@@ -1149,12 +1148,12 @@ button.custom span {
 }
 
 button.custom.large {
-    background-image:url(/img/form/btn/large.png);
+    background-image:url({{ media_url('img/form/btn/large.png') }});
     width:119px;
 }
 
 button.custom.low {
-    background-image:url(/img/form/btn/low_small.png);
+    background-image:url({{ media_url('img/form/btn/low_small.png') }});
     width:75px;
     height:24px;
     font-size:11px;
@@ -1170,22 +1169,22 @@ button.low:active {
 
 
 button.custom.low.large {
-    background-image:url(/img/form/btn/low_large.png);
+    background-image:url({{ media_url('img/form/btn/low_large.png') }});
     width:115px;
 }
 
 button.custom.low.medium {
-    background-image:url(/img/form/btn/low.png);
+    background-image:url({{ media_url('img/form/btn/low.png') }});
     width:94px;
 }
 
 button.custom.low.xlarge {
-    background-image:url(/img/form/btn/low_xlarge.png);
+    background-image:url({{ media_url('img/form/btn/low_xlarge.png') }});
     width:155px;
 }
 
 button.delete {
-    background-image:url(/img/form/btn/delete.png);
+    background-image:url({{ media_url('img/form/btn/delete.png') }});
     width:94px;
     height:24px;
 }
@@ -1206,18 +1205,18 @@ button.custom.low span {
 
 /* custom buttons */
 #loginButton {
-    background:url(/img/form/btn/login_search.png) no-repeat 0 0;
+    background:url({{ media_url('img/form/btn/login_search.png') }}) no-repeat 0 0;
 }
 
 #paypalButton {
-    background-image:url(/img/commerce/paypal.png);
+    background-image:url({{ media_url('img/services/paypal.png') }});
     width:105px;
 }
 
 
 /* span.play */
 span.play {
-    background:url(/img/player/btn/play.png) no-repeat;
+    background:url({{ media_url('img/global/player/btn/play.png') }}) no-repeat;
     display:block;
     width:40px;
     height:41px;
@@ -1233,25 +1232,25 @@ span.play:focus {
 }
 
 span.play.large {
-    background-image:url(/img/player/btn/play_full.png);
+    background-image:url({{ media_url('img/global/player/btn/play_full.png') }});
     width:125px;
 }
 
 span.play.showme {
-    background-image:url(/img/player/btn/showme_full.png);
+    background-image:url({{ media_url('img/global/player/btn/showme_full.png') }});
     width:125px;
 }
 
 span.play.again {
-    background-image:url(/img/player/btn/watch_again_full.png);
+    background-image:url({{ media_url('img/global/player/btn/watch_again_full.png') }});
     width:149px;
 }
 
 
-/*}}}*/
 
 
-/*{{{ tabs */
+
+/* tabs */
 
 /* root element for tabs  */
 .tabs {
@@ -1273,7 +1272,7 @@ span.play.again {
 
 /* link inside the tab. uses a background image */
 .tabs a {
-    background: url(/img/global/tabs.png) no-repeat -652px 0;
+    background: url({{ media_url('img/global/tabs.png') }}) no-repeat -652px 0;
     font-size:11px;
     display:block;
     height: 30px;
@@ -1335,10 +1334,10 @@ span.play.again {
     display:none;
 }
 
-/*}}}*/
 
 
-/*{{{ tables */
+
+/* tables */
 
 table.listing {
     width:100%;
@@ -1360,7 +1359,7 @@ table.listing a:hover span {
 }
 
 th {
-    background:url(/img/global/gradient/h30.png) 0 0px repeat-x;
+    background:url({{ media_url('img/gradient/h30.png') }}) 0 0px repeat-x;
     background-color:#c2d0da;
     text-align:left;
     padding:5px;
@@ -1431,16 +1430,16 @@ td.code i {
 }
 
 
-/*}}}*/
 
 
-/*{{{ player */
+
+/* player */
 
 a.player {
     display:block;
     width:500px;
     height:340px;
-    background:#000 url(/img/global/gradient/h500.png) repeat-x 0 0;
+    background:#000 url({{ media_url('img/gradient/h500.png') }}) repeat-x 0 0;
     text-align:center;
     color:#fff;
     text-decoration:none;
@@ -1461,7 +1460,7 @@ a.player.plain {
 }
 
 a.player.small {
-    background:url(/img/player/splash_small.png) no-repeat;
+    background:url({{ media_url('img/global/player/splash_small.png') }}) no-repeat;
     height:186px;
     padding:0pt 24px 45px;
     width:251px;
@@ -1497,21 +1496,21 @@ a.player p {
     padding-top:0px;
 }
 
-/*}}}*/
 
 
-/*{{{ info, overlay, grippie */
+
+/* info, overlay, grippie */
 
 /* overlay */
 .overlay, #overlay {
     padding:40px;
     width:576px;
     display:none;
-    background-image:url(/img/overlay/white.png);
+    background-image:url({{ media_url('img/overlay/white.png') }});
 }
 
 a.close {
-    background:url(/img/overlay/close.png) no-repeat;
+    background:url({{ media_url('img/overlay/close.png') }}) no-repeat;
     position:absolute;
     top:2px;
     right:5px;
@@ -1526,7 +1525,8 @@ a.close {
 }
 
 .grippie {
-    background:#eee url(/img/forum/grippie.png) no-repeat scroll center 2px;
+    /* TODO: Unknown image*/
+    background:#eee url({{ media_url('img/forum/grippie.png') }}) no-repeat scroll center 2px;
     border-color:#ddd;
     border-style:solid;
     border-width:0pt 1px 1px;
@@ -1548,7 +1548,7 @@ a.close {
     color:yellow;
 }
 
-/*}}}*/
+
 
 
 #documentation_index #content, #index #content {
@@ -1565,7 +1565,7 @@ a.close {
 
 
 
-/*{{{ footer */
+/* footer */
 
 
 #footerlinks {
@@ -1588,7 +1588,7 @@ a.close {
 }
 
 #pick {
-    background: url(/img/box/right/blank.png) no-repeat;
+    background: url({{ media_url('img/box/right/blank.png') }}) no-repeat;
     width:186px;
     height:126px;
     margin:15px 15px 0 0;
@@ -1661,7 +1661,7 @@ a.close {
     display:block;
     width:74px;
     height:74px;
-    background:url(../../img/global/twitter.png) no-repeat -4px -4px;
+    background:url({{ media_url('img/services/twitter.png') }}) no-repeat -4px -4px;
     text-indent:-999em;
     float:right;
     margin-top:10px;
@@ -1677,14 +1677,14 @@ a.close {
 }
 
 .tools #pick {
-    background-image:url(/img/box/right/tools.png);
+    background-image:url({{ media_url('img/box/right/tools.png') }});
     padding-right:90px;
     width:115px;
 }
-/*}}}*/
 
 
-/*{{{ blog  */
+
+/* blog  */
 
 .blogImage {
     width:85px;
@@ -1694,13 +1694,28 @@ a.close {
     background-repeat:no-repeat;
 }
 
-.blogImage.book 		{ background-image: url(/img/title/book.png); }
-.blogImage.release 	{ background-image: url(/img/title/release.png); }
-.blogImage.screens 	{ background-image: url(/img/title/screens.png); }
-.blogImage.flash 		{ background-image: url(/img/title/flash.png); }
-.blogImage.js 			{ background-image: url(/img/title/javascript.png); }
-.blogImage.streaming { background-image: url(/img/title/streaming.png); }
-.blogImage.jstools 	{ background-image: url(/img/title/tools.png); }
+/* TODO: Unknown images */
+.blogImage.book {
+    background-image: url({{ media_url('img/title/book.png') }});
+}
+.blogImage.release {
+    background-image: url({{ media_url('img/title/release.png') }});
+}
+.blogImage.screens {
+    background-image: url({{ media_url('img/title/screens.png') }});
+}
+.blogImage.flash {
+    background-image: url({{ media_url('img/title/flash.png') }});
+}
+.blogImage.js {
+    background-image: url({{ media_url('img/title/javascript.png') }});
+}
+.blogImage.streaming {
+    background-image: url({{ media_url('img/title/streaming.png') }});
+}
+.blogImage.jstools {
+    background-image: url({{ media_url('img/title/tools.png') }});
+}
 
 
 .blogImage.release, .blogImage.book, .blogImage.screens {
@@ -1721,11 +1736,11 @@ a.close {
 
 
 
-/*}}}*/
 
 
-/*{{{ tools  */
-.tools #right a {
+
+/* tools  */
+#right a {
     color:#00559E;
 }
 
@@ -1733,17 +1748,17 @@ a.close {
     margin-top:355px;
 }
 
-body.tools #content, body.tools #right {
+#content, #right {
     margin-top:250px;
 }
 
-body.tools #breadcrumb {
+#breadcrumb {
     margin-bottom:-15px;
     top:-35px;
 }
 
 
-body.tools #content h1 {
+#content h1 {
     height:320px;
     text-indent:-999em;
     top:-330px;
@@ -1753,7 +1768,7 @@ body.tools #content h1 {
 
 
 #content h1#hero {
-    background:url(/tools/img/hero/plain.jpg) no-repeat -31px 16px;
+    background:url({{ media_url('img/hero/plain.jpg') }}) no-repeat -31px 16px;
     font-size:75px;
     letter-spacing:-3px;
     padding:151px 0 0 217px;
@@ -1774,7 +1789,7 @@ body.tools #content h1 {
 }
 
 #hero span {
-    background:transparent url(/img/global/gradient/letters.png) repeat-x 0 0;
+    background:transparent url({{ media_url('img/gradient/letters.png') }}) repeat-x 0 0;
     height:80px;
     position:absolute;
     margin-top:-7px;
@@ -1813,7 +1828,7 @@ h1 i {
     font-size:18px;
 }
 
-/*}}}*/
+
 
 @media print {
 

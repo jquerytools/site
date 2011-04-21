@@ -1,9 +1,9 @@
-{% extends 'standalone.j2' %}
+{% extends "standalone.j2" %}
 
 {% block head %}{% mark css %}
 <!-- tab styling -->
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/tabs-flowplayer-v2.css"/>
+      href="{{ media_url('css/tabs-flowplayer-v2.css') }}"/>
 
 <style>
   {% mark css_excerpt %}
@@ -40,8 +40,6 @@
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
-{% include "demos/scrollable/scrollable.fragment.html" %}
-
 {% mark html_excerpt %}
 <!-- tabs work as navigator for scrollable -->
 <ul id="flowtabs" class="navi">
@@ -62,7 +60,8 @@
 
       <h2>Add custom scrolls to your site</h2>
 
-      <img src="${cdn}/img/title/eye192.png" alt="Flying screens" style="float:right;margin:0 0 20px 20px" />
+      <img src="{{ media_url('img/title/eye192.png') }}"
+           alt="Flying screens" style="float:right;margin:0 0 20px 20px" />
 
       <p>
 	You can use this tool on
@@ -132,13 +131,13 @@
 
 	<ul>
 	  <li>
-	    <a href="${jqt}/scrollable/index.html#autoscroll">autoscroll</a>
+	    <a href="{{ content_url('scrollable/index.html') }}#autoscroll">autoscroll</a>
 	    &nbsp; makes the scrolling behaviour automatic and is
 	    highly configurable.
 	  </li>
 
 	  <li style="margin-top:15px">
-	    <a href="${jqt}/scrollable/index.html#navigator">navigator</a>
+	    <a href="{{ content_url('scrollable/index.html') }}#navigator">navigator</a>
 	    &nbsp; provides navigation buttons for switching between
 	    pages in Scrollable. Can be enabled with a history feature
 	    so that you can scroll with your browser's back (and
@@ -148,10 +147,10 @@
 
 	<p>
 	  You can also
-	  write <a href="${jqt}/documentation/index.html#plugins">your
+	  write <a href="{{ content_url('documentation/index.html') }}#plugins">your
 	  own plugins</a>. Another way to alter the default behaviour
 	  is the ability to make
-	  your <a href="${jqt}/demos/scrollable/easing.html">own
+	  your <a href="{{ content_url('demos/scrollable/easing.html') }}">own
 	  animation effects</a>. There is lots of room for
 	  experimentation!
 	</p>
@@ -167,7 +166,7 @@
 
 	<ul>
 	  <c:forEach items="${f:getDemo(context.toolDemos, 'scrollable/index.html').category.demos}" var="demo">
-	    <li> <a href="${jqt}/demos/${demo.path}">${demo.title}</a> </li>
+	    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
 	  </c:forEach>
 	</ul>
       </div>

@@ -27,12 +27,13 @@
   }
 
   h1 {
+    background-repeat: no-repeat;
     background-position: 0 25px;
+    height: 
   }
 </style>
 
-
-<h1 style="background-image:url({{media_base}}/img/hero/{{resource.meta.group.slug}}.jpg)">
+<h1 style="background-image:url({{ media_url('') }}img/hero/{{resource.meta.group.slug}}.jpg)">
   {{ resource.meta.group.title }}
 </h1>
 

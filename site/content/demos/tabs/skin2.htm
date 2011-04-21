@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/css/tabs-no-images.css"/>
+      href="{{ media_url('css/tabs-no-images.css') }}"/>
 <style>
 {% mark css_content %}
 /* alternate colors: skin2 */
@@ -26,7 +26,7 @@ ul.skin2 a.current {
 div.skin2 div {
     min-height:200px;
     color:#fff;
-    background:#234 url({{media_base}}/img/global/gradient/h300.png) repeat-x scroll 0 -50px;
+    background:#234 url({{ media_url('img/gradient/h300.png') }}) repeat-x scroll 0 -50px;
 
     /* IE6 does not support PNG24 images natively */
     _background:#4F5C6A;
@@ -44,7 +44,7 @@ div.skin2 div {
 
 <div class="css-panes skin2">
   <div>
-    <img src="{{media_base}}/img/title/eye192.png" alt="Flying screens"
+    <img src="{{ media_url('img/title/eye192.png') }}" alt="Flying screens"
          style="float:left;margin:0 30px 20px 0" />
     <h2>Lorem ipsum dolor sit amet</h2>
     <p>

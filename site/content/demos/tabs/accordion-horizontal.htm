@@ -2,7 +2,7 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/css/tabs-accordion-horizontal.css"/>
+      href="{{media_url('css/tabs-accordion-horizontal.css')}}"/>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
@@ -10,7 +10,7 @@
 <div id="accordion">
 
   <!-- accordion header #1 -->
-  <img src="{{media_base}}/img/title/streaminge.png" />
+  <img src="{{media_url('img/title/streaminge.png')}}" />
 
   <div style="width:200px;">
     <h3>First pane</h3>
@@ -20,7 +20,7 @@
     </p>
   </div>
 
-  <img src="${cdn}/img/title/flash.png" />
+  <img src="{{ media_url('img/title/flash.png') }}" />
 
   <div>
     <h3>Second pane</h3>
@@ -30,7 +30,7 @@
     </p>
   </div>
 
-  <img src="${cdn}/img/title/streaming.png" />
+  <img src="{{ media_url('img/title/streaming.png') }}" />
 
   <div>
     <h3>Third pane</h3>

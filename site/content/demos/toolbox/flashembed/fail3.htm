@@ -16,13 +16,13 @@
 <script>
 {% mark js %}
 flashembed("fail3", {
-	src: "/swf/clock.swf",
+	src: "{{ media_url('swf/global/clock.swf') }}",
 
 	// provide large enough version number so we can see what happens
 	version: [20, 0],
 
 	// supply your path to the express install Flash object.
-	expressInstall: "http://static.flowplayer.org/swf/expressinstall.swf",
+	expressInstall: "{{ media_url('swf/global/expressinstall.swf') }}",
 
 	// called every time the supported version is not found
 	onFail: function() {

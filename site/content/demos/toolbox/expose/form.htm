@@ -5,14 +5,14 @@
 <style>
 {% mark css_excerpt %}
 #exposeMask {
-	background:#678 url(${jqt}/img/mask/mask_gradient_1000.png) no-repeat;
-	background-position:${empty plain ? '-260px -79px' : '13% 160px'};
+	background:#678 url({{ media_url('img/mask/mask_gradient_1000.png') }}) no-repeat;
+	background-position: 13% 160px;
 }
 {% endmark %}
 
 form.expose {
 	border:1px outset #ccc;
-	background:#fff url(${cdn}/img/global/gradient/h150.png) repeat-x;
+	background:#fff url({{ media_url('img/gradient/h150.png') }}) repeat-x;
 	padding:20px;
 	margin:20px 0;
 	text-align:center;

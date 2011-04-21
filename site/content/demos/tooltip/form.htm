@@ -2,11 +2,11 @@
 
 {% block head %}{% mark css %}
 <link rel="stylesheet" type="text/css"
-      href="{{media_base}}/demos/tooltip/css/tooltip-generic.css"/>
+      href="{{ media_url('css/tooltip-generic.css') }}"/>
 <style>
   #myform {
   border:1px outset #ccc;
-  background:#fff url(${cdn}/img/global/gradient/h600.png) repeat-x;
+  background:#fff url({{ media_url('img/gradient/h600.png') }}) repeat-x;
   padding:20px;
   margin:20px 0;
   width:350px;

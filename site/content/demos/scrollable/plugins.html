@@ -12,11 +12,11 @@ title: Scrollable plugins in action
 {{ chain.css }}
 {{ autoscroll.css }}
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-horizontal.css" />
+      href="{{ media_url('css/scrollable-horizontal.css') }}" />
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-buttons.css" />
+      href="{{ media_url('css/scrollable-buttons.css') }}" />
 <link rel="stylesheet" type="text/css"
-      href="${cdn}${jqt}/css/scrollable-navigator.css" />
+      href="{{ media_url('css/scrollable-navigator.css') }}" />
 <style>
 div.demowrap {
   margin:10px -15px;
@@ -84,17 +84,18 @@ div.demowrap {
 
 <p>
   We have styled the navigator with
-  the <a href="${jqt}/css/scrollable-navigator.css">scrollable-navigator.css</a>
+  the <a href="{{ media_url('css/scrollable-navigator.css') }}">scrollable-navigator.css</a>
   file which looks like this:
 </p>
 
 {% filter syntax('css') %}
-{% include "media/demos/scrollable/css/scrollable-navigator.css" %}
+{% include "media/css/scrollable-navigator.css" %}
 {% endfilter %}
 
 <p>
   You can alternatively generate the navigator links manually as we do
-  in our <a href="../one-sized.html">next demo</a>.
+  in our <a href="{{ content_url('demos/scrollable/one-sized.html') }}">next
+  demo</a>.
 </p>
 
 <h4>JavaScript setup</h4>
@@ -105,8 +106,8 @@ div.demowrap {
 
 <p>
   View the <a class="standalone" href="navigator.htm">standalone
-  demo</a> and
-  the <a href="${jqt}/scrollable/index.html#navigator">documentation</a>
+  demo</a> and the
+  <a href="{{ content_url('scrollable/index.html') }}#navigator">documentation</a>
   of the navigator plugin.
 </p>
 
@@ -154,7 +155,7 @@ div.demowrap {
 <p>
   View the <a class="standalone" href="autoscroll.htm">standalone
   demo</a> and
-  the <a href="${jqt}/scrollable/index.html#autoscroll">documentation</a>
+  the <a href="{{ content_url('scrollable/index.html') }}#autoscroll">documentation</a>
   of the autoscroll plugin.
 </p>
 
@@ -181,6 +182,6 @@ div.demowrap {
 </p>
 
 <p>
-  <a href="${jqt}/credits.html" id="credits">Photo credits &raquo;</a>
+  <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
 </p>
 {% endblock %}
