@@ -13,7 +13,7 @@ plugins:
 context:
     data:
         jqt:
-            js: http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js
+            js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
             v: 1.2.5
             html_form:
                 size: 100

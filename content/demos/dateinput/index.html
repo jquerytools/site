@@ -3,6 +3,13 @@ index: 1
 title: Minimal setup for dateinput
 ===
 {% extends 'demo.j2' %}
+
+{% block jqtsrc %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/media/js/jqt/jquery.tools.min.js"></script>
+{% endblock %}
+
+
 {% refer to 'demos/dateinput/index.htm' as standalone %}
 
 {% block extra_css %}

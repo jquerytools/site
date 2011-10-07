@@ -16,8 +16,9 @@
     <link rel="shortcut icon" href="{{ media_url('img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
     {% block extra_css %}{% endblock %}
-
+    {% block jqtsrc %}
     <script src="{{ jqt.js }}"></script>
+    {% endblock %}
     {% block extra_head %}{% endblock %}
   </head>
   <body>
