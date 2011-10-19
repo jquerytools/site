@@ -10,6 +10,11 @@ title: Slideshow plugin for the tabs
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Here you can see
   a <a href="{{ content_url('tabs/index.html') }}#slideshow">slideshow plugin</a> in
@@ -18,12 +23,18 @@ title: Slideshow plugin for the tabs
   slideshow by pressing the "play" button below the slides.
 </p>
 
+<div class="box">
 {{standalone.body}}
+</div>
+<a class="standalone" href="slideshow.htm">standalone demo</a>
+
 
 <p>
   Note that when the slideshow is "playing" it will automatically
   pause when you move your mouse on top of the slideshow elements.
 </p>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -101,8 +112,5 @@ title: Slideshow plugin for the tabs
 {{ standalone.buttons }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="slideshow.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
+
 {% endblock %}

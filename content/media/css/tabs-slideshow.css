@@ -6,7 +6,7 @@
     position:relative;
     height:300px;
 
-    width:650px;
+    width:560px;
     float:left;
     margin:15px;
     cursor:pointer;
@@ -41,7 +41,7 @@
 /* tabs (those little circles below slides) */
 .slidetabs {
     clear:both;
-    margin-left:330px;
+    margin-left:310px;
 }
 
 /* single tab */
