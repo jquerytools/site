@@ -21,6 +21,11 @@ title: 4 different skins with CSS
 {% endblock %}
 
 {% block demo %}
+
+<section class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   This page demonstrates various ways of skinning tabs. For more
   background information you may want to read
@@ -37,9 +42,13 @@ title: 4 different skins with CSS
   borders, paddings and coloring.
 </p>
 
+<div class="box">
 {{skin4.body}}
+</div>
+<a class="standalone" href="skin4.htm">standalone demo</a>
 
-<p style="margin-top:30px">
+
+<p>
   The above tabs use a cross-fading effect which can be accomplished
   with the following setup:
 </p>
@@ -50,32 +59,10 @@ title: 4 different skins with CSS
 
 <p>
   The individual panes need to be absolutely positioned so that the
-  cross-fading is possible. Take a look at
-  the <a href="skin4.htm">standalone page</a> to fully understand
-  this.
+  cross-fading is possible.
 </p>
 
-<h2>Tab skin with images</h2>
-
-<p>
-  Here we are using a single background image for the whole
-  setup. This can be achieved with
-  the <a href="http://www.alistapart.com/articles/sprites/">CSS sprite
-  technique</a>. By using only a single image this setup loads very
-  quickly. CSS sprites are a very important technology in modern web
-  design.
-</p>
-
-{{ skin3.body }}
-
-<p>
-  Take a look at the documented
-  <a href="{{ media_url('css/tabs-flowplayer-v2.css') }}">CSS file</a>
-  being used and here you can find the <a href="skin3.htm">standalone
-  page</a>. You may also be interested in
-  a <a href="{{content_base}}/demos/scrollable/one-sized.html">scrollable
-  version</a> of these tabs.
-</p>
+</section>
 
 <h2>Tab skin without images</h2>
 
@@ -85,14 +72,17 @@ title: 4 different skins with CSS
   and the width is adjusted accordingly:
 </p>
 
+<div class="box">
 {{ skin1.body }}
+</div>
+<a class="standalone" href="skin1.htm">standalone page</a>
 
 <p>
   The setup is similar to the <a href="index.html">minimal
   setup</a>. Take a look at
-  the <a href="{{media_url('css/tabs-no-images.css')}}">CSS file</a> and
-  the <a href="skin1.htm">standalone page</a>.
+  the <a href="{{media_url('css/tabs-no-images.css')}}">CSS file</a>.
 </p>
+
 <br clear="all" />
 
 <h2>A more styled example</h2>
@@ -103,7 +93,11 @@ title: 4 different skins with CSS
   the previous tabs with a few extra CSS declarations:
 </p>
 
+
+<div class="box">
 {{ skin2.body }}
+</div>
+<a class="standalone" href="skin2.htm">standalone page</a>
 
 <h3>CSS overrides</h3>
 
@@ -119,9 +113,33 @@ title: 4 different skins with CSS
   The benefit of using skins without images is that they are very
   flexible. You can alter the default tab look and feel with just a
   few extra settings, allowing you to have many different kinds of tab
-  styling on your pages. Take a look at
-  the <a href="skin2.htm">standalone page</a>.
+  styling on your pages.
 </p>
+
+<h2>Tab skin with images</h2>
+
+<p>
+  Here we are using a single background image for the whole
+  setup. This can be achieved with
+  the <a href="http://www.alistapart.com/articles/sprites/">CSS sprite
+  technique</a>. By using only a single image this setup loads very
+  quickly. CSS sprites are a very important technology in modern web
+  design.
+</p>
+
+<div class="box">
+{{skin3.body}}
+</div>
+<a class="standalone" style="width:758px" href="skin3.htm">standalone demo</a>
+
+<p>
+  Take a look at the documented
+  <a href="{{ media_url('css/tabs-flowplayer-v2.css') }}">CSS file</a>
+  being used. You may also be interested in
+  a <a href="{{content_base}}/demos/scrollable/one-sized.html">scrollable
+  version</a> of these tabs.
+</p>
+
 {% endblock %}
 
 

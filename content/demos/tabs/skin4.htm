@@ -3,19 +3,19 @@
 {% block head %}{% mark css %}
 <style>
   /* navigation */
-  #nav {
+  #tab_nav {
   background:#ddd url({{ media_url('img/gradient/h300_reverse.png') }});
   border-bottom:1px solid #CCCCCC;
   height:156px;
-  width:745px;
+  width:652px;
   }
 
-  #nav ul {
+  #tab_nav ul {
   width:600px;
   margin:0 auto;
   }
 
-  #nav li {
+  #tab_nav li {
   border-right:1px solid #ddd;
   float:left;
   padding-left:1px;
@@ -25,7 +25,7 @@
   margin-top:0px;
   }
 
-  #nav a {
+  #tab_nav a {
   color:#333333;
   display:block;
   padding:17px;
@@ -36,11 +36,11 @@
   text-decoration:none;
   }
 
-  #nav a.current {
+  #tab_nav a.current {
   background:url({{ media_url('img/tabs/down_large.jpg') }});
   }
 
-  #nav img {
+  #tab_nav img {
   background-color:#fff;
   border:1px solid #ccc;
   margin:3px 0 5px 27px;
@@ -48,7 +48,7 @@
   display:block;
   }
 
-  #nav strong {
+  #tab_nav strong {
   display:block;
   font-size:13px;
   }
@@ -59,7 +59,7 @@
   border-color:#ccc;
   border-style:solid;
   border-width:1px 1px 0;
-  width:743px;
+  width:650px;
   height:255px;
   margin-bottom:-20px;
   padding-bottom:20px;
@@ -76,7 +76,7 @@
   left:20px;
   font-size:13px;
   color:#444;
-  width:650px;
+  width:600px;
   }
 
   #panes img {
@@ -180,7 +180,7 @@
 </div>
 
 <!-- navigator -->
-<div id="nav">
+<div id="tab_nav">
   <ul>
 
     <li>
@@ -210,7 +210,7 @@
 <script>
   $(function() {
   {% mark crossfade %}
-  $("#nav ul").tabs("#panes > div", {effect: 'fade', fadeOutSpeed: 400});
+  $("#tab_nav ul").tabs("#panes > div", {effect: 'fade', fadeOutSpeed: 400});
   {% endmark %}
   });
 </script>
