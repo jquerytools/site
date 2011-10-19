@@ -10,6 +10,9 @@ title: AJAXed tabs with history support
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   These tabs combine the power of the history plugin and the AJAX
   effect. Notice that you can build your website's global navigation
@@ -17,7 +20,13 @@ title: AJAXed tabs with history support
   support JavaScript at all!
 </p>
 
+<div class="box">
 {{standalone.body}}
+</div>
+<a class="standalone" href="ajax-history.htm">standalone demo</a>
+
+
+</div>
 
 <h3>HTML Coding</h3>
 
@@ -41,8 +50,4 @@ title: AJAXed tabs with history support
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Take a look at a <a href="ajax-history.htm">standalone version</a>
-  of this demo. View its source code to get things going on your page.
-</div>
 {% endblock %}
