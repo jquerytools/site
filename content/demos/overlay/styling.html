@@ -10,6 +10,9 @@ title: Overlays with different styles
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Styling your overlays is easy. Everything can be done with CSS. The
   thing that affects the look and feel most is
@@ -17,9 +20,14 @@ title: Overlays with different styles
   image. Click on these buttons to open different kinds of overlays:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="styling.htm">standalone demo</a>
 
-<h3>The setup</h3>
+</div>
+
+<h2>The setup</h2>
 
 <p>
   The setup is identical to the <a href="index.html">minimal
@@ -32,7 +40,7 @@ title: Overlays with different styles
 {{ standalone.install }}
 {% endfilter %}
 
-<h3>Overlays</h3>
+<h2>Overlays</h2>
 
 <p>
   Each of our overlays has a class <samp>overlay</samp> which defines
@@ -62,7 +70,7 @@ title: Overlays with different styles
 <!-- rest of the overlays ... -->
 {% endfilter %}
 
-<h3>CSS coding</h3>
+<h2>CSS coding</h2>
 
 <p>
   CSS coding consists of overriding the settings of the default
@@ -83,9 +91,6 @@ title: Overlays with different styles
   the <a href="{{content_base}}/tools/overlay/index.html#configuration">configuration</a>.
 </p>
 
-<div class="box petrol">
-  Show this demo as a <a href="styling.htm">standalone page</a>.
-</div>
 {% endblock %}
 
 
