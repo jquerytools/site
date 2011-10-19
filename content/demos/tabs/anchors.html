@@ -2,6 +2,7 @@
 index: 2
 title: Naming the tabs
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tabs/anchors.htm' as standalone %}
 
@@ -10,6 +11,11 @@ title: Naming the tabs
 {% endblock %}
 
 {% block demo %}
+
+<section class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   You can load the page so that a specific tab is initially
   opened. This happens by naming the tabs and opening the page
@@ -18,7 +24,11 @@ title: Naming the tabs
   URL which has the anchor <samp>#second</samp>.
 </p>
 
+<div class="box">
 {{standalone.body}}
+</div>
+<a class="standalone" href="anchors.htm">standalone demo</a>
+
 <script>
 {{standalone.js}}
 </script>
@@ -28,6 +38,8 @@ title: Naming the tabs
   links match the names of the tabs, those tabs are automatically
   opened.
 </p>
+
+</section>
 
 <h3>HTML coding</h3>
 
@@ -48,10 +60,5 @@ title: Naming the tabs
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Here is the <a href="anchors.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 {% endblock %}
