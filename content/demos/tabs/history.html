@@ -2,6 +2,7 @@
 index: 10
 title: Handling browsers back button
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tabs/history.htm' as standalone %}
 
@@ -10,13 +11,21 @@ title: Handling browsers back button
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here we use a history <strong>plugin</strong> to enable support for
   the browser's back and forward buttons. Click on the tabs and then
   use the history buttons (browser arrow buttons) to see it in action.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="history.htm">standalone demo</a>
+</div>
 
 <h3>HTML coding</h3>
 
@@ -30,7 +39,7 @@ title: Handling browsers back button
 {% filter syntax('html') %}
 {{ standalone.tab_html }}
 <!-- the panes are defined normally, no need for labels -->
-<div class="flowpanes">
+<div class="css-panes">
   <div> lorem ipsum ...</div>
   <div> lorem ipsum ...</div>
   <div> lorem ipsum ...</div>
@@ -50,8 +59,4 @@ title: Handling browsers back button
 {{ standalone.new_js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Take a look at a <a href="history.htm">standalone version</a> of
-  this demo. View its source code to get things going on your page.
-</div>
 {% endblock %}

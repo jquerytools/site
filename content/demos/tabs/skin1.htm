@@ -6,13 +6,15 @@
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% mark tab_html %}
 <!-- tabs -->
 <ul class="css-tabs">
-  <li><a href="#">Tab 1</a></li>
-  <li><a href="#">Second tab</a></li>
-  <li><a href="#">A ultra long third tab</a></li>
+  <li><a id="t1" href="#tab1">Tab 1</a></li>
+  <li><a id="t2" href="#tab2">Second tab</a></li>
+  <li><a id="t3" href="#tab3">A ultra long third tab</a></li>
 </ul>
-
+{% endmark %}
+{% mark pane_html %}
 <!-- panes -->
 <div class="css-panes">
 
@@ -63,7 +65,7 @@
     </p>
   </div>
 </div>
-
+{% endmark %}
 <!-- activate tabs with JavaScript -->
 <script>
   $(function() {

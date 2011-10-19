@@ -1,21 +1,20 @@
-{% refer to 'demos/tabs/skin3.htm' as parent %}
+{% refer to 'demos/tabs/skin1.htm' as parent %}
 
 {% block head %}{% mark css %}
 {{ parent.css }}
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+{% mark tab_html %}
 {{ parent.tab_html }}
+{% endmark %}
 {{ parent.pane_html }}
 
 <script>
 {% mark new_js %}
 $(function() {
-  $("#flowtabs").tabs("#flowpanes > div", { history: true });
+  $(".css-tabs:first").tabs(".css-panes:first > div", { history: true });
 });
 {% endmark %}
 </script>
 {% endmark %}{% endblock %}
-
-
-
