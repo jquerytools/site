@@ -10,15 +10,17 @@ p.intro
     clear both
     padding-top 12px
 
+body
+    position relative
+    z-index -1
+
 #hero
+    position relative
     height 220px
     margin 0 auto
-    position relative
-    z-index 0
+    z-index -1
 
-section.blurb
-    position relative
-    z-index 1
+.blurb
     margin-top -32px
     border-top 1px solid almostwhite
     a.standalone
@@ -30,6 +32,10 @@ section.blurb
 
     p
         margin 12px 0
+
+    .box
+        position relative
+
 
 a.standalone
     margin -12px 0 12px

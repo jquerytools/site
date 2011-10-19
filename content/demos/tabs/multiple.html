@@ -12,6 +12,11 @@ title: Multiple tabs and accordion instances
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Since jQuery Tools 1.1.0 it is possible to instantiate multiple
   accordion (or tabs) instances with a single call. Here you can see
@@ -20,11 +25,16 @@ title: Multiple tabs and accordion instances
   a single call as follows:
 </p>
 
-{% filter syntax('css') %}
+{% filter syntax('js') %}
 {{ standalone_tabs.js }}
 {% endfilter %}
 
+<div class="box">
 {{ standalone_tabs.body }}
+</div>
+<a class="standalone" href="multiple-tabs.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -101,10 +111,6 @@ title: Multiple tabs and accordion instances
   documentation</a>.
 </p>
 
-<div class="box petrol">
-  Here is a <a href="multiple-tabs.htm">standalone version</a> for
-  above setup.
-</div>
 
 <h2>Multiple accordions</h2>
 
@@ -117,7 +123,11 @@ title: Multiple tabs and accordion instances
   $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
 {% endfilter %}
 
+<div class="box">
 {{ standalone_accordions.body }}
+</div>
+<a class="standalone" href="multiple-accordions.htm">standalone demo</a>
+
 
 <h3 style="clear:both">HTML coding</h3>
 
@@ -157,8 +167,4 @@ title: Multiple tabs and accordion instances
 {{ standalone_accordions.accordion_css }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="multiple-accordions.htm">standalone version</a>
-  of this demo.
-</div>
 {% endblock %}
