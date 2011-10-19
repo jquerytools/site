@@ -10,6 +10,7 @@ plugins:
     - hyde.ext.plugins.syntext.SyntextPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.textlinks.TextlinksPlugin
+    - hyde.ext.plugins.stylus.StylusPlugin
 context:
     data:
         jqt:
@@ -41,6 +42,8 @@ sorter:
             - meta.index
         filters:
             source.kind: html
+stylus:
+    app: /usr/local/bin/stylus
 grouper:
     documentation:
         sorter: index

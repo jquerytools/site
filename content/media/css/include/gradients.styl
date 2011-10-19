@@ -1,0 +1,16 @@
+whiteGradient(start=#FFFFFF, stop=#EFEFEF)
+    background stop
+    background -webkit-gradient(linear, left top, left bottom, color-stop(0%, start), color-stop(100%, stop))
+    background -moz-linear-gradient(top, start 0%, stop 100%)
+    background-repeat no-repeat
+
+linearGradient(start, stop)
+   whiteGradient(start, stop)
+
+defaultBackground()
+    background-image s('-webkit-gradient(linear,left bottom,left top,color-stop(0.11, rgb(250,250,250)),color-stop(0.52, rgb(242,242,242)),color-stop(0.78, rgb(255,255,255)))')
+    background-image s('-moz-linear-gradient(center bottom,rgb(250,250,250) 11%,rgb(242,242,242) 52%,rgb(255,255,255) 78%)')
+
+radialDefault(start=#fdfdfd, end=#fdfefe)
+    background -webkit-gradient(radial, center center, 700, center center, 100, from(start), to(end))
+    background -moz-radial-gradient(cover, end, start)

@@ -1,0 +1,122 @@
+raised()
+  -webkit-box-shadow 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
+  -moz-box-shadow 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
+  box-shadow 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
+
+boxshadow(bsLeft, bsTop, bsBlur, bsColor)
+
+    -moz-box-shadow bsLeft bsTop bsBlur bsColor
+    -webkit-box-shadow bsLeft bsTop bsBlur bsColor
+    -o-box-shadow bsLeft bsTop bsBlur bsColor
+    box-shadow bsLeft bsTop bsBlur bsColor
+
+radius(r=10px)
+
+    -webkit-border-radius r
+    -moz-border-radius r
+    border-radius r
+
+radiusTop(r=10px)
+
+    -webkit-border-top-left-radius r
+    -webkit-border-top-right-radius r
+    -moz-border-radius-topleft r
+    -moz-border-radius-topright r
+    border-top-left-radius r
+    border-top-right-radius r
+
+
+radiusBottom(r=10px)
+
+    -webkit-border-bottom-left-radius r
+    -webkit-border-bottom-right-radius r
+    -moz-border-radius-bottomleft r
+    -moz-border-radius-bottomright r
+    border-bottom-left-radius r
+    border-bottom-right-radius r
+
+
+radiusLeft(r=10px)
+
+    -webkit-border-top-left-radius r
+    -webkit-border-bottom-left-radius r
+    -moz-border-radius-topleft r
+    -moz-border-radius-bottomleft r
+    border-top-left-radius r
+    border-bottom-left-radius r
+
+
+radiusRight(r=10px)
+
+    -webkit-border-top-right-radius r
+    -webkit-border-bottom-right-radius r
+    -moz-border-radius-topright r
+    -moz-border-radius-bottomright r
+    border-top-right-radius r
+    border-bottom-right-radius r
+
+
+radiusTopLeft(r=10px)
+
+    -webkit-border-top-left-radius r
+    -moz-border-radius-topleft r
+    border-top-left-radius r
+
+
+radiusTopRight(r=10px)
+
+    -webkit-border-top-right-radius r
+    -moz-border-radius-topright r
+    border-top-right-radius r
+
+
+radiusBottomLeft(r=10px)
+
+    -webkit-border-bottom-left-radius r
+    -moz-border-radius-bottomleft r
+    border-bottom-left-radius r
+
+radiusBottomRight(r=10px)
+
+    -webkit-border-bottom-right-radius r
+    -moz-border-radius-bottomright r
+    border-bottom-right-radius r
+
+tableRadius(rad=6px)
+    tr
+        td:first-child,
+        th:first-child
+            border-left 0
+        td:last-child,
+        th:last-child
+            border-right 0
+
+        &:first-child td,
+        &:first-child th
+            border-top 0
+            &:first-child
+                radiusTopLeft(rad)
+            &:last-child
+                radiusTopRight(rad)
+        &:last-child td,
+        &:last-child th
+            border-bottom 0
+            &:first-child
+                radiusBottomLeft(rad)
+            &:last-child
+                radiusBottomRight(rad)
+
+rotation(degrees=10deg)
+  -moz-transform rotate(degrees)
+  -ms-transform rotate(degrees)
+  -o-transform rotate(degrees)
+  -webkit-transform rotate(degrees)
+  transform rotate(degrees)
+
+raised()
+    -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+clickable()
+    cursor pointer

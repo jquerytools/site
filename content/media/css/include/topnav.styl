@@ -1,0 +1,189 @@
+.spacer
+    float left
+    width 8px
+    height 34px
+    background darkPetrol
+
+    &.left
+        radiusBottomRight(6px)
+
+    &.right
+        radiusBottomLeft(6px)
+        margin-right 0
+
+
+.logged #top .spacer.right
+    padding-right  4px
+
+
+accountSprite(x, y)
+
+.notice.message
+        display none
+
+#noticeHolder
+    position absolute
+    top 0
+    width 970px
+    background #E63500
+    color #fff
+    text-align center
+    padding 9px
+    z-index 99
+    display none
+
+    #closeNotice
+        position absolute
+        top 8px
+        right 12px
+        width 18px
+        height 18px
+        background-image s('url( {{ media_url("img/sprites/accounts_sprite.png") }} )')
+        background-position 0px -118px
+        background-repeat no-repeat
+        cursor pointer
+
+        &:hover
+            background-position 0px -138px
+
+
+#top
+    background darkPetrol
+    height 34px
+    ul
+        margin 0
+        padding 0
+        background-color clear
+        clearfix()
+        float left
+    li
+        list-style-type none
+        padding-right 2px
+        display block
+        float left
+
+        &.spacer
+            padding-right 56px
+
+        &.linkOnly
+            background-color darkPetrol
+            padding 8px 12px
+            a
+                color clear
+                font-size 11px
+
+                &:hover
+                    color lighten(petrol, 10)
+
+            &.active a
+                cursor none
+                color textgray
+                cursor default
+                &:hover
+                    color textgray
+
+        &.active a
+            color #ccc
+
+
+
+html.ie #top li.linkOnly
+    padding-bottom 9px
+
+#nav
+    margin-top 32px
+    ul
+        clearfix()
+    li
+        list-style-type none
+        display block
+        float left
+        margin 0 12px 6px
+        padding 3px 12px 4px
+
+        &.active
+            a
+                color lightgray
+                text-shadow 0px -1px 1px almostwhite
+                cursor default
+
+        &:first-child
+            margin-left 0
+
+        &#download
+            float right
+            margin-right 0px
+            font-weight bold
+
+    a
+        color black
+        text-decoration none
+
+        &:hover
+            color lighten(petrol, 10)
+
+#wrap,
+#top-wrap
+    width 982px
+    margin 0 auto
+
+#top-fp,
+#top-jt
+    display block
+    height 34px
+    width 275px
+    overflow hidden
+    text-indent -999em
+    background darkPetrol url('{{ media_url("img/sprites/flowplayer_sprite_navi.png") }}') no-repeat 80px 4px
+    radiusBottom 4px
+    boxshadow 0, 1px, 1px, #ededed
+    &.active
+        boxshadow 0, 0, 0, transparent
+        background-color clear
+        radius 0
+
+
+#top-fp
+    background-position 80px -28px
+    &:hover
+        background-position 80px 4px
+        background-color #ededed
+    &:focus
+        background-position 80px 4px
+    &.home
+        cursor default
+#top-jt
+    background-position 80px -60px
+    &.home
+        cursor default
+
+#top-search
+    margin-top 2px
+    float right
+
+    input
+        border 0
+        radius 12px
+        width 125px
+        padding 4px 10px
+        font-size 11px
+        outline  none
+        position relative
+        top 3px
+
+.no-logged
+    #account_link,
+    #logout_link
+        display none
+
+    #login_link
+        display block
+
+.logged
+    #account_link,
+    #logout_link
+        display block
+
+    #login_link
+        display none
+

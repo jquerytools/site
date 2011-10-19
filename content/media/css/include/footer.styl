@@ -1,0 +1,71 @@
+#footer
+    margin-top 50px
+    margin-bottom 50px
+
+    h2
+      color #003670
+      font-size 15px
+      font-weight bold
+      margin 15px 0 -5px
+      text-align center
+
+    #twitter
+        border-bottom 1px dotted #999999
+        height 90px
+        padding 15px 0
+
+    #tweets
+        float left
+        width 900px
+
+    .tweet
+        float left
+        margin-right 30px
+        width 190px
+
+    .tweet a
+        font-size 11px
+
+    .tweet p
+        color #222222
+        font-size 11px
+        height 55px
+
+    .tweet .time
+        color #B8B8B8
+        font-size 11px
+
+    .tweet.clickable
+        cursor pointer
+
+    #follow
+        background url('{{ media_url("img/global/twitter.png") }}') no-repeat scroll -4px -4px transparent
+        display block
+        float right
+        height 74px
+        margin-top 10px
+        text-indent -999em
+        width 74px
+
+        &:hover
+            background-position -4px -78px
+
+        &:focus
+            background-position -4px -151px
+
+#footerlinks
+    color #666666
+    font-size 10px
+    text-align center
+    border-top 1px dotted almostwhite
+    padding-top 8px
+
+#footerlinks a
+    color #5F5F5F
+    font-size 10px
+    text-decoration none
+    margin 0 5px
+
+#footerlinks a:hover
+    color #112233
+    text-decoration underline

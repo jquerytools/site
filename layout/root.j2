@@ -22,27 +22,64 @@
     {% block extra_head %}{% endblock %}
   </head>
   <body>
-
     <div id="top">
-      <div id="top-wrap">
-        <a id="top-fp" href-"/index.html">Flowplayer</a>
-        <a id="top-jt" href="/tools/index.html" class="active">jQuery Tools</a>
-        <form id="top-search" action="/search.html">
-          <input type="text" name="q" />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="{{ site.config.fpsite }}">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        {% if not resource.meta.site_home -%}
+                        href="/"  class="active"
+                        {%- else %}
+                        class="active home"
+                        {%- endif %}
+                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
     </div>
 
     <div id="wrap">
 
-      <div id="globalnav" class="clear">
-        <a id="fp1" href="/index.html">Home</a>
-        <a id="fp2" href="/download/index.html">Download</a>
-        <a id="fp3" href="/demos/index.html">Demos</a>
-        <a id="fp4" href="/documentation/index.html">Documentation</a>
-        <a id="fp5" href="/forum/index.html">Forums</a>
-      </div>
+      <div id="nav" class="clear">
+            <ul>
+                <li {% if resource.meta.site_home %}class="active"{% endif %}>
+                    <a href="/">Home</a>
+                </li>
+                <li {% if resource.node.module.name == 'demos' %}class="active"{% endif %}>
+                    <a href="/demos">Demos</a>
+                </li>
+                <li {% if resource.node.module.name == 'documentation' %}class="active"{% endif %}>
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li {% if resource.node.module.name == 'forum' %}class="active"{% endif %}>
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" {% if resource.node.module.name == 'download' %}class="active"{% endif %}>
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
 
       <div id="content">
         {% block main %}{% endblock %}
@@ -77,29 +114,14 @@
       </div>
 
       <div id="footer" class="clear">
-
-        {% block tweets %}
-        <h2>jQuery Tools Twitter feed</h2>
-
-        <div id="twitter" class="clear">
-          <div id="tweets"></div>
-          <a id="follow" href="http://twitter.com/jquerytools"
-             title="Follow jQuery Tools on Twitter">
-            jQuery Tools Twitter feed
-          </a>
-        </div>
-        {% endblock %}
-
         <div id="footerlinks" class="clear">
+          <a href="http://twitter.com/jquerytools">Twitter feed</a>
+          &nbsp;|
           <a href="https://github.com/jquerytools/jquerytools">
             github repository
-          </a>
+          </a> &nbsp;|
           <a href="https://github.com/jquerytools/jquerytools/issues">
             report a bug
-          </a>
-          <a href="/tools-1.1/index.html">version 1.1</a>
-          <a href="http://cloudpanic.com">
-            my blog: <strong>cloudpanic.com</strong>
           </a>
         </div>
 

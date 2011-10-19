@@ -1,0 +1,39 @@
+@import "include/reset.css"
+@import "include/fix"
+@import "include/vars"
+@import "include/mixins"
+@import "include/gradients"
+@import "include/topnav"
+@import "include/footer"
+
+a
+    color petrol
+    text-decoration none
+
+    &hover
+        color lighten(petrol, 10)
+
+html
+    background-color #fafafa
+
+body
+    margin 0
+    padding 0
+    defaultBackground()
+    defaultSansSerif()
+    font-size 14px
+    line-height 16px
+    color black
+
+.overlay
+    padding 40px
+    width 576px
+    display none
+    background #fff
+    raised()
+
+.overlay_scroll
+    font-size 11px
+    height 423px
+    margin 30px 20px 10px 0
+    overflow auto

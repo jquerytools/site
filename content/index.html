@@ -1,7 +1,13 @@
-{% extends 'root.j2' %}
+---
+extends: root.j2
+site_home: true
+---
 
 {% block extra_css %}
 <style>
+#scroll {
+	background-color: white;
+}
 #tools_index #content {
 	background-image:none;
 	float:none;
