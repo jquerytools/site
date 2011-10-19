@@ -10,6 +10,9 @@ title: Creating modal dialogs with overlay
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This demo shows you how you can use the overlay tool to prompt for
   user input. You may be familiar with the old
@@ -17,7 +20,11 @@ title: Creating modal dialogs with overlay
   the modern world and use JavaScript more innovatively:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="modal-dialog.htm">standalone demo</a>
+
 
 <p>
   The "Modal dialog" is an overlay that requires the user to interact
@@ -35,7 +42,7 @@ title: Creating modal dialogs with overlay
   <li>You can tweak the look and feel of the dialog box</li>
   <li>You can ask any kind of questions and have multiple input fields.</li>
 </ol>
-
+</div>
 <h3>HTML coding</h3>
 
 <p>
@@ -111,10 +118,5 @@ title: Creating modal dialogs with overlay
 {% filter syntax('js') %}
 {{ standalone.prompt }}
 {% endfilter %}
-
-<div class="box petrol">
-  Here is the <a href="modal-dialog.htm">standalone version</a> of
-  this demo. You can freely study and copy its source code.
-</div>
 
 {% endblock %}
