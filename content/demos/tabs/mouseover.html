@@ -16,15 +16,22 @@ title: Using mouseover to switch tabs
 
 
 {% block demo %}
+
+<section class="blurb">
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Here we use the <samp>mouseover</samp> event to switch between
   tabs. This event can, for example, be used in the following type of
   product presentation setups:
 </p>
 
-<div style="width:550px;margin:15px auto">
+<div class="box">
   {{ standalone.body }}
 </div>
+<a class="standalone" href="mouseover.htm">standalone demo</a>
+
+</section>
 
 <h3>HTML coding</h3>
 
@@ -58,10 +65,5 @@ title: Using mouseover to switch tabs
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Take a look at a <a href="mouseover.htm">standalone version</a> of
-  this demo. View its source code to get things going on your page.
-</div>
 
 {% endblock %}
