@@ -10,6 +10,10 @@ title: Dynamic positioning of the tooltip
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Below you can see triggers whose tooltip is centered on the top edge
   of the trigger. <a href="#lower">Click here</a> to scroll a little
@@ -20,7 +24,11 @@ title: Dynamic positioning of the tooltip
 </p>
 
 <a name="lower"></a>
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="dynamic.htm">standalone demo</a>
+
 
 <p>
   If there is no room on the top edge then the tooltip is shown on the
@@ -50,6 +58,7 @@ title: Dynamic positioning of the tooltip
   custom <a href="{{content_base}}/tools/tooltip/slide.html">slide
   effect</a>.
 </p>
+</div>
 
 <h3>HTML coding</h3>
 
@@ -105,10 +114,5 @@ title: Dynamic positioning of the tooltip
   a <a href="{{content_base}}/download/index.html#combine">custom
   combination</a> to include those effects.
 </p>
-
-<div class="box petrol">
-  Take a look at a <a href="dynamic.htm">standalone version</a> of
-  this demo. View its source code to get things going on your page.
-</div>
 
 {% endblock %}
