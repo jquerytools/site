@@ -10,14 +10,20 @@ title: The apple effect for overlay
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
 
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here you can see
   an <a href="{{content_base}}/tools/overlay/apple.html">Apple
   effect</a> in action:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="wizard.htm">standalone demo</a>
+
 
 <p>
   Apple effect performs overlaying in a visually appealing manner by
@@ -27,6 +33,8 @@ title: The apple effect for overlay
   dimensions of the image. You can change the width but the height
   scales accordingly so that the aspect ratio remains constant.
 </p>
+
+</div>
 
 <h3>HTML setup</h3>
 
@@ -157,10 +165,6 @@ title: The apple effect for overlay
   a <a href="{{content_base}}/download/index.html#combine">custom
   combination</a> that includes this effect.
 </p>
-
-<div class="box petrol">
-  Show this demo as a <a href="apple.htm">standalone page</a>.
-</div>
 
 <p>
   <a href="{{content_base}}/credits.html" id="credits">Photo credits
