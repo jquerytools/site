@@ -1,10 +1,8 @@
 mode: production
-base_url: /tools
-site_url: http://flowplayer.github.com/tools
 extends: site.yaml
 publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git
-        path: ../flowplayer.github.com
-        url: git@github.com:flowplayer/flowplayer.github.com.git
+        path: ../jquerytools.github.com
+        url: git@github.com:jquerytools/jquerytools.github.com.git
         branch: master

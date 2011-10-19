@@ -15,15 +15,22 @@ title: Using tooltips in form fields
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here you can see a tooltip when you put your focus on any of the
   following form fields. You can move between fields with your
   keyboard (using the TAB key) or with your mouse.
 </p>
 
-<center>
-  {{ standalone.body }}
-</center>
+
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="form.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -66,9 +73,6 @@ title: Using tooltips in form fields
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Take a look at a <a href="form.htm">standalone version</a> of this
-  demo. View its source code to get things going on your page.
-</div>
+
 {% endblock %}
 
