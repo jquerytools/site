@@ -2,6 +2,7 @@
 index: 6
 title: Making accordions with tabs
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tabs/accordion.htm' as standalone %}
 
@@ -10,6 +11,11 @@ title: Making accordions with tabs
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   The accordion effect is in many ways similar to tabs. The only
   difference is the way in which panes are shown and hidden. The tabs
@@ -17,15 +23,18 @@ title: Making accordions with tabs
   accordions. Here is an example:
 </p>
 
-<div style="width:280px;height:330px; margin:25px auto">
+<div class="box">
   {{standalone.body}}
 </div>
+<a class="standalone" href="accordion.htm">standalone demo</a>
 
 <p>
   It's important to realize that <strong>jquery.tabs</strong> is a
   single file weighing around 2KB and it can create both tabs and
   accordions in a professional manner.
 </p>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -79,8 +88,4 @@ title: Making accordions with tabs
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Take a look at a <a href="accordion.htm">standalone version</a> of
-  this demo. View its source code to get things going on your page.
-</div>
 {% endblock %}

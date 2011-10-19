@@ -1,5 +1,5 @@
 ===
-index: 6
+index: 7
 title: Customizing the accordion effect
 ===
 {% extends 'demo.j2' %}
@@ -10,19 +10,25 @@ title: Customizing the accordion effect
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   This demo shows how you can add custom effects to tabs. Here you can
   see a slight background color change when the sliding effect occurs:
 </p>
 
-<div style="width:280px;margin:25px auto;height:300px">
+<div class="box">
   {{ standalone.body }}
   <script>
     {{ standalone.effect }}
   </script>
 </div>
+<a class="standalone" href="accordian-custom.htm">standalone demo</a>
 
-<h3>Adding a custom effect</h3>
+<h2>Adding a custom effect</h2>
 
 <p>
   If you want to make custom effects, you'll use
@@ -30,8 +36,12 @@ title: Customizing the accordion effect
   is the effect name and the second argument is the function that
   performs the required functionality when a tab (or accordion header)
   is clicked. You can use this method to modify existing effects or
-  add new ones. Here we modify the built-in "slide" effect:
+  add new ones.
 </p>
+
+</div>
+
+Here we modify the built-in "slide" effect:
 
 {% filter syntax('js') %}
 {{ standalone.effect }}
@@ -56,10 +66,4 @@ title: Customizing the accordion effect
 {{ standalone.js }}
 {% endfilter %}
 
-<br />
-<div class="box petrol">
-  Take a look at a <a href="accordion-custom.htm">standalone
-  version</a> of this demo. View its source code to get things going
-  on your page.
-</div>
 {% endblock %}
