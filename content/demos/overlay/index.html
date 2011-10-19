@@ -10,6 +10,9 @@ title: Minimal setup for overlay
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Below you can see two images that launch overlays. There are two
   terms being used: the <strong>trigger</strong> is the element that
@@ -17,7 +20,13 @@ title: Minimal setup for overlay
   that is being positioned on top of the page.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
+
+</div>
 
 <h3>HTML code for the <em>triggers</em></h3>
 
@@ -155,11 +164,6 @@ title: Minimal setup for overlay
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Here is the <a href="index.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 <p>
   <a href="{{content_base}}/credits.html" id="credits">Photo credits
