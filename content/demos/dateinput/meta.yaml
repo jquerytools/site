@@ -1,7 +1,3 @@
 description: HTML5 date input for humans
 keywords: jquery dateinput, jquery dateinput, HTML5 date input, javascript date input, skinnable dateinput
-
-group:
-  title: Date Input
-  slug: dateinput
-  children: 6
+demo: dateinput

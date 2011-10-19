@@ -1,0 +1,71 @@
+@import "include/vars"
+@import "include/fix"
+@import "include/mixins"
+@import "include/icons"
+
+
+h1
+    color black
+    font-size 36px
+    line-height 64px
+    padding 24px 0
+
+#sections
+    clearfix()
+    margin-top 12px
+
+.sect
+    padding 12px 32px 0
+    float left
+    height 1124px
+    radius(12px)
+    boxshadow(0, 1px, 3px, #666);
+    background-color clear
+    width 255px
+
+    header
+        color darkPetrol
+        font-size 16px
+        line-height 24px
+        padding 12px 0
+        clearfix()
+
+    .icon
+        icon()
+
+    h2
+        width 120px
+        margin 0 auto
+
+    ol.cat
+        h3
+            margin-top 12px
+            display inline-block
+
+    &.one
+        .icon
+            uiicon()
+
+    &.two
+        margin 0 12px
+        .icon
+            formsicon()
+    &.three
+        .icon
+            toolboxicon()
+
+ol.cat
+    list-style-position inside
+    color petrol
+    line-height 24px
+
+ol.links
+    list-style-type none
+    font-size 12px
+    line-height 18px
+    a
+       color textgray
+       text-decoration none
+
+       &:hover
+           color darkPetrol

@@ -1,7 +1,3 @@
 description: Scroll your HTML with eye candy
 keywords: jquery scrolling,jquery scrollable,javascript scrolling,javascript scrolling plugin,jquery scrolling plugin,jquery scrollable plugin,scrolling html elements
-
-group:
-  title: Scrollable
-  slug: scrollable
-  children: 11
+demo: scrollable

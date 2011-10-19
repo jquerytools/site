@@ -4,6 +4,7 @@ media_url: /media
 base_url: /
 template: hyde.ext.jinja2
 plugins:
+    - hyde.ext.plugins.blockdown.BlockdownPlugin
     - hyde.ext.plugins.meta.MetaPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
@@ -36,15 +37,49 @@ meta:
                 javascript ui library, javascript library, jquery ui library,
                 user interface library, web 2.0 ui library
     author: Tero Piirainen
+stylus:
+    app: /usr/local/bin/stylus
 sorter:
-    time:
+    index:
         attr:
             - meta.index
         filters:
+            is_processable: true
             source.kind: html
-stylus:
-    app: /usr/local/bin/stylus
 grouper:
+    demo:
+        sorter: index
+        groups:
+            -
+                name: UI Tools
+                groups:
+                    -
+                        name: tabs
+                    -
+                        name: tooltips
+                    -
+                        name: overlay
+                    -
+                        name: scrollable
+            -
+                name: Form Tools
+                groups:
+                    -
+                        name: validator
+                    -
+                        name: rangeinput
+                    -
+                        name: dateinput
+            -
+                name: Toolbox
+                groups:
+                    -
+                        name: expose
+                    -
+                        name: flashembed
+                    -
+                        name: combinations
+
     documentation:
         sorter: index
         groups:

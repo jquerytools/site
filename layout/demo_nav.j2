@@ -1,0 +1,25 @@
+{% for section in site.grouper.demo.groups -%}
+<div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
+    <header>
+        <div class="icon"></div>
+        <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
+    </header>
+    <ol class="cat{% if section in resource.walk_demo_groups() %} active{%- endif %}">
+    {% for demo in section.groups -%}
+        <li>
+        <h3 title="{{ demo.description }}">{{ demo.name|title|typogrify }}</h3>
+        <ol class="links">
+            {% for demo in demo.walk_resources_in_node(site.content) -%}
+            <li>
+            <a {% if resource.url == demo.url %}class="active"{% endif %}
+                title="{{ demo.meta.description|default('') }}"
+                href="{{ content_url(demo.relative_deploy_path) }}">
+                {{ demo.meta.title|typogrify }}</a>
+            </li>
+            {%- endfor %}
+        </ol>
+        </li>
+    {%- endfor %}
+    </ol>
+</div>
+{%- endfor %}

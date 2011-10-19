@@ -1,7 +1,3 @@
 description: The most import ui widget for the web
 keywords: javascript tabs, jquery tabs, javascript tabbed navigation, ajax tabs, tab history, jquery accordion
-
-group:
-  title: Tabs
-  slug: tabs
-  children: 13
+demo: tabs

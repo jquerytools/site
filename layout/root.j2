@@ -84,34 +84,28 @@
       <div id="content">
         {% block main %}{% endblock %}
       </div>
+      {% block sidebar %}
       <div id="right">
         {% block right_navigation %}
-        <p>
-          <strong>ERR:</strong> Run the navigation script to generate
-          the navigation links.
-        </p>
         {% endblock %}
-
-        <script>
-          $("#right a[href={{ content_url('tools/documentation/index.html') }}]").addClass("active");
-        </script>
         <p style="text-align:center;margin:30px 40px 30px 0">
-	  <a style="font-size:10px;color:#666"
-	     href="https://github.com/jquerytools/jquerytools/issues">report
-            a bug &raquo;</a>
+      	  <a style="font-size:10px;color:#666"
+	            href="https://github.com/jquerytools/jquerytools/issues">report
+              a bug &raquo;</a>
         </p>
         <a href="/tools/release-notes/index.html">
-	  <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
-	       style="margin-left:10px"
-	       alt="Introducing jQuery Tools 1.2" />
+	       <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
+	         style="margin-left:10px"
+	         alt="Introducing jQuery Tools 1.2" />
         </a>
         <p style="margin:15px 0 0 22px">
-	  <a style="font-size:11px;color:#333"
-	     href="{{ content_url('release-notes/version-1.2.x.html') }}">
-            What's new in v1.2.5 &raquo;
-          </a>
+	         <a style="font-size:11px;color:#333"
+	           href="{{ content_url('release-notes/version-1.2.x.html') }}">
+              What's new in v1.2.5 &raquo;
+            </a>
         </p>
       </div>
+      {% endblock %}
 
       <div id="footer" class="clear">
         <div id="footerlinks" class="clear">
