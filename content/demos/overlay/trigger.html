@@ -10,6 +10,9 @@ title: Opening overlays programmatically
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Sometimes you want to open dialogs or info boxes for your users
   directly from your JavaScript code. In this case, you don't need any
@@ -18,7 +21,12 @@ title: Opening overlays programmatically
   JavaScript anytime you like.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="trigger.htm">standalone demo</a>
+
+</div>
 
 <h3>JavaScript coding</h3>
 
@@ -51,8 +59,6 @@ title: Opening overlays programmatically
 {{ standalone.css_excerpt }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="trigger.htm">standalone page</a>.
-</div>
+
 {% endblock %}
 
