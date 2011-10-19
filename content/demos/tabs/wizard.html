@@ -15,6 +15,10 @@ title: Making wizards with the tabs
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   The tabs can be easily used to make wizard-like interfaces. The
   following example uses next/prev buttons that use
@@ -29,7 +33,14 @@ title: Making wizards with the tabs
   to shift the user's focus to the task at hand.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="wizard.htm">standalone demo</a>
+
+
+</div>
+
 
 <h3>HTML coding</h3>
 
@@ -65,7 +76,7 @@ title: Making wizards with the tabs
 </div>
 {% endfilter %}
 
-<h3>Exposing effect</h3>
+<h2>Exposing effect</h2>
 
 <p>
   This JavaScript coding enables the <samp>mask</samp> effect with the
@@ -78,7 +89,7 @@ title: Making wizards with the tabs
 {{ standalone.expose }}
 {% endfilter %}
 
-<h3>The tabs</h3>
+<h2>The tabs</h2>
 
 <p>
   Here is the tabs setup. The complexity comes from the checkbox
@@ -92,7 +103,7 @@ title: Making wizards with the tabs
 {{ standalone.js }}
 {% endfilter %}
 
-<h3>Navigational buttons</h3>
+<h2>Navigational buttons</h2>
 
 <p>
   Here is how the navigational buttons are setup. First we get a
@@ -103,10 +114,5 @@ title: Making wizards with the tabs
 {% filter syntax('js') %}
 {{ standalone.navi }}
 {% endfilter %}
-
-<div class="box petrol">
-  Take a look at a <a href="wizard.htm">standalone version</a> of this
-  demo. View its source code to get things going on your page.
-</div>
 
 {% endblock %}

@@ -22,7 +22,7 @@
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
-<div id="wizard">
+<div id="wizard_tabs">
   <!-- tabs -->
   <ul class="tabs">
     <li><a href="#" class="l">Personal info</a></li>
@@ -76,7 +76,7 @@
 
   {% mark expose %}
     // get container for the wizard and initialize its exposing
-    var wizard = $("#wizard").expose({color: '#789', lazy: true});
+    var wizard = $("#wizard_tabs").expose({color: '#789', lazy: true});
 
     // enable exposing on the wizard
     wizard.click(function() {
