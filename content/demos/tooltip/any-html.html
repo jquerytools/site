@@ -10,6 +10,10 @@ title: Using any HTML inside the tooltip
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Tooltip content can be any HTML, not just plain text. Move your
   mouse over the Download button and you'll see a tooltip that
@@ -18,9 +22,11 @@ title: Using any HTML inside the tooltip
   effect</a> in action.
 </p>
 
-<div style="width:200px;margin:0 auto">
-  {{ standalone.body }}
+<div class="box">
+{{standalone.body}}
 </div>
+<a class="standalone" href="any-html.htm">standalone demo</a>
+
 
 <p>
   You have enough time to move your cursor away from the trigger
@@ -35,6 +41,8 @@ title: Using any HTML inside the tooltip
   manual tooltip won't be displayed because the <samp>title</samp>
   attribute overrides the manual tooltip.
 </p>
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -87,8 +95,5 @@ title: Using any HTML inside the tooltip
   combination</a> that includes this effect.
 </p>
 
-<div class="box petrol">
-  Show this demo as a <a href="any-html.htm">standalone page</a>
-</div>
 
 {% endblock %}

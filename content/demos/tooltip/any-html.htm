@@ -8,6 +8,7 @@
     background:transparent url({{ media_url('img/downloadnow.png') }}) no-repeat scroll 0 0;
     display:block;
     height:44px;
+    margin: 0 auto;
     margin-bottom:30px;
     overflow:hidden;
     text-indent:-999em;
@@ -51,7 +52,9 @@
 </style>
 {% endmark %}{% endblock %}
 
-{% block body %}{% mark body %}
+{% block body %}
+<div style="height:200px"></div>
+{% mark body %}
 {% mark html_excerpt %}
 <!-- trigger element. a regular workable link -->
 <a id="download_now">Download now</a>
