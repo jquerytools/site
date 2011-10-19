@@ -1,10 +1,11 @@
 {% for section in site.grouper.demo.groups -%}
 <div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
-    <header>
+    {% set active = (section in resource.walk_demo_groups()) %}
+    <header {% if active %} class="open" {% endif %}>
         <div class="icon"></div>
         <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
     </header>
-    <ol class="cat{% if section in resource.walk_demo_groups() %} active{%- endif %}">
+    <ol class="cat{% if active %} active{% endif %}">
     {% for demo in section.groups -%}
         <li>
         <h3 title="{{ demo.description }}">{{ demo.name|title|typogrify }}</h3>

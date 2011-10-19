@@ -2,6 +2,7 @@
 index: 1
 title: Minimal setup for tabs
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tabs/index.htm' as standalone %}
 
@@ -10,23 +11,37 @@ title: Minimal setup for tabs
 {% endblock %}
 
 {% block demo %}
+
+<section class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p style="margin-bottom:30px">
+
   This page introduces you to the minimal setup for tabs. It's
   important to understand how this example works because it teaches
   you the theory behind tabs. Understanding this helps you to build
   any kind of tabs you want. Here is our example:
+
 </p>
 
+<div class="box">
 {{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
 <script>
 {{standalone.js}}
 </script>
 
 <p style="margin-top:20px">
-  There are two terms bei52ng used: <em>tabs</em> are the elements that
+  There are two terms being used: <em>tabs</em> are the elements that
   you click and <em>panes</em> are containers for your content that
   are associated with tabs.
 </p>
+
+
+</section>
 
 <h3>HTML code</h3>
 
@@ -99,9 +114,5 @@ title: Minimal setup for tabs
   images in your tab design and at the same time have customized
   mouseover and selected states.
 </p>
-
-<div class="box petrol">
-  Show this demo as a <a href="index.htm">standalone page</a>
-</div>
 
 {% endblock %}

@@ -1,0 +1,33 @@
+codefont()
+    font-family Monaco, Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace
+
+figure.code,
+div.code
+    position relative
+    margin-bottom gutter
+
+    figcaption
+        font-size gutter - 2
+        position absolute
+        bottom gutter * 0.25
+        right gutter
+        color gray
+
+    radius(6px)
+    boxshadow(0, 1px, 3px, textgray)
+    background-color #202020
+
+.highlight
+    radiusTop(6px)
+    pre
+        codefont()
+        font-size gutter
+        padding gutter + 4 gutter gutter
+        line-height gutter * 2
+        margin-bottom (gutter / 2) + 2
+
+code
+    codefont()
+    background-color clear
+    padding 0 2px
+    color #777

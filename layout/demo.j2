@@ -1,76 +1,34 @@
 {% extends 'root.j2' %}
 
-{% block main %}
-<script>
-  $(function() {
-    $("#jqt3").addClass("active");
-    $("<div/>", { id: 'footercrumb' }).appendTo($("#content")).
-        html($("#breadcrumb").html());
-  });
-</script>
-
-<style>
-  ul.css-tabs li {
-    list-style-image:none !important;
-    list-style-type:none !important;
-    margin:0 !important;
-  }
-
-  div.css-panes h2 {
-    margin-top:0px;
-  }
-
-  #credits {
-    color:#555;
-    font-size:11px;
-    text-decoration:none;
-  }
-
-  h1 {
-    background-repeat: no-repeat;
-    background-position: 0 25px;
-    height: 
-  }
-</style>
-
-<h1 style="background-image:url({{ media_url('') }}img/hero/{{resource.meta.group.slug}}.jpg)">
-  {{ resource.meta.group.title }}
-</h1>
-
-<div id="breadcrumb">
-  <div style="width:260px;float:left">
-    <a href="{{content_base}}/demos/{# req.demo.previous.path #}">
-      &laquo; Previous {# req.demo.previous.title #}
-    </a>
-  </div>
-  <div style="width:220px;float:left">
-    [
-    <a href="{{content_base}}/demos/index.html">
-      demo index
-    </a> |
-    <a href="{{content_base}}/tools/{{resource.meta.group.slug}}/index.html">
-      {{ resource.meta.group.title|lower }} docs
-    </a>
-    ]
-  </div>
-  <div style="float:right;text-align:right">
-    <a href="{{content_base}}/demos/{# req.demo.next.path #}">
-      {# req.demo.next.title #} Next &raquo;
-    </a>
-  </div>
-</div>
-
-<br clear="all">
-
-<h2 style="margin:0 0 20px 0">
-  <em>
-    {# req.demo.category.shortTitle #} demo
-    {{resource.meta.index}} / {{resource.meta.group.children }}
-  </em>:
-  <strong>{{ resource.meta.title }}</strong>
-</h2>
-
-{% block demo %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/syntax.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/demos.css') }}"/>
 {% endblock %}
 
+{% block main %}
+
+
+<img id="hero" src="{{ media_url('img/hero/' ~ resource.meta.demo ~ '.jpg') }}">
+
+<div id="demo_content">
+{% block demo %}
+{% endblock demo %}
+</div>
+{% endblock main %}
+
+{% block right_navigation %}
+<nav class="sidebar">
+{% include "demo_nav.j2" %}
+</nav>
+{% endblock %}
+
+{% block extra_script %}
+<script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
 {% endblock %}

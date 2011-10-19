@@ -1,0 +1,56 @@
+nav
+    header:before
+        content ' ►'
+    header.open:before
+        content ' ▼'
+
+    h1
+        font-weight normal
+        color textgray
+        letter-spacing 2px
+        text-transform uppercase
+        text-align left
+        padding-bottom 6px
+        margin-bottom 12px
+
+    h2
+        color black
+        letter-spacing 1px
+        text-align left
+
+    small,
+    .more
+        display none
+
+    li
+        padding-left 0
+        line-height 20px
+        list-style-type none
+        font-size 12px
+        a
+            color textgray
+            text-decoration none
+            margin-left 30px
+            padding 1px 6px 2px
+
+            &:hover
+                color darkPetrol
+            &.active
+                radius(12px)
+                background-color darkPetrol
+                color clear
+
+    div.sect
+        margin-top 12px
+        &:first-child
+            margin-top 12px
+
+        header
+            pluginiconsmall()
+            .icon
+                float left
+                margin-right 6px
+            .text
+                float left
+                line-height 24px
+            clearfix()

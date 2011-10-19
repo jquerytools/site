@@ -14,7 +14,9 @@
     <meta name="Robots" content="index,follow" />
 
     <link rel="shortcut icon" href="{{ media_url('img/favicon.ico') }}">
+    {% block stylesheets %}
     <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
+    {% endblock %}
     {% block extra_css %}{% endblock %}
     {% block jqtsrc %}
     <script src="{{ jqt.js }}"></script>
@@ -88,37 +90,38 @@
       <div id="right">
         {% block right_navigation %}
         {% endblock %}
-        <p style="text-align:center;margin:30px 40px 30px 0">
-      	  <a style="font-size:10px;color:#666"
-	            href="https://github.com/jquerytools/jquerytools/issues">report
-              a bug &raquo;</a>
-        </p>
-        <a href="/tools/release-notes/index.html">
-	       <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
-	         style="margin-left:10px"
-	         alt="Introducing jQuery Tools 1.2" />
-        </a>
-        <p style="margin:15px 0 0 22px">
-	         <a style="font-size:11px;color:#333"
-	           href="{{ content_url('release-notes/version-1.2.x.html') }}">
-              What's new in v1.2.5 &raquo;
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
+	               alt="Introducing jQuery Tools 1.2" />
             </a>
-        </p>
+          </li>
+          <li>
+            <a href="{{ content_url('release-notes/version-1.2.x.html') }}">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
       </div>
       {% endblock %}
 
-      <div id="footer" class="clear">
-        <div id="footerlinks" class="clear">
-          <a href="http://twitter.com/jquerytools">Twitter feed</a>
-          &nbsp;|
-          <a href="https://github.com/jquerytools/jquerytools">
-            github repository
-          </a> &nbsp;|
-          <a href="https://github.com/jquerytools/jquerytools/issues">
-            report a bug
-          </a>
-        </div>
-
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
       </div>
     </div>
 
