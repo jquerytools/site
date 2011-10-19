@@ -6,6 +6,7 @@
     padding:10px 0 10px 20px;
     width:560px;
     border:1px solid #ddd;
+    margin: 0 auto;
 }
 
 /* accordion header */
@@ -38,7 +39,7 @@
 /* content inside a pane should have fixed width */
 #accordion div h3 {
     color:#444;
-    margin:0 0 -10px 0;
+    line-height: auto;
     width:190px;
     font-size:15px;
 }

@@ -2,6 +2,7 @@
 index: 8
 title: Horizontal accordion using the tabs
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tabs/accordion-horizontal.htm' as standalone %}
 
@@ -10,15 +11,21 @@ title: Horizontal accordion using the tabs
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   It's easy to create horizontal accordions with tabs. Just use the
   built-in <samp>horizontal</samp> effect and a little bit of CSS
   tweaking. Here is an example:
 </p>
 
-<div style="width:600px;margin:25px auto;">
-  {{ standalone.body }}
+<div class="box">
+{{standalone.body}}
 </div>
+<a class="standalone" href="accordion-horizontal.htm">standalone demo</a>
+
 
 <p>
   Of course, you can create wildly different looks and sizes with CSS
@@ -26,6 +33,7 @@ title: Horizontal accordion using the tabs
   to <samp>mouseover</samp> so that the panes are revealed upon
   mouseover.
 </p>
+</div>
 
 <h3>HTML Coding</h3>
 
@@ -77,11 +85,5 @@ title: Horizontal accordion using the tabs
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Take a look at a <a href="accordion-horizontal.htm">standalone
-  version</a> of this demo. View its source code to get things going
-  on your page.
-</div>
 
 {% endblock %}
