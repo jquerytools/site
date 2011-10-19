@@ -10,14 +10,20 @@ title: Using tooltips in tables or lists
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here is a table with multiple rows. Move your mouse over the delete
   icons on the right hand side of the table and you'll see an example
   of the <em>same</em> tooltip for multiple triggers.
 </p>
 
-<div style="margin:30px 0">
-  {{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="table.htm">standalone demo</a>
+
 </div>
 
 <h3>HTML coding</h3>
@@ -80,8 +86,5 @@ title: Using tooltips in tables or lists
 {{ standalone.remove }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="table.htm">standalone page</a>
-</div>
 
 {% endblock %}
