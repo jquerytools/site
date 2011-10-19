@@ -2,6 +2,7 @@
 index: 1
 title: Basics of using the tooltip
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/tooltip/index.htm' as standalone %}
 
@@ -10,6 +11,10 @@ title: Basics of using the tooltip
 {% endblock %}
 
 {% block demo %}
+
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here we have four <samp>img</samp> tags and their <samp>title</samp>
   attribute working as the tooltip. This kind of simple syntax will
@@ -18,7 +23,13 @@ title: Basics of using the tooltip
   one-liner.
 </p>
 
-{{ standalone.body }}
+<div class="box" style="margin-left:-24px;padding:3px">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -30,7 +41,7 @@ title: Basics of using the tooltip
   for all of the triggers:
 </p>
 
-{% filter syntax('css') %}
+{% filter syntax('html') %}
 <!-- elements with tooltips -->
 <div id="demo">
   <img src="image1.jpg" title="The tooltip text #1"/>
@@ -80,6 +91,7 @@ title: Basics of using the tooltip
   positioning and the sliding effect can be altered in the
   configuration as will be seen in the upcoming demos.
 </p>
+<br>
 
 <p>
   Enclosing your call inside <samp>$(document).ready</samp> executes
@@ -89,9 +101,5 @@ title: Basics of using the tooltip
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="index.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 {% endblock %}
