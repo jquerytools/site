@@ -10,14 +10,22 @@ title: Custom tooltip effect
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here you can see a customized "bouncy" tooltip effect. We set up
   things similarly as in the <a href="index.html">basic setup</a>, but
   we have modified the sliding effect with our own:
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="custom.htm">standalone demo</a>
 
+
+</div>
 <h3>HTML coding</h3>
 
 <p>
@@ -77,9 +85,5 @@ title: Custom tooltip effect
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Take a look at a <a href="custom-effect.htm">standalone version</a>
-  of this demo. View its source code to get things going on your page.
-</div>
 
 {% endblock %}
