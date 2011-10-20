@@ -14,14 +14,23 @@ title: Basics of Flash embedding
 {% endblock %}
 
 {% block demo %}
-<h2><samp class="blue">1.</samp> Minimal Flash embedding setup</h2>
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
+<h2>Minimal Flash embedding setup</h2>
 
 <p>
   Here you have a simple Flash object. Below the object you can see
   how it is placed on the page:
 </p>
 
-{{ flash1.body }}
+<div class="box full">
+{{flash1.body}}
+</div>
+<a class="standalone" href="index1.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML setup</h3>
 
@@ -81,12 +90,8 @@ flashembed("clock", "{{ media_url('swf/global/clock.swf') }}");
 }
 {% endfilter %}
 
-<p>
-  Show this demo as a <a href="index1.htm">standalone page</a>.
-</p>
 
-
-<h2><samp class="blue">2.</samp> Configuring Flash objects</h2>
+<h2>Configuring Flash objects</h2>
 
 <p>
   Here we have another Flash object and this time we pass parameters
@@ -107,13 +112,12 @@ flashembed("info", "{{ media_url('swf/global/flashvars.swf') }}", {
   Here is the result. The passed parameters are seen:
 </p>
 
-{{ flash2.body }}
+<div class="box">
+{{flash2.body}}
+</div>
+<a class="standalone" href="index2.htm">standalone demo</a>
 
-<p>
-  Show this demo as a <a href="index2.htm">standalone page</a>
-</p>
-
-<h2><samp class="blue">3.</samp> Configuring Flash with JSON</h2>
+<h2>Configuring Flash with JSON</h2>
 
 <p>
   Flashembed has the unique feature of configuring your Flash objects
@@ -146,7 +150,10 @@ flashembed("player", "{{ flowplayer.swf }}", {
   And here is the result:
 </p>
 
-{{ flash3.body }}
+<div class="box">
+{{flash3.body}}
+</div>
+<a class="standalone" href="index3.htm">standalone demo</a>
 
 <p>
   If you are developing a Flash object and want to configure it with
@@ -155,7 +162,4 @@ flashembed("player", "{{ flowplayer.swf }}", {
   class="external">as3corelib</a>.
 </p>
 
-<div class="box petrol">
-  Show the above demo as a <a href="index3.htm">standalone page</a>.
-</div>
 {% endblock %}
