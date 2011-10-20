@@ -10,6 +10,10 @@ title: An artist's portfolio
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   This demo shows you some of the possibilities you have when you
   start combining the jQuery Tools. This demo uses the scrollable,
@@ -17,7 +21,10 @@ title: An artist's portfolio
   to see larger versions of the flower images.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
 
 <p>
   All tools are "skin free" and they only provide the necessary
@@ -25,7 +32,7 @@ title: An artist's portfolio
   appearance. You'll also be surprised how little JavaScript coding
   this setup requires. The possibilities are endless.
 </p>
-
+</div>
 <h3>HTML for the thumbnail scrollable</h3>
 
 <p>
@@ -180,11 +187,4 @@ title: An artist's portfolio
   As you can see, there are no problems using the Tools and other
   jQuery plugins together.
 </p>
-
-<div class="box petrol">
-  Here is the <a href="index.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
-
