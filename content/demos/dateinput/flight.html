@@ -10,13 +10,22 @@ title: Prompting for start and end dates
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
+<p>
   One dateinput can control another. Select an arrival date and it is
   set as the earliest selectable departure date. Enjoy the endless
   skinning possibilities of jQuery Tools Dateinput.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="flight.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -101,9 +110,5 @@ title: Prompting for start and end dates
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="flight.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
-{% endblock %}
 
+{% endblock %}
