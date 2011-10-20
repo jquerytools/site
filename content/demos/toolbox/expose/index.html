@@ -10,18 +10,26 @@ title: Minimal setup for expose
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This document shows you the basics of setting up expose. You take
   one or more elements then call the <samp>mask</samp> method and the
   magic happens. Here is a demo:
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
 
 <p>
   The exposing disappears when you click somewhere outside the element
   or press the ESC button.
 </p>
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -49,7 +57,4 @@ title: Minimal setup for expose
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="index.htm">standalone page</a>
-</div>
 {% endblock %}
