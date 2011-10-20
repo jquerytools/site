@@ -10,18 +10,27 @@ title: Loading external pages into overlay
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   The following button opens an overlay whose contents are loaded from
   an external URL:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="external.htm">standalone demo</a>
+
 
 <p>
   You can see the contents of the loaded
   page <a href="external-content.htm">here</a>
   and <a href="external-content2.htm">here</a>.
 </p>
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -80,11 +89,7 @@ title: Loading external pages into overlay
 {{ standalone.css_excerpt }}
 {% endfilter %}
 
-<h3>JavaScript code</h3>
 
-<div class="box petrol">
-  Show this demo as a <a href="external.htm">standalone page</a>.
-</div>
 {% endblock %}
 
 
