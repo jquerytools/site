@@ -10,6 +10,9 @@ title: Speeding up the portfolio
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Many times portfolio images are so large that it does not make sense
   to load them all on the page before they are being viewed. This demo
@@ -19,8 +22,10 @@ title: Speeding up the portfolio
   also be viewed quickly.
 </p>
 
-<c:set var="preload" value="true"/>
-<%@ include file="index.htm" %>
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="preload1.htm">standalone demo</a>
 
 <p>
   Images further down on the scrollable are not being loaded. The page
@@ -29,7 +34,9 @@ title: Speeding up the portfolio
   large.
 </p>
 
-<h3>Changing the HTML structure</h3>
+</div>
+
+<h2>Changing the HTML structure</h2>
 
 <p>
   We use a similar HTML structure as in the previous demo, but only
@@ -58,7 +65,7 @@ title: Speeding up the portfolio
 </div>
 {% endfilter %}
 
-<h3>JavaScript magic</h3>
+<h2>JavaScript magic</h2>
 
 <p>
   Remember from our <a href="index.html">previous demo</a> that when
@@ -80,11 +87,4 @@ title: Speeding up the portfolio
 {{ standalone.js4 }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="preload.htm">standalone version</a>
-  of this demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
-
-

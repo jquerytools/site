@@ -7,8 +7,7 @@
 
 {% block body %}{% mark body %}
 {% with images = ["02", "03", "04", "06", "07", "09", "11", "12", "15",
-                  "16", "17", "19", "20", "22", "23", "59" ],
-        preload = 0 %}
+                  "16", "17", "19", "20", "22", "23", "59" ] %}
 
 <!-- include reflection plugin -->
 <script src="{{ media_url('js/portfolio-demo/reflection.min.js') }}"></script>
@@ -35,28 +34,21 @@
 
     <div class="items">
 
-      {% for img in images %}
-      {% if preload %}
-      <div title="{{ img }}"> {# Starting a div, end it below #}
-      {% else %}
-      <div><img src="{{ media_url('img/portfolio-demo') }}/{{img}}.jpg"></div>
-      {% endif %}
-
-      <div class="info">
-	<h3>A Blue Flower</h3>
-	<p>
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit
-	  amet, consectetur.
-        </p>
-	<p class="copy">
-	  Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
-	</p>
-      </div>
-
-      {% if preload %}
-      </div> {# Close the div #}
-      {% endif %}
-      {% endfor %}
+        {% for img in images %}
+        {% block image_start scoped %}
+        <div><img src="{{ media_url('img/portfolio-demo') }}/{{img}}.jpg"></div>
+        {% endblock %}
+        <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+        {% block image_end %}{% endblock %}
+        {% endfor %}
     </div>
 
     <!-- prev/next buttons -->
@@ -71,7 +63,8 @@
 
   {% mark js1 %}
   // thumbnail scrollable
-  $("#thumbnails").scrollable({size: 5, clickable: false}).find("img").each(function(index) {
+  $("#thumbnails").scrollable({size: 5, clickable: false})
+                .find("img").each(function(index) {
 
   // thumbnail images trigger the overlay
   $(this).overlay({
