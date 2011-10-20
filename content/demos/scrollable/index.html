@@ -10,23 +10,23 @@ title: Minimal setup for scrollable
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here is a scrollable with 3 items in total and each of those items
-  contains 5 images:
+  contains 4 images:
 </p>
 
-<div style="margin:20px -15px">
-  {{ standalone.body }}
+<div class="box full" style="padding-left: 36px">
+{{standalone.body}}
 </div>
+<a class="standalone" href="index.htm">standalone demo</a>
 
-<br clear="both"/>
-
-<p class="less">
-  <small>
+<p>
     You can scroll through these elements by clicking on the arrow
     buttons or using the left and right arrow keys from your keyboard.
-  </small>
-</ol>
+</p>
 
 <p>
   For this example we can only scroll by clicking on the arrow buttons
@@ -39,6 +39,8 @@ title: Minimal setup for scrollable
   functionality and not their visual style. On your own pages you can
   use standard HTML/CSS techniques to style your scrollables.
 </p>
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -138,10 +140,6 @@ this element is the one that *you* will style the most.
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Show this demo as a <a href="index.htm">standalone page</a>
-</div>
 
 <p>
   <a href="{{content_base}}/credits.html" id="credits">Photo credits
