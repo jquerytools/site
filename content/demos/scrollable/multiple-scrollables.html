@@ -1,6 +1,6 @@
 ===
 index: 4
-title: Another gallery with multiple scrollables
+title: Gallery with multiple scrollables
 ===
 {% extends 'demo.j2' %}
 {% refer to 'demos/scrollable/multiple-scrollables.htm' as standalone %}
@@ -10,17 +10,23 @@ title: Another gallery with multiple scrollables
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here is another innovative way of scrolling images. Click on the
   images to see it in action. Use the <strong>left/right keys</strong>
   to navigate between images within a single scrollable:
 </p>
 
-<div style="margin:20px -20px">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="multiple-scrollables.htm">standalone demo</a>
+
 </div>
 
-<h3 style="clear: both">HTML coding</h3>
+<h3>HTML coding</h3>
 
 <p>
   Here is a setup for a single scrollable. You can have as many of
@@ -66,9 +72,4 @@ title: Another gallery with multiple scrollables
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="multiple-scrollables.htm">standalone
-  version</a> of this demo. You can freely study and copy its source
-  code.
-</div>
 {% endblock %}
