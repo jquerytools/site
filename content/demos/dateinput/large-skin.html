@@ -10,13 +10,20 @@ title: A large skin for Dateinput
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   Because the calendar is an overlayed element it is possible to use a
   large layout and the user experience won't suffer - quite the
   contrary.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="large-skin.htm">standalone demo</a>
+</div>
 
 <h3>CSS coding</h3>
 
@@ -59,10 +66,4 @@ title: A large skin for Dateinput
   the <a href="{{ content_url('dateinput/index.html') }}#skinning">skinning
   documentation</a> for the details of CSS id and class names.
 </p>
-
-<div class="box petrol">
-  Here is the <a href="large-skin.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
