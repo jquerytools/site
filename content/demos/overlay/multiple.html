@@ -10,12 +10,20 @@ title: Multiple overlays on the same page
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   The following buttons will open multiple overlays side-by-side so
   that all overlays can be visible together:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="mulitple.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -45,10 +53,6 @@ title: Multiple overlays on the same page
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Show this demo as a <a href="multiple.htm">standalone page</a>.
-</div>
 
 <h2>Opening and closing all at once</h2>
 
