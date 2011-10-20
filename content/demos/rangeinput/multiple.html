@@ -10,18 +10,26 @@ title: Multiple small ranges
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   These ranges are initialized with a
   single <samp>$(":range").rangeinput()</samp> call. Ranges on the
   second column are <strong>readonly</strong> and ranges on the third
   column are <strong>disabled</strong>.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="multiple.htm">standalone demo</a>
 
 <p>
   You can click on the values and edit them.
 </p>
+
+</div>
 
 <h3>Rangeinput initialization</h3>
 
@@ -104,9 +112,4 @@ title: Multiple small ranges
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="multiple.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
