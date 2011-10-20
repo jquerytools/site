@@ -1,6 +1,6 @@
 ===
 index: 3
-title: Combined server and client-side validation
+title: Server & client-side validation
 ===
 {% extends 'demo.j2' %}
 {% refer to 'demos/validator/server-side.htm' as standalone %}
@@ -10,19 +10,26 @@ title: Combined server and client-side validation
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   Many times both client and server-side validation is needed. This
   tool makes it easy and you are not tied to any specific server-side
   framework.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="server-side.htm">standalone demo</a>
 
 <p>
   Here we spice our <a href="index.html">minimal setup</a> with some
   server-side validation. On the server we have defined that name and
   age fields are never valid.
 </p>
+</div>
 
 <h3>JavaScript coding</h3>
 
@@ -64,8 +71,5 @@ title: Combined server and client-side validation
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="server-side.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
+
 {% endblock %}
