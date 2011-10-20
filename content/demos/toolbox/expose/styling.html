@@ -1,6 +1,6 @@
 ===
 index: 2
-title: Styling the mask with a background image
+title: Styling the mask
 ===
 {% extends 'demo.j2' %}
 {% refer to 'demos/toolbox/expose/styling.htm' as standalone %}
@@ -18,12 +18,19 @@ title: Styling the mask with a background image
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   <strong>Click on the ball</strong> to see a highly visual exposing
   experience! The background image can really make a difference.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="styling.htm">standalone demo</a>
+</div>
 
 <h3>Mask styling</h3>
 
@@ -79,8 +86,4 @@ title: Styling the mask with a background image
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="styling.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
