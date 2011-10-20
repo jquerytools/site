@@ -10,6 +10,9 @@ title: jQuery tools home page setup
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This document describes how the jQuery Tools <a href="{{ content_url('') }}">home
   page</a> has been done. We recommend opening
@@ -17,9 +20,12 @@ title: jQuery tools home page setup
   browser window or tab while reading this document.
 </p>
 
+<div class="box full">
 <a href="home.htm">
-  <img src="{{ media_url('img/demo.jpg') }}" style="margin:20px -20px;border:0" />
+  <img src="{{ media_url('img/demo.jpg') }}" style="border:0;width:700px" />
 </a>
+</div>
+</div>
 
 <h3>HTML coding</h3>
 
@@ -121,7 +127,7 @@ title: jQuery tools home page setup
   scrollable itself is installed normally.
 </p>
 
-{% filter syntax('css') %}
+{% filter syntax('js') %}
 // initialize scrollable with navigator plugin
 $("#scroll").scrollable({ items: '#tools'}).navigator();
 {% endfilter %}
@@ -164,9 +170,6 @@ $("#scroll").scrollable().begin();
   arrow keys.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="home.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
+
 {% endblock %}
 
