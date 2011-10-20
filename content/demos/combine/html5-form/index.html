@@ -10,7 +10,14 @@ title: HTML5 form inside an overlay
 {% endblock %}
 
 {% block demo %}
-{{ standalone.body }}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+</div>
 
 <h3>HTML coding</h3>
 
@@ -113,8 +120,4 @@ title: HTML5 form inside an overlay
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="">standalone version</a> of this demo. You can
-  freely study and copy its source code.
-</div>
 {% endblock %}
