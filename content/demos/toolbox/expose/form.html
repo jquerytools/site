@@ -10,13 +10,19 @@ title: Exposing a form
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This is a great user interface technique to highlight important
   parts of the page while the user is doing something. Start using the
   following form and you can see the exposing effect.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="form.htm">standalone demo</a>
 
 <p>
   Again, the exposing disappears when you click somewhere outside the
@@ -24,6 +30,7 @@ title: Exposing a form
   technique anywhere else before. So, I guess I'll get the credit for
   this and from now on this has to be called "exposing a form".
 </p>
+</div>
 
 <h3>CSS code</h3>
 
@@ -63,12 +70,4 @@ title: Exposing a form
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="form.htm">standalone page</a>
-</div>
 {% endblock %}
-
-
-
-
-
