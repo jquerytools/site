@@ -1,6 +1,6 @@
 ===
 index: 4
-title: Displaying all errors inside a single DIV
+title: Error Summary
 ===
 {% extends 'demo.j2' %}
 {% refer to 'demos/validator/custom-effect.htm' as standalone %}
@@ -10,12 +10,20 @@ title: Displaying all errors inside a single DIV
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   If you want alternate ways of displaying errors you can write a
   reusable effect for that.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="custom-effect.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -42,7 +50,7 @@ title: Displaying all errors inside a single DIV
 {% endfilter %}
 
 
-<h3>The custom effect</h3>
+<h2>The custom effect</h2>
 
 <p>
   Here is the custom effect. It is added
@@ -78,8 +86,4 @@ title: Displaying all errors inside a single DIV
 {{ standalone.init }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="custom-effect.htm">standalone version</a> of
-  this demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
