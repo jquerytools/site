@@ -10,18 +10,24 @@ title: A couple of vertical ranges
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   These ranges are initialized with a
   single <samp>$(":range").rangeinput()</samp> call and they share a
   common configuration. Each input overrides the common configuration
   with their own attributes.
 </p>
 
-{{ standalone.body }}
+<div class="box full" style="padding-left:48px">
+{{standalone.body}}
+</div>
+<a class="standalone" href="vertical.htm">standalone demo</a>
 
-<br clear="all" />
+</div>
 
-<h3>Initialization</h3>
+<h2>Initialization</h2>
 
 <p>
   The tool is smart enough to realize that these ranges are vertical
@@ -64,9 +70,5 @@ title: A couple of vertical ranges
 {{ standalone.css_excerpt }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="vertical.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
-{% endblock %}
 
+{% endblock %}
