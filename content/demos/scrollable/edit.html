@@ -13,15 +13,19 @@ title: Add and remove items from scrollable
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This demo shows you how to add and remove scrollable items. Notice
   how the scrollable navigator grows and the next/prev buttons behave
   correctly.
 </p>
 
-<div style="margin:20px -15px;">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
 </div>
+<a class="standalone" href="edit.htm">standalone demo</a>
 
 <p>
   You can add items to a circular scrollable as well. This page's
@@ -29,7 +33,9 @@ title: Add and remove items from scrollable
   setup</a> except that the add and remove buttons were added.
 </p>
 
-<h3>A new item</h3>
+</div>
+
+<h2>A new item</h2>
 
 <p>
   The item we are adding is the child element
@@ -40,7 +46,7 @@ title: Add and remove items from scrollable
 {{ standalone.html_excerpt }}
 {% endfilter %}
 
-<h3>addItem function</h3>
+<h2>addItem function</h2>
 
 <p>
   Every added item is a <samp>clone</samp> of a single DIV. We
@@ -53,9 +59,6 @@ title: Add and remove items from scrollable
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="edit.htm">standalone page</a>.
-</div>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
