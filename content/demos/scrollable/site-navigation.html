@@ -1,7 +1,8 @@
 ===
 index: 9
-title: A complete scrollable navigational system
+title: A complete navigational system
 ===
+
 {% extends 'demo.j2' %}
 {% refer to 'demos/scrollable/site-navigation.htm' as standalone %}
 
@@ -20,13 +21,20 @@ margin-top:0 !important;
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Scroll through these elements by using your
   up/down/left/right <strong>arrow keys</strong> and by clicking on
   the navigational elements or the large images themselves.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="site-navigation.htm">standalone demo</a>
 
 <p>
   This demo showcases the endless possibilities available. You can
@@ -36,6 +44,7 @@ margin-top:0 !important;
   simple image. You can even build your whole website based on this
   kind of system.
 </p>
+</div>
 
 <h3>HTML coding</h3>
 
@@ -148,7 +157,7 @@ margin-top:0 !important;
 </p>
 
 {% filter syntax('js') %}
-{{ standalone.js_excerpt }}
+{{ standalone.js }}
 {% endfilter %}
 
 
@@ -160,9 +169,4 @@ margin-top:0 !important;
   Manual</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="site-navigation.htm">standalone version</a> of
-  this demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
