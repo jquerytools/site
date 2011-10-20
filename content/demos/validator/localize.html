@@ -10,13 +10,21 @@ title: Localizing the validator
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
+<p>
   Terveisi&auml; &auml;idille! Junassa on hauska matkustaa. Kokoomus
   haisee. Some random finnish. Here is the mandatory localization
   example.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="localize.htm">standalone demo</a>
+</div>
 
 <h3>JavaScript coding</h3>
 
@@ -31,9 +39,4 @@ title: Localizing the validator
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="localize.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
