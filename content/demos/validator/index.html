@@ -10,9 +10,10 @@ title: Minimal setup for validator
 {% endblock %}
 
 {% block demo %}
-<h3>HTML coding</h3>
 
-{{ standalone.body }}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 
 <p>
   Here we have a form that has valid HTML5 syntax. We have
@@ -24,10 +25,18 @@ title: Minimal setup for validator
   more than 30 characters.
 </p>
 
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
+</div>
+
+<h3>HTML coding</h3>
+
 {% filter syntax('html') %}
 {% include "demos/validator/form.fragment.html" %}
 {% endfilter %}
-
 
 <h3>JavaScript coding</h3>
 
@@ -85,9 +94,6 @@ $("#myform").validator();
 }
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="index.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
+
 {% endblock %}
 
