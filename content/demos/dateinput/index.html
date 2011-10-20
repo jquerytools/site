@@ -17,22 +17,27 @@ title: Minimal setup for dateinput
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   Call <samp>$(":date").dateinput()</samp> and your <samp>&lt;input
   type="date" /&gt;</samp>'s will work. Here's one.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
 
-<p class="less" style="width:400px">
-  <small>
-    You can navigate between days with your <samp>Arrow Keys</samp> or
-    with <strong>VIM</strong> keyboard
-    shortcuts <samp>HJKL</samp>. <samp>Page UP/DOWN</samp> navigates
-    between months and <samp>Enter</samp> selects the
-    day. The <samp>Home</samp> key will navigate to the current day.
-  </small>
+<p>
+  You can navigate between days with your <samp>Arrow Keys</samp> or
+  with <strong>VIM</strong> keyboard
+  shortcuts <samp>HJKL</samp>. <samp>Page UP/DOWN</samp> navigates
+  between months and <samp>Enter</samp> selects the
+  day. The <samp>Home</samp> key will navigate to the current day.
 </p>
+</div>
 
 <h3>The code</h3>
 
@@ -84,9 +89,4 @@ title: Minimal setup for dateinput
   documentation</a> to understand how it works.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="index.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-

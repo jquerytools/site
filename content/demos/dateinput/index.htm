@@ -6,12 +6,15 @@
       href="{{ media_url('css/dateinput/skin1.css') }}"/>
 {% endmark %}{% endblock %}
 
-{% block body %}{% mark body %}
+{% block body %}
+{% mark body %}
+<div style="width:204px;margin:0 auto;">
 <!-- HTML5 date input -->
 <input type="date" name="mydate" />
-
+</div>
 <!-- make it happen -->
 <script>
   $(":date").dateinput();
 </script>
-{% endmark %}{% endblock %}
+{% endmark %}
+{% endblock %}
