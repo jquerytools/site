@@ -1,6 +1,6 @@
 ===
 index: 7
-title: Navigation with browser's back button
+title: Browser back button navigation
 ===
 {% extends 'demo.j2' %}
 {% refer to 'demos/scrollable/one-sized.htm' as standalone %}
@@ -16,6 +16,10 @@ margin:0px !important;
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   This demo continues from
   this <a href="{{ content_url('demos/tabs/skins.html') }}">tabs demo</a> and makes
@@ -26,8 +30,11 @@ margin:0px !important;
   back button.
 </p>
 
-<div style="margin-left:-5px">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="one-sized.htm">standalone demo</a>
+
 </div>
 
 <h3>HTML coding</h3>
@@ -113,11 +120,6 @@ margin:0px !important;
   from <a href="{{ content_url('documentation/basics.html') }}#document_ready">User's
   Manual</a>.
 </p>
-
-<div class="box petrol">
-  Here is the <a href="one-sized.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>

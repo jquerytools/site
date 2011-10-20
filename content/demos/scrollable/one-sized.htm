@@ -1,49 +1,61 @@
 {% extends "standalone.j2" %}
 
 {% block head %}{% mark css %}
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/tabs-no-images.css') }}"/>
 <!-- tab styling -->
-<link rel="stylesheet" type="text/css"
-      href="{{ media_url('css/tabs-flowplayer-v2.css') }}"/>
 
 <style>
   {% mark css_excerpt %}
 	/* override the root element to enable scrolling */
-	#flowpanes {
+	.css-panes {
+        height: 450px;
+        width: 702px;
 		position:relative;
 		overflow:hidden;
 		clear:both;
+        background-color: transparent;
 	}
 
 	/* override single pane */
-	#flowpanes div {
+	.css-panes div {
 		float:left;
 		display:block;
-		width:670px;
+		width:660px;
 		font-size:14px;
+        background-color: transparent;
 	}
 
 	/* our additional wrapper element for the items */
-	#flowpanes .items {
+	.css-panes .items {
 		width:20000em;
 		position:absolute;
 		clear:both;
 		margin:0;
 		padding:0;
+        border:0;
 	}
 
-	#flowpanes .less, #flowpanes .less a {
+
+	.css-panes .less, .css-panes .less a {
 		color:#999 !important;
 		font-size:11px;
 	}
-{% endmark %}
+    {% endmark %}
+
+    .css-panes .items div {
+        background-color: #ddd;
+    }
+    .css-panes .items div div {
+        border: 0 !important;
+    }
 </style>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
 {% mark html_excerpt %}
 <!-- tabs work as navigator for scrollable -->
-<ul id="flowtabs" class="navi">
-  <li><a id="t1" href="#story">The Story</a></li>
+<ul id="tabs" class="css-tabs navi">
+  <li><a id="t1" class="current" href="#story">The Story</a></li>
   <li><a id="t2" href="#features">Features</a></li>
   <li><a id="t3" href="#plugins">Plugins</a></li>
   <li><a id="t4" href="#demos">Demos</a></li>
@@ -51,7 +63,7 @@
 {% endmark %}
 
 <!-- panes -->
-<div id="flowpanes">
+<div class="css-panes">
 
   <!-- wrapper for scrollable items -->
   <div class="items">
@@ -165,9 +177,11 @@
 	<h2>Study the first demo to get a quick start</h2>
 
 	<ul>
-	  <c:forEach items="${f:getDemo(context.toolDemos, 'scrollable/index.html').category.demos}" var="demo">
-	    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
-	  </c:forEach>
+    {% for demo in resource.node.walk_resources_grouped_by_demo() %}
+	    <li> <a href="{{ content_url(demo.relative_deploy_path) }}">
+            {{ demo.meta.title|typogrify }}</a>
+        </li>
+	{% endfor %}
 	</ul>
       </div>
 
@@ -187,10 +201,10 @@
     $(function() {
 
     // select #flowplanes and make it scrollable. use circular and navigator plugins
-    $("#flowpanes").scrollable({ circular: true, mousewheel: true }).navigator({
+    $(".css-panes").scrollable({ circular: true, mousewheel: true }).navigator({
 
     // select #flowtabs to be used as navigator
-    navi: "#flowtabs",
+    navi: ".css-tabs",
 
     // select A tags inside the navigator to work as items (not direct children)
     naviItem: 'a',
