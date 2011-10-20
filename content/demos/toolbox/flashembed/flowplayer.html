@@ -10,6 +10,9 @@ title: Flashembed and Flowplayer
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Flowplayer is a regular Flash component just like any other Flash
   component. It can be placed on your page with this tool or by using
@@ -35,6 +38,8 @@ title: Flashembed and Flowplayer
   <li>jQuery support</li>
 </ul>
 
+</div>
+
 <p>
   Because flashembed is included in the Flowplayer JavaScript
   component, you have all flashembed features available such as Flash
@@ -42,7 +47,7 @@ title: Flashembed and Flowplayer
   the <a href="wmode.html">wmode property</a>. By default
   flowplayer.js sets the following properties on your behalf:
 </p>
-
+<div class="table">
 <table class="listing">
   <tr>
     <td class="code">version</td>
@@ -63,6 +68,7 @@ title: Flashembed and Flowplayer
     </td>
   </tr>
 </table>
+</div>
 
 <h2>Example</h2>
 
@@ -74,7 +80,10 @@ title: Flashembed and Flowplayer
   support MP4.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="flowplayer.htm">standalone demo</a>
 
 <p>
   In Flash versions below 9.115, users will experience an Express
@@ -96,7 +105,4 @@ title: Flashembed and Flowplayer
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  See this example as a <a href="flowplayer.htm">standalone version</a>.
-</div>
 {% endblock %}
