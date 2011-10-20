@@ -10,15 +10,22 @@ title: Creating a customized overlay effect
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here you can see a customized "drop" overlay effect. We set up
   things similarly as in the <a href="index.html">basic setup</a>, but
   we have modified the loading effect with our own:
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="custom-effect.htm">standalone demo</a>
 
-<h3>Custom easing for the jQuery <em>animate</em> method</h3>
+
+<h2>Custom easing for the jQuery <em>animate</em> method</h2>
 
 <p>
   We start by adding a new animation algorithm for jQuery called
@@ -35,7 +42,9 @@ title: Creating a customized overlay effect
 {{ standalone.easing }}
 {% endfilter %}
 
-<h3>Custom Overlay effect</h3>
+</div>
+
+<h2>Custom Overlay effect</h2>
 
 <p>
   Custom overlay effects are done with
@@ -76,11 +85,6 @@ title: Creating a customized overlay effect
 {% filter syntax('js') %}
 {{ standalone.js }}
 {% endfilter %}
-
-<div class="box petrol">
-  Take a look at a <a href="custom-effect.htm">standalone version</a>
-  of this demo. View its source code to get things going on your page.
-</div>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
