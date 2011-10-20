@@ -6,12 +6,15 @@
 	width:500px;
 	height:300px;
 }
+#info{
+	height: 48px;
+}
 </style>
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
 <div id="fail3"></div>
-<div class="info box" id="info"></div>
+<div class="info" id="info"></div>
 
 <script>
 {% mark js %}
@@ -26,7 +29,8 @@ flashembed("fail3", {
 
 	// called every time the supported version is not found
 	onFail: function() {
-		document.getElementById("info").innerHTML = "You need version 20.0 to view this content";
+		document.getElementById("info").innerHTML
+			= "You need version 20.0 to view this content";
 	}
 });
 {% endmark %}

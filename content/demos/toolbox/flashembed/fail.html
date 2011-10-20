@@ -14,9 +14,9 @@ title: Handling old flash versions
 {% endblock %}
 
 {% block demo %}
-<h2>
-  <samp class="blue">1.</samp> Default behaviour
-</h2>
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 
 <p>
   You can supply the required Flash version in the second argument for
@@ -35,7 +35,19 @@ flashembed("clock", {
   with two properties: <samp>src</samp> and <samp>version</samp>. The
   latter property specifies the required version that is required. We
   used a very large number so that you can see what happens without
-  any additional setup. The default behaviour is to write the
+  any additional setup.
+</p>
+
+<div class="box full">
+{{standalone1.body}}
+</div>
+<a class="standalone" href="fail1.htm">standalone demo</a>
+
+</div>
+
+<h2>The Default behavior</h2>
+<p>
+The default behaviour is to write the
   following HTML snippet to the container if the user does not have
   the required version:
 </p>
@@ -52,18 +64,10 @@ flashembed("clock", {
 {% endfilter %}
 
 <p>
-  And you can style this content any way you want with CSS. Here is
-  how it could possibly look:
+  You can also style this content any way you want with CSS.
 </p>
 
-{{ standalone1.body }}
-
-<p>
-  Show this demo as a <a href="fail1.htm">standalone page</a>
-</p>
-
-<a name="default_content" />
-<h2><samp class="blue">2.</samp> Default content in the container</h2>
+<h2 id="default_content">Default content in the container</h2>
 
 <p>
   If you are not happy with the default error message, you can supply
@@ -71,7 +75,10 @@ flashembed("clock", {
   container. Here is one example message:
 </p>
 
-{{ standalone2.body }}
+<div class="box">
+{{standalone2.body}}
+</div>
+<a class="standalone" href="fail2.htm">standalone demo</a>
 
 <p>
   And here is the corresponding HTML code:
@@ -81,13 +88,8 @@ flashembed("clock", {
 {{ standalone2.body }}
 {% endfilter %}
 
-<p>
-  Show this demo as a <a href="fail2.htm">standalone page</a>
-</p>
-
 <h2>
-  <samp class="blue">3.</samp> Express Install and the custom onFail
-  function
+  Express Install and the custom onFail function
 </h2>
 
 <p>
@@ -109,7 +111,10 @@ flashembed("clock", {
   SWF file:
 </p>
 
-{{ standalone3.body }}
+<div class="box">
+{{standalone3.body}}
+</div>
+<a class="standalone" href="fail3.htm">standalone demo</a>
 
 <h3>JavaScript coding</h3>
 
@@ -121,7 +126,4 @@ flashembed("clock", {
 {{ standalone3.js }}
 {% endfilter %}
 
-<p>
-  Show this demo as a <a href="fail3.htm">standalone page</a>
-</p>
 {% endblock %}
