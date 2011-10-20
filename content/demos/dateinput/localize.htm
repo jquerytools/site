@@ -8,6 +8,7 @@
 <style>
   .date { width: 357px; }
   #calhead { padding-left: 95px; }
+  #caltitle { background-color: #fff;}
   #calnext { float:left; }
 </style>
 {% endmark %}{% endblock %}
@@ -15,7 +16,9 @@
 {% block body %}{% mark body %}
 <!-- 0 value will display the current date formatted with the default
      formatter -->
-<input type="date" name="test" value="0" />
+<div style="width:360px; margin:0 auto;">
+  <input type="date" name="test" value="0" />
+</div>
 
 <script>
 {% mark js %}

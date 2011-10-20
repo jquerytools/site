@@ -10,14 +10,20 @@ title: Localizing the Dateinput (french)
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   Une vente solidaire est organis&eacute;e pour leur venir en aide. A random
   copy-paste from the web. Anyway here is the mandatory French
   localization.
 </p>
 
-<div style="width:360px;margin:0 auto">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="localize.htm">standalone demo</a>
+
 </div>
 
 <h3>$.tools.dateinput.localize</h3>
@@ -29,7 +35,7 @@ title: Localizing the Dateinput (french)
 </p>
 
 {% filter syntax('js') %}
-{{ standalone.js_excerpt }}
+{{ standalone.js }}
 {% endfilter %}
 
 <p>
@@ -51,9 +57,5 @@ title: Localizing the Dateinput (french)
 {{ standalone.js2 }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="localize.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
 
