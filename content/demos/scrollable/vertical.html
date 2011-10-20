@@ -10,6 +10,9 @@ title: A vertical scrollable
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here we show you a vertical setup for a scrollable. There is a minor
   change compared to the <a href="index.html">minimal setup</a> and
@@ -24,7 +27,13 @@ title: A vertical scrollable
   <li>Using your mousewheel.</li>
 </ol>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="vertical.htm">standalone demo</a>
+
+
+</div>
 
 <h3>HTML code</h3>
 
@@ -150,11 +159,6 @@ title: A vertical scrollable
   combination</a> that includes this tool.
 </p>
 
-
-<div class="box petrol">
-  Here is the <a href="vertical.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>

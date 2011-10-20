@@ -7,7 +7,7 @@
 
     /* vertical scrollers have typically larger height than width */
     height: 665px;
-    width: 700px;
+    width: 650px;
     border-top:1px solid #ddd;
 }
 
@@ -46,7 +46,7 @@
 
 /* the action buttons above the scrollable */
 #actions {
-    width:700px;
+    width:650px;
     margin:30px 0 10px 0;
 }
 
