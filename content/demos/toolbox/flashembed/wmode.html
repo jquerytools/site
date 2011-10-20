@@ -10,6 +10,9 @@ title: Placing HTML on top of a flash object
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   It is possible to place HTML elements in front of the Flash movies
   to prevent the Flash from showing through. This is achieved by
@@ -19,12 +22,16 @@ title: Placing HTML on top of a flash object
   an example:
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="wmode.htm">standalone demo</a>
 
 <p>
   This feature does not work on Linux and in early versions of Opera,
   but browser support is still quite good.
 </p>
+</div>
 
 <h3>JavaScript setup</h3>
 
@@ -36,8 +43,4 @@ title: Placing HTML on top of a flash object
 {{ standalone.js }}
 {% endfilter %}
 
-<p>
-  You can find a standalone version of this
-  example <a href="wmode.htm">here</a>.
-</p>
 {% endblock %}
