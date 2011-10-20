@@ -10,19 +10,23 @@ title: Customizing the scrolling animation
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   It is possible to alter scrollable's animation style or so-called
   "easing". Scroll through the following items and you can see it in
   action:
 </p>
 
-<div style="margin:20px -15px">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="easing.htm">standalone demo</a>
+
 </div>
 
-<br clear="all" />
-
-<h3>Custom animation</h3>
+<h2>Custom animation</h2>
 
 <p>
   You can add new animations to the scrollable by adding them to
@@ -45,7 +49,7 @@ title: Customizing the scrolling animation
   jQuery UI project as well.
 </p>
 
-<h3>Scrollable setup</h3>
+<h2>Scrollable setup</h2>
 
 <p>
   The scrollable setup is simple. You configure the custom easing with
@@ -59,12 +63,7 @@ title: Customizing the scrolling animation
 {% endfilter %}
 
 
-<div class="box petrol">
-  Take a look at a <a href="easing.htm">standalone version</a> of this
-  demo. View its source code to get things going on your page.
-</div>
-
-<h3>Changing the easing of an existing scrollable</h3>
+<h2>Changing the easing of an existing scrollable</h2>
 
 <p>
   You can dynamically change the easing settings for an existing scrollable:
