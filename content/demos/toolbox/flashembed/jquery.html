@@ -12,6 +12,10 @@ title: Flashembed and jQuery
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <h2>Embedding multiple Flash objects</h2>
 
 <p>
@@ -23,9 +27,12 @@ title: Flashembed and jQuery
   inside them:
 </p>
 
-{{ flash1.body }}
+<div class="box full">
+{{flash1.body}}
+</div>
+<a class="standalone" href="jquery1.htm">standalone demo</a>
 
-<br clear="all"/>
+</div>
 
 <h3>HTML Setup</h3>
 
@@ -48,8 +55,7 @@ title: Flashembed and jQuery
 {% endfilter %}
 
 <p>
-  Those clocks were positioned side-by-side using CSS. You can find a
-  standalone example of this <a href="jquery1.htm">here</a>.
+  Those clocks were positioned side-by-side using CSS.
 </p>
 
 <h2>SIFR example</h2>
@@ -65,7 +71,10 @@ title: Flashembed and jQuery
   shows you how to use jQuery and flashembed together.
 </p>
 
-{{ flash2.body }}
+<div class="box">
+{{flash2.body}}
+</div>
+<a class="standalone" href="jquery2.htm">standalone demo</a>
 
 <h3>HTML code</h3>
 
@@ -101,7 +110,6 @@ title: Flashembed and jQuery
 
 <p>
   Additionally, there are some CSS settings to set dimensions for
-  the <samp>h3</samp> tags. You can find a standalone example of
-  this <a href="jquery2.htm">here</a>.
+  the <samp>h3</samp> tags.
 </p>
 {% endblock %}

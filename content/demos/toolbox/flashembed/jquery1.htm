@@ -12,17 +12,20 @@ div.clock {
 {% endmark %}{% endblock %}
 
 {% block body %}{% mark body %}
+<div style="width:510px;margin:0 auto">
 {% mark html_excerpt %}
 <div class="clock"></div>
 <div class="clock"></div>
 <div class="clock"></div>
 {% endmark %}
+</div>
 
-{% mark js %}
 <script>
 $(function() {
+    {% mark js %}
 	$("div.clock").flashembed("{{ media_url('swf/global/clock.swf') }}");
+    {% endmark %}
 });
 </script>
-{% endmark %}
+
 {% endmark %}{% endblock %}
