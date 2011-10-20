@@ -10,13 +10,21 @@ title: Calendar that is always available
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   You can configure the dateinput to be always visible. Now you can
   build applications where the calendar is a core part of the user
   interface.
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="static.htm">standalone demo</a>
+
+</div>
 
 <h3>Dateinput configuration</h3>
 
@@ -51,11 +59,7 @@ title: Calendar that is always available
 </p>
 
 {% filter syntax('css') %}
-{{ standalone.css_excerpt }}
+{{ standalone.css }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="static.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
