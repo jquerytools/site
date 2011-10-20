@@ -10,15 +10,22 @@ title: Custom input types and attributes
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
+<p>
   Here we make a custom <samp>time</samp> input with
   custom <samp>minlength</samp> and <samp>data-equals</samp>
   attributes. New wave form development. jQuery Tools Validator makes
   it easy.
 </p>
 
-<div style="width:500px;margin:25px auto">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="custom-validators.htm">standalone demo</a>
+
 </div>
 
 <h3>HTML coding</h3>
@@ -194,8 +201,4 @@ title: Custom input types and attributes
   }
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="custom-validators.htm">standalone version</a>
-  of this demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
