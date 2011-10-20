@@ -10,15 +10,23 @@ title: Validator events in action
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   In addition to the effect framework you can extend the validator
   with your own functions that are called when validation related
   events occur.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="wizard.htm">standalone demo</a>
 
-<h3>The red border effect</h3>
+</div>
+
+<h2>The red border effect</h2>
 
 <p>
   Here is an example callback function that does the red border
@@ -30,10 +38,10 @@ title: Validator events in action
 {% endfilter %}
 
 
-<h3>Displaying errors on the "wall"</h3>
+<h2>Displaying errors on the "wall"</h2>
 
 <p>
-  Here we show the various ways to assignin callback functions for
+  Here we show the various ways to assigning callback functions for
   validator. It is not meant to be simple. It's meant to show you the
   different possibilities. All these callback functions print messages
   to a DIV with id "info".
@@ -43,9 +51,4 @@ title: Validator events in action
 {{ standalone.js2 }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="events.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
-
