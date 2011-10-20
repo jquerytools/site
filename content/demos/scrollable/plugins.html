@@ -28,6 +28,10 @@ div.demowrap {
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Here are the available plugins in action:
 </p>
@@ -51,11 +55,14 @@ div.demowrap {
   Provides navigation buttons for switching between pages.
 </p>
 
-<div class="demowrap">
-  {{ navigator.body }}
+<div class="box full">
+{{navigator.body}}
+</div>
+<a class="standalone" href="plugins-navigator.htm">standalone demo</a>
+
 </div>
 
-<h4>HTML setup</h4>
+<h3>HTML setup</h3>
 
 <p>
   By default the plugin searches for an element whose CSS class name
@@ -98,15 +105,14 @@ div.demowrap {
   demo</a>.
 </p>
 
-<h4>JavaScript setup</h4>
+<h3>JavaScript setup</h3>
 
 {% filter syntax('js') %}
 {{ navigator.js }}
 {% endfilter %}
 
 <p>
-  View the <a class="standalone" href="navigator.htm">standalone
-  demo</a> and the
+  View the
   <a href="{{ content_url('scrollable/index.html') }}#navigator">documentation</a>
   of the navigator plugin.
 </p>
@@ -120,12 +126,12 @@ div.demowrap {
   with the scrollable with your mouse.
 </p>
 
-<div class="demowrap">
-  {{ autoscroll.body }}
+<div class="box">
+{{autoscroll.body}}
 </div>
+<a class="standalone" href="autoscroll.htm">standalone demo</a>
 
-
-<h4>JavaScript setup</h4>
+<h3>JavaScript setup</h3>
 
 <p>
   This time we have supplied two configuration options for the
@@ -140,7 +146,7 @@ div.demowrap {
 {{ autoscroll.js }}
 {% endfilter %}
 
-<h4>Action buttons</h4>
+<h3>Action buttons</h3>
 
 <p>
   The difference between <samp>pause</samp> and <samp>stop</samp> is
@@ -153,10 +159,7 @@ div.demowrap {
 {% endfilter %}
 
 <p>
-  View the <a class="standalone" href="autoscroll.htm">standalone
-  demo</a> and
-  the <a href="{{ content_url('scrollable/index.html') }}#autoscroll">documentation</a>
-  of the autoscroll plugin.
+  View the <a href="{{ content_url('scrollable/index.html') }}#autoscroll">documentation</a> of the autoscroll plugin.
 </p>
 
 <a name="chain"></a>
@@ -167,19 +170,16 @@ div.demowrap {
   enabled <samp>mousewheel</samp> and <samp>circular</samp> options.
 </p>
 
-<div class="demowrap">
-  {{ chain.body }}
+<div class="box full">
+{{chain.body}}
 </div>
+<a class="standalone" href="chain.htm">standalone demo</a>
 
-<h4>JavaScript setup</h4>
+<h3>JavaScript setup</h3>
 
 {% filter syntax('js') %}
 {{ chain.js }}
 {% endfilter %}
-
-<p>
-  View the <a class="standalone" href="chain.htm">standalone demo</a>.
-</p>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>
