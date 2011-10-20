@@ -12,6 +12,9 @@ title: Loading flash on a mouse click
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Many times it's good practice to defer loading of the Flash object
   until the user clicks on the Flash container. This makes the page
@@ -19,7 +22,11 @@ title: Loading flash on a mouse click
   have an example:
 </p>
 
-{{ flash1.body }}
+<div class="box full">
+{{flash1.body}}
+</div>
+<a class="standalone" href="onclick1.htm">standalone demo</a>
+</div>
 
 <h3>The setup</h3>
 
@@ -43,7 +50,10 @@ title: Loading flash on a mouse click
   scenario:
 </p>
 
-{{ flash2.body }}
+<div class="box">
+{{flash2.body}}
+</div>
+<a class="standalone" href="onclick2.htm">standalone demo</a>
 
 <p>
   We have set a background image for the container and
@@ -54,8 +64,4 @@ title: Loading flash on a mouse click
 {{ flash2.js }}
 {% endfilter %}
 
-<p>
-  You can find a standalone version of this jQuery
-  example <a href="onclick2.htm">here</a>.
-</p>
 {% endblock %}
