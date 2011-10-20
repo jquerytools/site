@@ -10,6 +10,9 @@ title: Exposing videos with a custom mask
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   Here we have customized the mask with a logo. Click on the video and
   you can see it above the video. We have also customized the close
@@ -18,7 +21,12 @@ title: Exposing videos with a custom mask
   press the ESC key).
 </p>
 
-{{ standalone.body }}
+<div class="box">
+{{standalone.body}}
+</div>
+<a class="standalone" href="video.htm">standalone demo</a>
+
+</div>
 
 <h3>CSS code</h3>
 
@@ -68,11 +76,4 @@ title: Exposing videos with a custom mask
 {{ standalone.js }}
 {% endfilter %}
 
-<div class="box petrol">
-  Show this demo as a <a href="video.htm">standalone page</a>
-</div>
 {% endblock %}
-
-
-
-
