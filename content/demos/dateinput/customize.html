@@ -10,14 +10,22 @@ title: Customizing Dateinput behavior
 {% endblock %}
 
 {% block demo %}
-<p class="more" style="margin-bottom:25px">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   These inputs are initialized with a
   single <samp>$(":date").dateinput()</samp> call and they share a
   common configuration. Each input overrides this configuration with
   their own options.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="customize.htm">standalone demo</a>
+
+</div>
 
 <h3>Dateinput initialization</h3>
 
@@ -63,8 +71,4 @@ title: Customizing Dateinput behavior
 {{ standalone.html_excerpt }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="customize.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
