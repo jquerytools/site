@@ -10,13 +10,21 @@ title: A custom scrollbar for a DIV
 {% endblock %}
 
 {% block demo %}
-<p class="more">
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+<p>
   You can use the rangeinput to control other elements too. Here we
   use it to control scrolling of a DIV. A little more coding and you
   can present your products like Apple does.
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="scrollbar.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -64,9 +72,5 @@ title: A custom scrollbar for a DIV
   Tools <a href="{{ content_url('scrollable/index.html') }}">scrollables</a>.
 </p>
 
-<div class="box petrol">
-  Here is the <a href="scrollbar.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
 

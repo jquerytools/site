@@ -2,7 +2,7 @@
 #scrollwrap {
     position:relative;
     overflow:hidden;
-    width: 750px;
+    width: 700px;
     height:150px;
     border:1px solid #000;
     margin-bottom:15px;
@@ -28,7 +28,7 @@
     cursor:pointer;
     height:1px;
     border:2px solid #00118E;
-    width:748px;
+    width:698px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
 }
