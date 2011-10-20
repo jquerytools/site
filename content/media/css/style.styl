@@ -8,13 +8,6 @@
 @import "include/sidebar"
 @import "include/content"
 
-a
-    color petrol
-    text-decoration none
-
-    &hover
-        color lighten(petrol, 10)
-
 html
     background-color #fafafa
 
@@ -24,8 +17,20 @@ body
     defaultBackground()
     defaultSansSerif()
     font-size 14px
-    line-height 16px
+    line-height 20px
     color black
+
+a
+    color petrol
+    text-decoration none
+
+    &hover
+        color lighten(petrol, 10)
+
+p
+    line-height 20px
+    margin-bottom 8px
+
 
 .overlay
     padding 40px

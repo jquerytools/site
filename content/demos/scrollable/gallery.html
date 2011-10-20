@@ -10,17 +10,21 @@ title: A simple scrollable image gallery
 {% endblock %}
 
 {% block demo %}
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
 <p>
   This demo continues from the <a href="index.html">minimal setup</a>
   and adds a simple <samp>click</samp> action to the scrollable items
   which will open up a larger version of the thumbnail image.
 </p>
 
-<div style="margin:20px -15px">
-  {{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
 </div>
+<a class="standalone" href="gallery.htm">standalone demo</a>
 
-<br clear="all" />
+</div>
 
 <h3>HTML coding</h3>
 
@@ -100,10 +104,6 @@ var url = $(this).attr("alt");
 </p>
 
 <br />
-<div class="box petrol">
-  Here is the <a href="gallery.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 
 <p>
   <a href="{{ content_url('credits.html') }}" id="credits">Photo credits &raquo;</a>

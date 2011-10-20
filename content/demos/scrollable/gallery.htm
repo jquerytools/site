@@ -11,8 +11,7 @@
 /* styling for the image wrapper  */
 #image_wrap {
     /* dimensions */
-    width:677px;
-    margin:15px 0 15px 40px;
+    width:700px;
     padding:15px 0;
 
     /* centered */
@@ -39,7 +38,9 @@
 
 <!-- HTML structures -->
 {% with scrollable_id = "scrollable" %}
+<div style="margin:0 auto; width: 634px; height:120px;">
 {% include "demos/scrollable/scrollable.fragment.html" %}
+</div>
 {% endwith %}
 
 <script>
