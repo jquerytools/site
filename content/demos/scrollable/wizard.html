@@ -18,12 +18,21 @@ title: A scrollable registration wizard
   }
 </style>
 
+<div class="blurb">
+
+<h1 class="teaser title">{{ resource.meta.title }}</h1>
+
 <p>
   Here is a registration wizard with primitive input validation logic
   and a "twitter" style message box for validation errors:
 </p>
 
-{{ standalone.body }}
+<div class="box full">
+{{standalone.body}}
+</div>
+<a class="standalone" href="wizard.htm">standalone demo</a>
+
+</div>
 
 <h3>HTML coding</h3>
 
@@ -147,9 +156,5 @@ title: A scrollable registration wizard
 {{ standalone.tabindex }}
 {% endfilter %}
 
-<div class="box petrol">
-  Here is the <a href="wizard.htm">standalone version</a> of this
-  demo. You can freely study and copy its source code.
-</div>
 {% endblock %}
 
