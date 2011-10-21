@@ -1,8 +1,16 @@
 {% extends "root.j2" %}
 
 {% block extra_css %}
+
+{{ super() }}
 <link rel="stylesheet" type="text/css" href="{{ media_url('css/docs.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ media_url('css/syntax.css') }}">
+{% block css %}{% endblock %}
+{% endblock %}
+
+{% block extra_script %}
+{{ super() }}
+{% block script %}{% endblock %}
 {% endblock %}
 
 {% block main %}

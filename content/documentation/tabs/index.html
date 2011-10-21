@@ -3,8 +3,7 @@ index: 0
 title: Tab tool basics
 ---
 
-{% block extra_css %}
-{{ super() }}
+{% block css %}
 <style>
 div.panes div {
 	margin-top:10px;
@@ -21,7 +20,7 @@ div.panes img {
 </style>
 {% endblock %}
 
-{% block extra_script %}
+{% block script %}
 <script>
 $(function() {
   $(".tabs").tabs(".panes > div");

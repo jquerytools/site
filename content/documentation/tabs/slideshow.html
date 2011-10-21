@@ -1,24 +1,23 @@
-{% extends "documentation/tabs/index.html" %}
+---
+index: 1
+title: Slideshow plugin
+---
+
 {% refer to 'demos/tabs/slideshow.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/tabs.jpg') }})">
-  jQuery Slideshow Plugin
-</h1>
-
-<h2 class="first" style="text-align:center">
-  <strong>Slideshow</strong> plugin for Tabs
-</h2>
-
-<p class="more" style="text-align:center">
+{% block blurb %}
+<p class="teaser text">
   Automatic switching between tabs at pre-configured intervals.
 </p>
 
+<div class="box">
 {{standalone.body}}
+</div>
+<a class="standalone" href="/demos/tabs/slideshow.htm">standalone demo</a>
 
 <a name="features"></a>
 <h2>Features</h2>
@@ -39,6 +38,9 @@
   </li>
 </ul>
 
+{% endblock %}
+
+{% block content %}
 <a name="usage"></a>
 <h2>Usage</h2>
 
@@ -61,6 +63,7 @@
   Full list of configuration options for the Slideshow plugin.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -140,11 +143,12 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="api"></a>
 <h2>JavaScript API</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -193,7 +197,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="events"></a>
@@ -207,6 +211,7 @@
   Object</a> as the first argument.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -241,5 +246,6 @@
     </td>
   </tr>
 </table>
+</div>
 
 {% endblock %}
