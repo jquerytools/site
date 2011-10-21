@@ -16,7 +16,8 @@ context:
     data:
         jqt:
             js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
-            v: 1.2.5
+            v: 1.2.6
+            size: 4.45
             html_form:
                 size: 100
         flowplayer:
@@ -47,9 +48,12 @@ sorter:
             is_processable: true
             source.kind: html
 grouper:
-    demo:
+    group:
         sorter: index
         groups:
+            -
+                name: user guide
+                description: jQuery Tools user guide
             -
                 name: UI Tools
                 groups:
@@ -79,14 +83,3 @@ grouper:
                         name: flashembed
                     -
                         name: combinations
-
-    documentation:
-        sorter: index
-        groups:
-            -
-                name: for users
-                groups:
-                    -
-                        name: introduction
-                    -
-                        name: installation

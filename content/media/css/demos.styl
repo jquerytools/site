@@ -3,62 +3,13 @@
 @import "include/mixins"
 @import "include/gradients"
 @import "include/code"
-@import "include/tabs.css"
+@import "include/jqtabs.css"
 
 
 p.intro
     clear both
     padding-top 12px
 
-body
-    position relative
-    z-index -1
-
-#hero
-    position relative
-    height 220px
-    margin 0 auto
-    z-index -1
-
-.blurb
-    margin-top -32px
-    border-top 1px solid almostwhite
-    a.standalone
-        margin -24px -24px 24px -24px
-        boxshadow(0, 1px, 0px, clear - 10)
-
-    .tease.first
-        margin-top 12px
-
-    p
-        margin 12px 0
-
-    ul, ol
-        margin 2px 16px 6px
-        line-height 20px
-
-    .box
-        background-color clear - 3
-        clearfix()
-        padding-bottom 12px
-        &.full
-            margin-left -24px
-            padding 12px 3px
-
-a.standalone
-    margin -12px 0 12px
-    padding 4px 0
-    display block
-    text-align center
-    color textgray
-    clear both
-    font-size 11px
-    boxshadow(0, 1px, 0px, clear - 20)
-
-    &:hover
-        color darkPetrol
-        whiteGradient()
-        text-shadow 0 1px 1px #fff
 
 #nav
     border-bottom 1px solid lightgray
