@@ -1,21 +1,23 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: Tooltip basics
+---
+
 {% refer to 'demos/tooltip/dynamic.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/tooltip.jpg') }}) no-repeat -9px 25px">
-  jQuery Tools / Tooltip - Tooltips done right
-</h1>
+{% block blurb %}
 
-<div style="margin:0 -5px 20px -5px">
-  {{standalone.body}}
+
+<div class="box full">
+{{standalone.body}}
 </div>
+<a class="standalone" href="/demos/tooltip/dynamic.htm">standalone demo</a>
 
-
-<div class="feat" style="min-height:100px">
+<div class="col">
   <h3 class="first">Simple or Rich</h3>
   <p>
     A simple call such as <samp>$("img[title]").tooltip();</samp> will
@@ -26,7 +28,7 @@
   </p>
 </div>
 
-<div class="feat last" style="min-height:100px">
+<div class="col last" style="min-height:100px">
   <h3 class="first">Configure design, timing and positioning</h3>
   <p>
     Use CSS to create rounded borders, arrows, gradients or
@@ -34,8 +36,8 @@
     pre and post-delays and positioning to your personal needs.
   </p>
 </div>
-
-<div class="feat">
+<br clear="all" class="clear">
+<div class="col">
   <h3>Fading, sliding, dynamic</h3>
   <p>
     Tooltip comes with two built-in effects: <samp>toggle</samp>,
@@ -48,7 +50,7 @@
   </p>
 </div>
 
-<div class="feat last">
+<div class="col last">
   <h3>File size: 1.10 Kb</h3>
   <p>
     This tool has all the features and configuration options you'll
@@ -59,8 +61,9 @@
     size is 3.5 Kb.
   </p>
 </div>
-<br clear="all" />
 
+{% endblock %}
+{% block content %}
 
 <a name="usage"></a>
 <h2>Usage</h2>
@@ -143,6 +146,7 @@
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -303,7 +307,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="positioning"></a>
 <h3>Tooltip positioning</h3>
@@ -343,6 +347,7 @@
   Object</a> as the first argument.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -377,6 +382,7 @@
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   Here is an example of an <samp>onShow</samp> callback function that
@@ -511,6 +517,7 @@
   Here is a list of all API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -566,7 +573,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="fade"></a>
 <h2>Built-in effect: <em>fade</em></h2>
@@ -576,6 +583,7 @@
   as follows:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -595,7 +603,7 @@
     <td>The fade-out speed when the tooltip is hidden, in milliseconds.</td>
   </tr>
 </table>
-
+</div>
 
 <a name="effects"></a>
 <h2>Making custom effects</h2>

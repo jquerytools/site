@@ -1,7 +1,7 @@
 <a name="graphics"></a>
 <h2 style="text-transform:capitalize">{{resource.meta.group}} Graphics</h2>
-
-<a href="{{ media_url('img') }}/{{resource.meta.group}}/{{resource.meta.group}}.zip">
+{% set img = resource.meta.img|default(resource.meta.group ) %}
+<a href="{{ media_url('img') }}/{{img}}/{{img}}.zip">
   <img src="{{media_url('img/global/zip.gif') }}"
        alt="Download graphics pack" style="float:right" />
 </a>
