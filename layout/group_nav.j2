@@ -1,0 +1,26 @@
+{% for section in site.grouper.group.groups if not section.name == 'user guide' -%}
+<div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
+    {% set active = (section in resource.walk_group_groups()) %}
+    <header {% if active %} class="open" {% endif %}>
+        <div class="icon"></div>
+        <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
+    </header>
+    <ol class="cat{% if active %} active{% endif %}">
+    {% for group in section.groups -%}
+        <li>
+        <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
+        <ol class="links">
+            {% for demo in group.walk_resources_in_node(resource.node.module) -%}
+            <li>
+            <a {% if resource.url == demo.url %}class="active"{% endif %}
+                title="{{ demo.meta.description|default('') }}"
+                href="{{ content_url(demo.relative_deploy_path) }}">
+                {{ demo.meta.title|typogrify }}</a>
+            </li>
+            {%- endfor %}
+        </ol>
+        </li>
+    {%- endfor %}
+    </ol>
+</div>
+{%- endfor %}

@@ -1,0 +1,38 @@
+@import "include/vars"
+@import "include/fix"
+@import "include/mixins"
+@import "include/icons"
+@import "include/code"
+
+
+#content
+  width 100%
+
+.blurb
+    clearfix()
+
+.col
+    width 45%
+    float left
+    margin 0 1%
+
+    h3
+        font-size 20px
+        margin 16px 0
+
+    p
+        font-size 12px
+
+        &.more
+            font-size 18px
+            color textgray
+            margin-bottom 16px
+
+
+    &.last
+        margin 0
+        float right
+
+    img
+        float left
+        margin 32px 20px

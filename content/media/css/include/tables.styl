@@ -1,0 +1,55 @@
+div.table
+    margin-bottom 12px
+
+    th,
+    td
+        padding 4px 8px
+        vertical-align middle
+
+    #content td,
+    #content th,
+        p:last-child
+            margin 0
+
+    th,
+    tfoot td
+        font-size 10px
+        font-variant italic
+        font-weight normal
+        color textgray
+        text-align left
+
+    tfoot td
+        padding 5px 0 4px
+
+    table caption
+        color textgray
+        letter-spacing 2px
+        text-transform uppercase
+        text-align left
+        padding-bottom 6px
+
+    tbody
+        radius(6px)
+        boxshadow(0, 1px, 3px, textgray)
+        tableRadius(6px)
+
+        td, th
+            border 1px solid almostwhite
+            background-color clear
+
+    dt
+        width 96px
+        clear left
+        float left
+    dd
+        float left
+        margin-left -96px
+        padding-left 96px
+        width 280px
+        border-bottom 1px dotted lightgray
+        margin-bottom 6px
+        padding-bottom 6px
+
+        &:last-child
+            border-bottom 0
