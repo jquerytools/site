@@ -1,26 +1,33 @@
-{% for section in site.grouper.group.groups if not section.name == 'user guide' -%}
+{% macro render_resources(group, node) %}
+<ol class="links">
+    {% for res in group.walk_resources_in_node(resource.node.module) -%}
+    <li>
+    <a {% if resource.url == res.url %}class="active"{% endif %}
+        title="{{ res.meta.description|default('') }}"
+        href="{{ content_url(res.relative_deploy_path) }}">
+        {{ res.meta.title|typogrify }}</a>
+    </li>
+    {%- endfor %}
+</ol>
+{% endmacro %}
+
+{% for section in site.grouper.group.groups if resource.node.name == 'documentation' or not section.name == 'user guide' -%}
+{% set active = (section in resource.walk_group_groups()) %}
 <div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
-    {% set active = (section in resource.walk_group_groups()) %}
     <header {% if active %} class="open" {% endif %}>
-        <div class="icon"></div>
         <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
     </header>
+    {% if resource.node.name == 'documentation' %}
+    {{ render_resources(section, resource.node) }}
+    {% else %}
     <ol class="cat{% if active %} active{% endif %}">
     {% for group in section.groups -%}
         <li>
         <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
-        <ol class="links">
-            {% for demo in group.walk_resources_in_node(resource.node.module) -%}
-            <li>
-            <a {% if resource.url == demo.url %}class="active"{% endif %}
-                title="{{ demo.meta.description|default('') }}"
-                href="{{ content_url(demo.relative_deploy_path) }}">
-                {{ demo.meta.title|typogrify }}</a>
-            </li>
-            {%- endfor %}
-        </ol>
+        {{ render_resources(group, resource.node) }}
         </li>
     {%- endfor %}
     </ol>
+    {% endif %}
 </div>
 {%- endfor %}

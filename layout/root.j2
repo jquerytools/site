@@ -127,6 +127,13 @@
 
     {% block extra_script %}{% endblock %}
     <script>
+    // toggle category
+    $("#right header").click(function() {
+        $(this).toggleClass("open");
+        $(this).next(".cat").toggleClass("active");
+    });
+    </script>
+    <script>
       {% block js %}
       {% endblock %}
       var _tracker = _gat._getTracker("{{ analytics.id }}");

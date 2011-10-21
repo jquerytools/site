@@ -20,13 +20,3 @@
 {% include "group_nav.j2" %}
 </nav>
 {% endblock %}
-
-{% block extra_script %}
-<script>
-// toggle category
-$("#right header").click(function() {
-    $(this).toggleClass("open");
-    $(this).next(".cat").toggleClass("active");
-});
-</script>
-{% endblock %}
