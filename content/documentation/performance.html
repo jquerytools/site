@@ -1,12 +1,16 @@
-{% extends "docs.j2" %}
+---
+index: 3
+title: jQuery tools performance
+---
 
-{% block content %}
-<h2 class="first">
+{% block blurb %}
+
+<p class="teaser text">
   80-90% of the end-user response time is spent on the
-  front-end. <br /><strong>Start there.</strong>
-</h2>
+  front-end. Start there.
+</p>
 
-<p class="higher">
+<p>
   This result has been identified by Yahoo engineers in their famous
   article <a href="http://developer.yahoo.com/performance/rules.html"
   class="external">Best Practices for Speeding Up Your Web
@@ -23,7 +27,7 @@
   <p><strong>2.</strong> Use a Content Delivery Network (CDN)</p>
   <p><strong>3.</strong> Add an Expires header</p>
   <p><strong>4.</strong> GZIP components</p>
-  <p><strong>8.</strong> Minimize the JavaScript</p>
+  <p><strong>5.</strong> Minify the JavaScript</p>
 </blockquote>
 
 <p>
@@ -31,7 +35,9 @@
   by roughly 70-80%. If this is hard to believe, I suggest you read
   the Yahoo white-paper.
 </p>
+{% endblock %}
 
+{% block content %}
 <h2>jQuery Tools <em>respects all 5 rules</em></h2>
 
 <p style="margin-bottom:15px">
@@ -206,7 +212,7 @@
   possible in every major server such as Apache, Tomcat or lighttpd.
 </p>
 
-<h2><em>8.</em> Minify JavaScript</h2>
+<h2><em>5.</em> Minify JavaScript</h2>
 
 <p>
   Minification is the practice of removing unnecessary characters from
