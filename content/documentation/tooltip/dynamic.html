@@ -1,16 +1,15 @@
-{% extends "documentation/tooltip/index.html" %}
+---
+index: 2
+title: Dynamic tooltips
+---
+
 {% refer to 'demos/tooltip/dynamic.htm' as demo %}
 
 {% block css %}
 {{ demo.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/tooltip.jpg') }}) no-repeat -9px 25px">
-  jQuery Tooltip dynamic positioning
-</h1>
-
-<h2 class="first"><strong>Dynamic plugin</strong> for Tooltip</h2>
+{% block blurb %}
 
 <p>
   <a href="#lower">Click here</a> to scroll a little lower and see how
@@ -19,7 +18,10 @@
 </p>
 
 <a name="lower"></a>
-{{ demo.body }}
+<div class="box full">
+{{demo.body}}
+</div>
+<a class="standalone" href="/demos/tooltip/dynamic.htm">standalone demo</a>
 
 <p>
   If there is no room on the top edge then the tooltip is shown on the
@@ -28,6 +30,8 @@
   opposite edge is always used.
 </p>
 
+{% endblock %}
+{% block content %}
 
 <a name="features"></a>
 <h2>Features</h2>
@@ -78,6 +82,7 @@
   plugin:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -130,4 +135,5 @@
   </tr>
 
 </table>
+</div>
 {% endblock %}

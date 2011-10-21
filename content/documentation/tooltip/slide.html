@@ -1,25 +1,28 @@
-{% extends "documentation/tooltip/index.html" %}
+---
+index: 1
+title: Slide effect
+---
+
 {% refer to 'demos/tooltip/any-html.htm' as demo %}
 
 {% block css %}
 {{ demo.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{media_url('img/hero/tooltip.jpg') }}) no-repeat -9px 25px">
-  jQuery Tooltip / slide effect
-</h1>
+{% block blurb %}
 
-<h2 class="first center"><strong>Slide effect</strong> for Tooltip</h2>
-
-<p class="more center">
+<p class="teaser text">
   Impress your mom with a tooltip that slides and fades. Up, down,
   left or right.
 </p>
 
-<div style="width:150px;margin:auto">
+<div class="box">
   {{ demo.body }}
 </div>
+<a class="standalone" href="demos/tooltip/any-html.htm">standalone demo</a>
+
+{% endblock %}
+{% block content %}
 
 <p>
   Here you can see the JavaScript setup for the above example:
@@ -30,7 +33,7 @@
 {% endfilter %}
 
 <a name="slide_configuration"></a>
-<h3>Configuration options</h3>
+<h2>Configuration options</h2>
 
 <p>
   Here is a full list of available configuration options for this
@@ -39,6 +42,7 @@
 </p>
 
 <a name="slide_configuration"></a>
+<div class="table">
 <table class="listing">
 
   <thead>
@@ -102,13 +106,14 @@
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   <strong>Note:</strong> this effect uses a fading animation from zero
   to full opacity in all browsers other than Internet Explorer.
 </p>
 
-<h3 class="lower">Example</h3>
+<h2>Example</h2>
 
 <p>
   An example setup using the <samp>slide</samp> effect with the custom
