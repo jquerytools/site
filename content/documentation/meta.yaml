@@ -1,0 +1,3 @@
+group: user guide
+extends: doc.j2
+hero: usersguide

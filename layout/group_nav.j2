@@ -11,23 +11,25 @@
 </ol>
 {% endmacro %}
 
-{% for section in site.grouper.group.groups if resource.node.name == 'documentation' or not section.name == 'user guide' -%}
+{% for section in site.grouper.group.groups if resource.node.module.name == 'documentation' or not section.name == 'user guide' -%}
 {% set active = (section in resource.walk_group_groups()) %}
 <div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
     <header {% if active %} class="open" {% endif %}>
         <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
     </header>
-    {% if resource.node.name == 'documentation' %}
-    {{ render_resources(section, resource.node) }}
-    {% else %}
     <ol class="cat{% if active %} active{% endif %}">
+    {% if section.name == 'user guide' %}
+    <li>
+    {{ render_resources(section, resource.node) }}
+    <li>
+    {% else %}
     {% for group in section.groups -%}
         <li>
         <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
         {{ render_resources(group, resource.node) }}
         </li>
     {%- endfor %}
-    </ol>
     {% endif %}
+    </ol>
 </div>
 {%- endfor %}

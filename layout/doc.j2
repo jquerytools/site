@@ -1,0 +1,26 @@
+{% extends "root.j2" %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/docs.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/syntax.css') }}">
+{% endblock %}
+
+{% block main %}
+<img id="hero" src="{{ media_url('img/hero/' ~ resource.meta.hero ~ '.jpg') }}">
+<div class="blurb">
+<h1 class="teaser title">{{ resource.meta.title|typogrify }}</h1>
+{% block blurb %}
+{% endblock %}
+</div>
+
+{% block content %}
+{% endblock %}
+
+{% endblock %}
+
+
+{% block right_navigation %}
+<nav class="sidebar">
+{% include "group_nav.j2" %}
+</nav>
+{% endblock %}

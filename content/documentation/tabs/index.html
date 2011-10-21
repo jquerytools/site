@@ -1,12 +1,16 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: Tab tool basics
+---
 
-{% block css %}
+{% block extra_css %}
+{{ super() }}
 <style>
 div.panes div {
 	margin-top:10px;
 	display:none;
 	height:80px;
-	width:700px;
+	width:650px;
 	font-size:18px;
 }
 
@@ -17,7 +21,7 @@ div.panes img {
 </style>
 {% endblock %}
 
-{% block script %}
+{% block extra_script %}
 <script>
 $(function() {
   $(".tabs").tabs(".panes > div");
@@ -25,19 +29,16 @@ $(function() {
 </script>
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/tabs.jpg') }})">
-  jQuery TOOLS / Tabs - Tabs done right
-</h1>
-
-<ul class="tabs" style="position:relative;top:-46px;margin-top:0px">
+{% block blurb %}
+<div class="box">
+<ul class="tabs">
   <li><a href="#">First tab</a></li>
   <li><a href="#">Second tab</a></li>
   <li><a href="#">Third tab</a></li>
 </ul>
 <br clear="all" />
 
-<div class="panes" style="height:110px;position:relative;top:-40px">
+<div class="panes">
   <div>
     <img src="{{ media_url('img/logo-medium.png') }}"
          style="position:relative;top:-75px;margin-bottom:-80px"/>
@@ -65,10 +66,10 @@ $(function() {
     orci luctus et ultrices posuere cubilia Curae.
   </div>
 </div>
+</div>
 <br clear="all" />
 
-
-<div class="feat">
+<div class="col">
   <h3 class="first">Simple</h3>
 
   <p>
@@ -87,7 +88,7 @@ $(function() {
   </p>
 </div>
 
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Respects browsers' back button</h3>
   <p>
     You can enable <samp>history</samp> support for tabs so that end
@@ -106,17 +107,20 @@ $(function() {
     size is 2.9 Kb.
   </p>
 </div>
-<br clear="all" />
 
 
+{% endblock %}
 
-<h3>Quick Start</h3>
+{% block content %}
+
+
+<h2>Quick Start</h2>
 
 <p>
   Here is the minimal HTML code to get tabs working:
 </p>
 
-<pii:code lang="html">
+~~~html~~~
   <!-- the tabs -->
   <ul class="tabs">
     <li><a href="#">Tab 1</a></li>
@@ -130,9 +134,9 @@ $(function() {
     <div>pane 2 content</div>
     <div>pane 3 content</div>
   </div>
-</pii:code>
+~~~~~~~~
 
-<h4>JavaScript setup</h4>
+<h3>JavaScript setup</h3>
 
 <p>
   This JavaScript snippet activates those tabs:
@@ -158,7 +162,7 @@ $(function() {
 
 
 <a name="demos"></a>
-<h2>demos</h2>
+<h2>Demos</h2>
 
 <p>
   It's important to <strong>study the first demo</strong>, "Minimal
@@ -167,22 +171,12 @@ $(function() {
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos, 'tabs/index.html').category.demos}" var="demo">
-    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
-  </c:forEach>
+  {% set tabDemoNode = site.content.node_from_relative_path('demos/tabs') %}
+  {% for demo in tabDemoNode.walk_resources_grouped_by_group() %}
+    <li> <a href="{{ content_url(demo.relative_path) }}">{{ demo.meta.title }}</a> </li>
+  {% endfor %}
 </ul>
 
-<c:set var="description">
-  <p>
-    These graphics are being used in the following CSS
-    files: <a href="{{ media_url('css/tabs.css') }}">default tabs</a>
-    and <a href="{{ media_url('css/validator/form-flowplayer.css') }}">tabs
-    with panes</a> and they are using a technique
-    called <a href="http://www.alistapart.com/articles/sprites/"
-    class="external">CSS sprites</a> which is a very important
-    technology in tab design.
-  </p>
-</c:set>
 
 {% include "graphics.j2" %}
 
@@ -202,6 +196,17 @@ $(function() {
   <img src="{{ media_url('img/tabs/thumb/blue_panes.jpg') }}" />
 </p>
 
+<p>
+  These graphics are being used in the following CSS files:
+  <ul>
+    <li><a href="{{ media_url('css/tabs.css') }}">default tabs</a></li>
+    <li><a href="{{ media_url('css/validator/form-flowplayer.css') }}">tabs with panes</a></li>
+  </ul>
+
+  They are using a technique called <a href="http://www.alistapart.com/articles/sprites/"
+  class="external">CSS sprites</a> which is a very important
+  technology in tab design.
+</p>
 
 <a name="configuration"></a>
 <h2>Configuration</h2>
@@ -211,7 +216,7 @@ $(function() {
   above. Here is a generic form for constructing tabs:
 </p>
 
-<pii:code>
+~~~js~~~
   $("<tabs_selector>").tabs("<pane_selector>", {
       /* tabs configuration goes here */
 
@@ -223,7 +228,7 @@ $(function() {
 
       // ... the rest of the configuration properties
       });
-</pii:code>
+~~~
 
 
 <h4>tabs_selector</h4>
@@ -275,6 +280,7 @@ $(function() {
   the same call then you should <a href="#multiple">read this</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -407,6 +413,7 @@ $(function() {
   </tr>
 
 </table>
+</div>
 
 <a name="multiple"></a>
 <h3>Initializing multiple Tabs</h3>
@@ -490,6 +497,7 @@ $("#tabs2").tabs("#panes2 <> div");
   Object</a> as the first argument.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -512,6 +520,7 @@ $("#tabs2").tabs("#panes2 <> div");
     </td>
   </tr>
 </table>
+</div>
 
 <a name="api"></a>
 <h2>Scripting <em>API</em></h2>
@@ -542,6 +551,7 @@ $("#tabs2").tabs("#panes2 <> div");
   Here is a list of all API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -629,6 +639,7 @@ $("#tabs2").tabs("#panes2 <> div");
     </td>
   </tr>
 </table>
+</div>
 
 <a name="effects"></a>
 <h2>Making custom effects</h2>
