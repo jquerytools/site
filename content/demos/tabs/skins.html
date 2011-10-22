@@ -42,11 +42,7 @@ title: 4 different skins with CSS
   borders, paddings and coloring.
 </p>
 
-<div class="box">
-{{skin4.body}}
-</div>
-<a class="standalone" href="skin4.htm">standalone demo</a>
-
+{{ demo(skin4, full=False) }}
 
 <p>
   The above tabs use a cross-fading effect which can be accomplished
@@ -72,10 +68,8 @@ title: 4 different skins with CSS
   and the width is adjusted accordingly:
 </p>
 
-<div class="box">
-{{ skin1.body }}
-</div>
-<a class="standalone" href="skin1.htm">standalone page</a>
+
+{{ demo(skin1, full=False) }}
 
 <p>
   The setup is similar to the <a href="index.html">minimal
@@ -93,11 +87,7 @@ title: 4 different skins with CSS
   the previous tabs with a few extra CSS declarations:
 </p>
 
-
-<div class="box">
-{{ skin2.body }}
-</div>
-<a class="standalone" href="skin2.htm">standalone page</a>
+{{ demo(skin2, full=False) }}
 
 <h3>CSS overrides</h3>
 
@@ -127,10 +117,7 @@ title: 4 different skins with CSS
   design.
 </p>
 
-<div class="box">
-{{skin3.body}}
-</div>
-<a class="standalone" style="width:758px" href="skin3.htm">standalone demo</a>
+{{ demo(skin3, full=False, linkStyle="width:758px") }}
 
 <p>
   Take a look at the documented
@@ -141,5 +128,3 @@ title: 4 different skins with CSS
 </p>
 
 {% endblock %}
-
-

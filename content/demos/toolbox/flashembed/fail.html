@@ -38,10 +38,8 @@ flashembed("clock", {
   any additional setup.
 </p>
 
-<div class="box full">
-{{standalone1.body}}
-</div>
-<a class="standalone" href="fail1.htm">standalone demo</a>
+
+{{ demo(standalone1) }}
 
 </div>
 
@@ -75,10 +73,8 @@ The default behaviour is to write the
   container. Here is one example message:
 </p>
 
-<div class="box">
-{{standalone2.body}}
-</div>
-<a class="standalone" href="fail2.htm">standalone demo</a>
+
+{{ demo(standalone2, full=False) }}
 
 <p>
   And here is the corresponding HTML code:
@@ -111,10 +107,7 @@ The default behaviour is to write the
   SWF file:
 </p>
 
-<div class="box">
-{{standalone3.body}}
-</div>
-<a class="standalone" href="fail3.htm">standalone demo</a>
+{{ demo(standalone3, full=False) }}
 
 <h3>JavaScript coding</h3>
 

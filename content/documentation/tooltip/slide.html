@@ -3,10 +3,10 @@ index: 1
 title: Slide effect
 ---
 
-{% refer to 'demos/tooltip/any-html.htm' as demo %}
+{% refer to 'demos/tooltip/any-html.htm' as standalone %}
 
 {% block css %}
-{{ demo.css }}
+{{ standalone.css }}
 {% endblock %}
 
 {% block blurb %}
@@ -16,10 +16,8 @@ title: Slide effect
   left or right.
 </p>
 
-<div class="box">
-  {{ demo.body }}
-</div>
-<a class="standalone" href="demos/tooltip/any-html.htm">standalone demo</a>
+
+{{ demo(standalone, full=False) }}
 
 {% endblock %}
 {% block content %}
@@ -29,7 +27,7 @@ title: Slide effect
 </p>
 
 {% filter syntax('js') %}
-{{ demo.js }}
+{{ standalone.js }}
 {% endfilter %}
 
 <a name="slide_configuration"></a>

@@ -55,10 +55,7 @@ div.demowrap {
   Provides navigation buttons for switching between pages.
 </p>
 
-<div class="box full">
-{{navigator.body}}
-</div>
-<a class="standalone" href="plugins-navigator.htm">standalone demo</a>
+{{ demo(navigator) }}
 
 </div>
 
@@ -126,10 +123,8 @@ div.demowrap {
   with the scrollable with your mouse.
 </p>
 
-<div class="box">
-{{autoscroll.body}}
-</div>
-<a class="standalone" href="autoscroll.htm">standalone demo</a>
+{{ demo(autoscroll, full=False) }}
+
 
 <h3>JavaScript setup</h3>
 
@@ -170,10 +165,7 @@ div.demowrap {
   enabled <samp>mousewheel</samp> and <samp>circular</samp> options.
 </p>
 
-<div class="box full">
-{{chain.body}}
-</div>
-<a class="standalone" href="chain.htm">standalone demo</a>
+{{ demo(chain) }}
 
 <h3>JavaScript setup</h3>
 

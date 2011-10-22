@@ -25,10 +25,7 @@ title: Basics of Flash embedding
   how it is placed on the page:
 </p>
 
-<div class="box full">
-{{flash1.body}}
-</div>
-<a class="standalone" href="index1.htm">standalone demo</a>
+{{ demo(flash1) }}
 
 </div>
 
@@ -112,10 +109,8 @@ flashembed("info", "{{ media_url('swf/global/flashvars.swf') }}", {
   Here is the result. The passed parameters are seen:
 </p>
 
-<div class="box">
-{{flash2.body}}
-</div>
-<a class="standalone" href="index2.htm">standalone demo</a>
+
+{{ demo(flash2, full=False) }}
 
 <h2>Configuring Flash with JSON</h2>
 
@@ -150,10 +145,7 @@ flashembed("player", "{{ flowplayer.swf }}", {
   And here is the result:
 </p>
 
-<div class="box">
-{{flash3.body}}
-</div>
-<a class="standalone" href="index3.htm">standalone demo</a>
+{{ demo(flash3, full=False) }}
 
 <p>
   If you are developing a Flash object and want to configure it with

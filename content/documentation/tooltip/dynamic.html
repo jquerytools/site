@@ -3,10 +3,10 @@ index: 2
 title: Dynamic tooltips
 ---
 
-{% refer to 'demos/tooltip/dynamic.htm' as demo %}
+{% refer to 'demos/tooltip/dynamic.htm' as standalone %}
 
 {% block css %}
-{{ demo.css }}
+{{ standalone.css }}
 {% endblock %}
 
 {% block blurb %}
@@ -18,10 +18,7 @@ title: Dynamic tooltips
 </p>
 
 <a name="lower"></a>
-<div class="box full">
-{{demo.body}}
-</div>
-<a class="standalone" href="/demos/tooltip/dynamic.htm">standalone demo</a>
+{{ demo(standalone) }}
 
 <p>
   If there is no room on the top edge then the tooltip is shown on the
@@ -65,7 +62,7 @@ title: Dynamic tooltips
 </p>
 
 {% filter syntax('js') %}
-{{ demo.js }}
+{{ standalone.js }}
 {% endfilter %}
 
 <p>

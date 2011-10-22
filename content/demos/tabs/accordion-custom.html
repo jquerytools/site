@@ -20,13 +20,12 @@ title: Customizing the accordion effect
   see a slight background color change when the sliding effect occurs:
 </p>
 
-<div class="box">
-  {{ standalone.body }}
-  <script>
-    {{ standalone.effect }}
-  </script>
-</div>
-<a class="standalone" href="accordian-custom.htm">standalone demo</a>
+
+{% call demo(standalone, full=False) %}
+<script>
+  {{ standalone.effect }}
+</script>
+{% endcall %}
 
 <h2>Adding a custom effect</h2>
 

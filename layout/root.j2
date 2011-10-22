@@ -1,3 +1,16 @@
+{% macro demo(ref, full=True, link=True, style=None, linkStyle=None) -%}
+<div class="box{% if full -%} full{%- endif %}" {%if style-%}style="{{ style }}"{%-endif%}>
+{{standalone.body}}
+{% if (caller) -%}
+{{ caller() }}
+{%- endif %}
+</div>
+{% if link -%}
+<a class="standalone"
+     {% if (linkStyle) %}style="{{ linkStyle }}" {%- endif %}
+     href="{{ content_url(ref.resource.url) }}">standalone demo</a>
+{%- endif %}
+{%- endmacro %}
 <!doctype html>
 <!--
    Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen

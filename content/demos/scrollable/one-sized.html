@@ -2,7 +2,7 @@
 index: 7
 title: Browser back button navigation
 ===
-{% extends 'demo.j2' %}
+{% extends "demo.j2" %}
 {% refer to 'demos/scrollable/one-sized.htm' as standalone %}
 
 {% block extra_css %}
@@ -30,10 +30,7 @@ margin:0px !important;
   back button.
 </p>
 
-<div class="box full">
-{{standalone.body}}
-</div>
-<a class="standalone" href="one-sized.htm">standalone demo</a>
+{{ demo(standalone) }}
 
 </div>
 

@@ -29,10 +29,7 @@ title: Multiple tabs and accordion instances
 {{ standalone_tabs.js }}
 {% endfilter %}
 
-<div class="box">
-{{ standalone_tabs.body }}
-</div>
-<a class="standalone" href="multiple-tabs.htm">standalone demo</a>
+{{ demo(standalone_tabs, full=False) }}
 
 </div>
 
@@ -123,11 +120,7 @@ title: Multiple tabs and accordion instances
   $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
 {% endfilter %}
 
-<div class="box">
-{{ standalone_accordions.body }}
-</div>
-<a class="standalone" href="multiple-accordions.htm">standalone demo</a>
-
+{{ demo(standalone_accordions, full=False) }}
 
 <h3 style="clear:both">HTML coding</h3>
 
