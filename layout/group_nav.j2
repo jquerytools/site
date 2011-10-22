@@ -15,6 +15,7 @@
 {% set active = (section in resource.walk_group_groups()) %}
 <div class="sect {{ loop.cycle('one', 'two', 'three') }}" id="sect{{ loop.index0 }}">
     <header {% if active %} class="open" {% endif %}>
+        <div class="icon"></div>
         <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
     </header>
     <ol class="cat{% if active %} active{% endif %}">
