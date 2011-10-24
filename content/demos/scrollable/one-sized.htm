@@ -8,7 +8,7 @@
   {% mark css_excerpt %}
 	/* override the root element to enable scrolling */
 	.css-panes {
-        height: 450px;
+        height: 410px;
         width: 702px;
 		position:relative;
 		overflow:hidden;
@@ -177,7 +177,8 @@
 	<h2>Study the first demo to get a quick start</h2>
 
 	<ul>
-    {% for demo in resource.node.walk_resources_grouped_by_demo() %}
+    {% set demoNode = site.content.node_from_relative_path('demos/scrollable') %}
+    {% for demo in demoNode.walk_resources_grouped_by_group() %}
 	    <li> <a href="{{ content_url(demo.relative_deploy_path) }}">
             {{ demo.meta.title|typogrify }}</a>
         </li>

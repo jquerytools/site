@@ -1,35 +1,17 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: Scrollable basics
+---
+
 {% refer to 'demos/scrollable/one-sized.htm' as standalone %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css"
-      href="{{ media_url('css/scrollable-horizontal.css') }}?v=1" />
-<link rel="stylesheet" type="text/css"
-      href="{{ media_url('css/scrollable-buttons.css') }}?v=1" />
-<link rel="stylesheet" type="text/css"
-      href="{{ media_url('css/scrollable-navigator.css') }}?v=1" />
-<style>
-#flowtabs li {
-	list-style-image: none !important;
-}
-#content {
-	background-image:none;
-}
-div.demowrap {
-	margin:10px -15px;
-}
-</style>
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/scrollable.jpg') }})">
-  jQuery Tools / Scrollable - New Wave UI design
-</h1>
+{% block blurb %}
 
-<div style="position:relative;top:-23px;">
-  {{ standalone.body }}
-</div>
+{{ demo(standalone) }}
 
 <p>
   Besides clicking on the tabs you can also scroll through the elements
@@ -41,6 +23,8 @@ div.demowrap {
   <li>By clicking on the action buttons below the scrollable</li>
 </ol>
 
+{% endblock %}
+{% block content %}
 
 <a name="configuration"></a>
 <h2>Configuration</h2>
@@ -49,6 +33,7 @@ div.demowrap {
   Here is a list of all available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -87,7 +72,7 @@ div.demowrap {
       means that there is an acceleration, followed by a constant
       speed, followed by a deceleration. 'linear' means that the whole
       animation happens at a constant speed. You can also make
-      your <a href="{{ content_url('demos/scrollable/easing.html') }}">own 
+      your <a href="{{ content_url('demos/scrollable/easing.html') }}">own
       easing effects</a>.
     </td>
   </tr>
@@ -200,10 +185,10 @@ div.demowrap {
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="multiple"></a>
-<h3>Multiple scrollables with <em>next</em> and <em>prev</em> links</h3>
+<h2>Multiple scrollables with <em>next</em> and <em>prev</em> links</h2>
 
 <p>
   If you have multiple scrollables on your page you need to make sure
@@ -249,7 +234,7 @@ div.demowrap {
 
 
 <a name="events"></a><a name="callbacks"></a>
-<h3>Events</h3>
+<h2>Events</h2>
 
 <p>
   Make sure you have read
@@ -260,6 +245,7 @@ div.demowrap {
   index number of the scrollable being scrolled to.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -293,7 +279,7 @@ div.demowrap {
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="api"></a>
 <h2>JavaScript API</h2>
@@ -306,6 +292,7 @@ div.demowrap {
 
 <h3>Method index</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -439,7 +426,7 @@ div.demowrap {
     </td>
   </tr>
 </table>
-
+</div>
 
 <p>
   The <samp>speed</samp> argument is used to specify how long (in
