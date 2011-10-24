@@ -1,4 +1,9 @@
-{% extends "userguide.j2" %}
+---
+group: expose
+index: 0
+title: Expose - Focus HTML elements
+---
+
 {% refer to 'demos/toolbox/expose/form.htm' as standalone %}
 
 {% block css %}
@@ -16,20 +21,14 @@
 </style>
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/toolbox/expose.jpg') }}) 0 30px no-repeat">
-  jQuery Tools / Expose - Make your HTML elements stand out
-</h1>
+{% block blurb %}
 
-
-<h2 class="first">Demo</h2>
 <p>
   Start entering text on the input fields below and you'll see the
   masking effect:
 </p>
 
-{{ standalone.body }}
-
+{{ demo(standalone) }}
 
 <a name="story"></a>
 <h2>The story</h2>
@@ -46,6 +45,8 @@
   or Flash objects. You can use CSS to tweak the look of the mask.
 </p>
 
+{% endblock %}
+{% block content %}
 
 <a name="usage"></a>
 <h2>Usage</h2>
@@ -108,9 +109,10 @@ $.mask.close();
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'toolbox/expose/index.html').category.demos}" var="demo">
-    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
-  </c:forEach>
+  {% set demoNode = site.content.node_from_relative_path('demos/toolbox/expose') %}
+  {% for demo in demoNode.walk_resources_grouped_by_group() %}
+    <li> <a href="{{ content_url(demo.relative_path) }}">{{ demo.meta.title }}</a> </li>
+  {% endfor %}
 </ul>
 
 
@@ -170,6 +172,7 @@ $.mask.close();
   Here is a full list of available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -319,7 +322,7 @@ $.mask.close();
     </td>
   </tr>
 </table>
-
+</div>
 
 <p>
   Here is an example of an <samp>onBeforeLoad</samp> callback function
@@ -361,6 +364,7 @@ $.mask.close();
 
 <h3>Method listing</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -420,5 +424,6 @@ $.mask.close();
   </tr>
 
 </table>
+</div>
 
 {% endblock %}
