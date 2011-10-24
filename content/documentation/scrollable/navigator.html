@@ -1,16 +1,14 @@
-{% extends "userguide.j2" %}
+---
+index: 1
+title: Navigator plugin
+---
 {% refer to 'demos/scrollable/plugins-navigator.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/scrollable.jpg') }})">
-  jQuery Tools / Scrollable - New Wave UI design
-</h1>
-
-<h2 class="first">Navigator plugin</h2>
+{% block blurb %}
 
 <p>
   The Navigator plugin will allow your users to more easily navigate
@@ -19,12 +17,13 @@
   navigator plugin in action:
 </p>
 
-<div style="margin:20px -15px">
-  {{ standalone.body }}
-</div>
+{{ demo(standalone) }}
+
+{% endblock %}
+{% block content %}
 
 <a name="navigator_usage"></a>
-<h3>HTML setup</h3>
+<h2>HTML setup</h2>
 
 <p>
   Here is the HTML setup for the example above:
@@ -57,7 +56,7 @@
   navigation element.
 </p>
 
-<h3>JavaScript setup</h3>
+<h2>JavaScript setup</h2>
 
 <p>
   Here is the JavaScript setup for the example above.
@@ -69,7 +68,7 @@
 
 
 <a name="navigator_manual"></a>
-<h3>Manual setup</h3>
+<h2>Manual setup</h2>
 
 <p>
   You can also use an existing HTML structure as a navigator. Here is
@@ -120,12 +119,13 @@
 
 
 <a name="navigator_configuration"></a>
-<h3>Configuration</h3>
+<h2>Configuration</h2>
 
 <p>
   Here is a full list of available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -202,10 +202,10 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="navigator_api"></a>
-<h3>JavaScript API</h3>
+<h2>JavaScript API</h2>
 
 <p>
   The navigator plugin <em>overrides</em>
