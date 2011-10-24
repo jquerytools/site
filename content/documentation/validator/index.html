@@ -1,28 +1,26 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: HTML5 input validation
+---
+
 {% refer to 'demos/validator/index.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/validator.jpg') }}) no-repeat 0 45px">
-  jQuery Validator @ jQuery Tools
-  <em>HTML5 input validation for humans</em>
-</h1>
+{% block blurb %}
 
-<p class="more" style="margin-top:5px">
+<p>
   The 20 year wait is over. Enter the missing form validation tool. It
   takes the best parts of <strong>HTML 5</strong> and <strong>Web
   Forms 2.0</strong> standards and turns them into something pure
   amazing. All in <strong>1.75 Kb</strong> of code.
 </p>
 
-{{ standalone.body }}
+{{ demo(standalone) }}
 
-<div style="height:40px"></div>
-
-<div class="feat">
+<div class="col">
   <h3 class="first">Use HTML5 input types today</h3>
   <p>
     HTML5 provides new input types such
@@ -34,7 +32,7 @@
     easy to create your own custom inputs.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Take control of your error messages</h3>
   <p>
     You can fully control when, where and how the error messages are
@@ -44,7 +42,7 @@
     dynamically change or disappear depending on the input.
   </p>
 </div>
-<div class="feat">
+<div class="col">
   <h3>Server-side integration</h3>
   <p>
     You can use a generic <samp>invalidate</samp> function to display
@@ -54,7 +52,7 @@
     is the capability to return data in JSON format.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>Web Forms 2.0</h3>
   <p>
     <a href="http://www.whatwg.org/specs/web-forms/current-work/#form-validation"
@@ -65,9 +63,10 @@
     functions for your inputs.
   </p>
 </div>
-<br clear="all" />
 
 
+{% endblock %}
+{% block content %}
 
 <a name="usage"></a>
 <h2>Usage</h2>
@@ -159,6 +158,7 @@
   by validator:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -182,6 +182,7 @@
     <td>Accepts a valid URL only.</td>
   </tr>
 </table>
+</div>
 
 <p>
   HTML5 <samp>range</samp> and <samp>date</samp> types are also
@@ -200,6 +201,7 @@
 
 <h3>HTML5 Attributes</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -248,7 +250,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 <h3>HTML4 Attributes</h3>
 
@@ -257,6 +259,7 @@
   will make your forms more user friendly:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -310,6 +313,7 @@
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   <strong>Note:</strong> all the above attributes can be changed
@@ -332,6 +336,7 @@ $("fieldset:eq(1)").attr("disabled", true);
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -479,7 +484,7 @@ $("fieldset:eq(1)").attr("disabled", true);
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="positioning"></a>
@@ -688,6 +693,7 @@ $.tools.validator.fn("[type=time]", function(el, value) {
 $.tools.validator.fn(matcher, [errorMessages], validator)
 {% endfilter %}
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -756,6 +762,7 @@ $.tools.validator.fn(matcher, [errorMessages], validator)
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   As you can see you can supply error messages in two ways: as the
@@ -888,6 +895,7 @@ $.tools.validator.fn(
   scripting</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -969,8 +977,7 @@ $.tools.validator.fn(
     </td>
   </tr>
 </table>
-
-
+</div>
 
 <a name="events"></a>
 <h2>Events</h2>
@@ -989,6 +996,7 @@ $.tools.validator.fn(
   events</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -1037,7 +1045,7 @@ $.tools.validator.fn(
     </td>
   </tr>
 </table>
-
+</div>
 
 <h3>Field specific events</h3>
 
