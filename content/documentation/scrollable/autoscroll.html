@@ -1,16 +1,15 @@
-{% extends "userguide.j2" %}
+---
+index: 1
+title: Scrollable autoscrolling
+---
+
 {% refer to 'demos/scrollable/plugins-autoscroll.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/scrollable.jpg') }})">
-  jQuery Tools / Scrollable - New Wave UI design
-</h1>
-
-<h2 class="first">Autoscroll plugin</h2>
+{% block blurb %}
 
 <p>
   The Autoscroll plugin provides an automatic scrolling capability. It
@@ -18,9 +17,7 @@
   autoscroll plugin in action:
 </p>
 
-<div style="margin:20px -15px">
-  {{ standalone.body }}
-</div>
+{{ demo(standalone) }}
 
 <p>
   You can configure the number of items being scrolled and the
@@ -28,9 +25,11 @@
   the automatic scrolling is paused.
 </p>
 
+{% endblock %}
+{% block content %}
 
 <a name="autoscroll_usage"></a>
-<h3>Usage</h3>
+<h2>Usage</h2>
 
 <p>
   Here is the JavaScript setup for the example above:
@@ -42,12 +41,13 @@ $("#scroller").scrollable({circular: true}).autoscroll({ autoplay: false });
 
 
 <a name="autoscroll_configuration"></a>
-<h3>Configuration</h3>
+<h2>Configuration</h2>
 
 <p>
   Here is a full list of available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -92,10 +92,10 @@ $("#scroller").scrollable({circular: true}).autoscroll({ autoplay: false });
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="autoscroll_api"></a>
-<h3>JavaScript API</h3>
+<h2>JavaScript API</h2>
 
 <p>
   The following methods are <strong>added</strong> to the
@@ -104,6 +104,7 @@ $("#scroller").scrollable({circular: true}).autoscroll({ autoplay: false });
   been installed.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -136,5 +137,6 @@ $("#scroller").scrollable({circular: true}).autoscroll({ autoplay: false });
     </td>
   </tr>
 </table>
+</div>
 
 {% endblock %}
