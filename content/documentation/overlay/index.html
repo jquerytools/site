@@ -1,18 +1,20 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: Overlay basics
+---
 
 {% block css %}
 <style>
 #promo {
 	text-align:center;
-	margin:0 -15px 15px -5px;
-	height:200px;
+	height:240px;
 }
 
 .trigger {
 	background:url({{media_url('img/screens/eye-candy.png')}});
-	width:240px;
+	width:200px;
 	height:150px;
-	margin:15px 0;
+	margin:15px auto;
 }
 
 #presentations {
@@ -24,7 +26,12 @@
 }
 
 #promo .col {
-	width:240px;
+	width:208px;
+  margin: 0 12px;
+}
+
+#promo .col.last {
+  float: left;
 }
 
 #promo h3 {
@@ -33,11 +40,8 @@
 </style>
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/overlay.jpg') }})">
-  jQuery Overlay @ jQuery Tools A generic tool for overlaying needs
-</h1>
-<div id="promo">
+{% block blurb %}
+<div id="promo" class="box full">
   <div class="col">
     <h3>For eye candy</h3>
     <div class="trigger" id="eyecandy"></div>
@@ -53,10 +57,8 @@
     <div class="trigger" id="interactions"></div>
   </div>
 </div>
-
 <br clear="all" />
-
-<div class="feat">
+<div class="col">
   <h3 class="first">For every overlaying need</h3>
   <p>
     You'll need different kinds of overlays for different situations
@@ -69,7 +71,7 @@
     framework</a>.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Configure the looks and behaviour</h3>
   <p>
     The overlay can contain any HTML such as images, links, forms and
@@ -81,7 +83,8 @@
     durations and the ways of closing the overlay.
   </p>
 </div>
-<div class="feat">
+<br clear="all" />
+<div class="col">
   <h3>Plays nice with other Tools</h3>
   <p>
     Overlay offers a good container for other tools. Think of
@@ -89,7 +92,7 @@
     fancy user interfaces to be explored.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>File size: 0.93 Kb</h3>
   <p>
     This tool has all the features and configuration options you'll
@@ -102,6 +105,8 @@
 </div>
 <br clear="all" />
 
+{% endblock %}
+{% block content %}
 
 <a name="usage"></a>
 <h2>Usage</h2>
@@ -144,9 +149,10 @@
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'overlay/index.html').category.demos}" var="demo">
-    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
-  </c:forEach>
+  {% set overlayDemoNode = site.content.node_from_relative_path('demos/overlay') %}
+  {% for demo in overlayDemoNode.walk_resources_grouped_by_group() %}
+    <li> <a href="{{ content_url(demo.relative_path) }}">{{ demo.meta.title }}</a> </li>
+  {% endfor %}
 </ul>
 
 <h3>Combining overlay with Flowplayer</h3>
@@ -191,6 +197,7 @@
   Here is a list of all available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -345,7 +352,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="callbacks"></a><a name="events"></a>
@@ -360,6 +367,7 @@
   for Overlay.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -393,7 +401,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="api"></a>
@@ -405,6 +413,7 @@
   scripting</a>. Here is a list of all available API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -465,7 +474,7 @@
   </tr>
 
 </table>
-
+</div>
 
 
 <a name="close"></a>
