@@ -1,6 +1,5 @@
-{% macro render_resources(group, node) %}
-<ol class="links">
-    {% for res in group.walk_resources_in_node(resource.node.module) -%}
+{% macro render_resources(group, n) %}
+    {% for res in group.walk_resources_in_node(n) -%}
     <li>
     <a {% if resource.url == res.url %}class="active"{% endif %}
         title="{{ res.meta.description|default('') }}"
@@ -8,7 +7,6 @@
         {{ res.meta.title|typogrify }}</a>
     </li>
     {%- endfor %}
-</ol>
 {% endmacro %}
 
 {% for section in site.grouper.group.groups if resource.node.module.name == 'documentation' or not section.name == 'user guide' -%}
@@ -19,15 +17,22 @@
         <h2{%if loop.first %} class="first"{%- endif %}>{{ section.name|title|typogrify }}</h2>
     </header>
     <ol class="cat{% if active %} active{% endif %}">
-    {% if section.name == 'user guide' %}
+    {% if resource.node.module.name == 'documentation' and section.flatten == True %}
     <li>
-    {{ render_resources(section, resource.node) }}
-    <li>
+        <ol class="links">
+        {{ render_resources(section, resource.node.module) }}
+        {% for group in section.groups -%}
+        {{ render_resources(group, resource.node.module) }}
+        {% endfor %}
+        </ol>
+    </li>
     {% else %}
     {% for group in section.groups -%}
         <li>
-        <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
-        {{ render_resources(group, resource.node) }}
+            <ol class="links">
+                <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
+                {{ render_resources(group, resource.node.module) }}
+            </ol>
         </li>
     {%- endfor %}
     {% endif %}

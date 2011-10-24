@@ -54,6 +54,7 @@ grouper:
             -
                 name: user guide
                 description: jQuery Tools user guide
+                flatten: True
             -
                 name: UI Tools
                 groups:
@@ -67,6 +68,7 @@ grouper:
                         name: scrollable
             -
                 name: Form Tools
+                flatten: True
                 groups:
                     -
                         name: validator
@@ -76,6 +78,7 @@ grouper:
                         name: dateinput
             -
                 name: Toolbox
+                flatten: True
                 groups:
                     -
                         name: expose
