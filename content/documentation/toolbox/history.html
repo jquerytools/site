@@ -1,4 +1,10 @@
-{% extends "userguide.j2" %}
+---
+group: history
+hero: toolbox/history
+index: 0
+title: History
+---
+
 {% refer to 'demos/tabs/history.htm' as standalone %}
 
 {% block css %}
@@ -6,10 +12,7 @@
 {% endblock %}
 
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/toolbox/history.jpg') }}) 0 30px no-repeat">
-  jQuery History @ jQuery TOOLS - Back button for AJAX apps
-</h1>
+{% block blurb %}
 
 <p>
   The History tool allows you to take control of the browser's back
@@ -17,7 +20,15 @@
   or forward buttons your JavaScript functions will notified.
 </p>
 
+<p>
+  Use the following tabs together with back/forward buttons to see it
+  in action:
+</p>
 
+{{ demo(standalone) }}
+
+{% endblock %}
+{% block content %}
 
 <h2>Usage</h2>
 
@@ -44,18 +55,8 @@ $("a.links_with_history").history(function(event, hash) {
 </p>
 
 
-
-<h2><em>Example</em> Tabs with history</h2>
-
-<p>
-  Use the following tabs together with back/forward buttons to see it
-  in action:
-</p>
-
-{{ standalone.body }}
-
 <a name="history_usage"></a>
-<h3>Tabs initialization</h3>
+<h2>Tabs initialization</h2>
 
 {% filter syntax('js') %}
 {{ standalone.new_js }}

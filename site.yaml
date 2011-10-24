@@ -86,3 +86,7 @@ grouper:
                         name: flashembed
                     -
                         name: combinations
+                    -
+                        name: history
+                    -
+                        name: mousewheel
