@@ -1,11 +1,12 @@
-{% extends "userguide.j2" %}
+---
+group: mousewheel
+hero: toolbox/mousewheel
+index: 0
+title: Mousewheel
+---
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/toolbox/mousewheel.jpg') }}) 0 30px no-repeat">
-  jQuery Tools / Mousewheel - Take control of your mousewheel
-</h1>
 
-<h2 class="first">Usage</h2>
+{% block blurb %}
 
 <p>
   The Mousewheel plugin allows you to take control of the
@@ -29,7 +30,7 @@ $("#myelement").mousewheel(function(event, delta) {
   downwards and a negative value means movement upwards.
 </p>
 
-<p style="color:#666">
+<p>
   This plugin is based on Three Dub
   Media's <a href="http://plugins.jquery.com/project/wheel">wheel
   plugin</a> which is a smaller, simplified interpretation of the
