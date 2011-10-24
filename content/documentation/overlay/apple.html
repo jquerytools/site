@@ -1,23 +1,21 @@
-{% extends "userguide.j2" %}
+---
+index: 1
+title: Apple Effect
+---
 {% refer to 'demos/overlay/apple.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background-image:url({{ media_url('img/hero/overlay.jpg') }})">
-  jQuery Overlay / Apple Effect
-</h1>
-
-<h2 class="first"><strong>Apple Effect</strong> for Overlay</h2>
+{% block blurb %}
 
 <p>
   The Apple effect looks and behaves like you might have seen
   on <strong>apple.com</strong>.
 </p>
 
-{{ standalone.body }}
+{{ demo(standlone) }}
 
 <p>
   Overlaying is done in a visually appealing way by growing a
@@ -27,9 +25,11 @@
   accordingly so that the aspect ratio remains the same.
 </p>
 
+{% endblock %}
+{% block content %}
 
 <a name="apple_usage"></a>
-<h3>Usage</h3>
+<h2>Usage</h2>
 
 <p>
   The best way to learn is to study
@@ -67,6 +67,7 @@
   normal <a href="index.html#configuration">configuration options</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -142,11 +143,11 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="apple_load"></a>
-<h3>Using the Apple effect upon page load</h3>
+<h2>Using the Apple effect upon page load</h2>
 
 <p>
   Due to a <a href="http://dev.jquery.com/ticket/4187"
