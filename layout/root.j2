@@ -1,5 +1,5 @@
 {% macro demo(ref, full=True, link=True, style=None, linkStyle=None) -%}
-<div class="box{% if full -%} full{%- endif %}" {%if style-%}style="{{ style }}"{%-endif%}>
+<div class="box{% if full %} full{%- endif %}" {%if style-%}style="{{ style }}"{%-endif%}>
 {{standalone.body}}
 {% if (caller) -%}
 {{ caller() }}
