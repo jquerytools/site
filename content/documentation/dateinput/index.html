@@ -1,29 +1,27 @@
-{% extends "userguide.j2" %}
+---
+index: 0
+title: Dateinput basics
+---
+
+
 {% refer to 'demos/dateinput/flight.htm' as standalone %}
 
 {% block css %}
 {{ standalone.css }}
 {% endblock %}
 
-{% block content %}
-<h1 style="background:url({{ media_url('img/hero/dateinput.jpg') }}) no-repeat -14px 34px">
-  jQuery Dateinput @ jQuery Tools
-  <em>HTML5 date input for humans</em>
-</h1>
+{% block blurb %}
 
-<p class="more" style="margin-top:0">
+<p>
   This tool brings <strong>HTML5</strong> date input to all browsers
   in such a way that you can make it look and behave like you
   want. This small screen candy weights only <strong>2.0 Kb</strong>.
 </p>
 
-<div style="margin:20px 0">
-  {{ standalone.body }}
-</div>
+{{ demo(standalone) }}
 
+<p>
 
-<p class="less" style="margin-bottom:30px">
-  <small>
     When the calendar is visible you can navigate between days with
     your <samp>Arrow Keys</samp> or with <strong>VIM</strong> keyboard
     shortcuts <samp>HJKL</samp>. <samp>PageUp</samp>
@@ -31,10 +29,10 @@
     and <samp>Enter</samp> selects the day. The <samp>Home</samp> key
     will navigate to the present day and <samp>backspace</samp> clears
     the input.
-  </small>
+
 </p>
 
-<div class="feat">
+<div class="col">
   <h3 class="first">HTML5 date input</h3>
   <p>
     This tool brings HTML5 <samp>&lt;input type="date" /&gt;</samp>
@@ -45,7 +43,7 @@
     disabled.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">For nerds and humans</h3>
   <p>
     Call <samp>$(":date").dateinput();</samp> and all your HTML5 date
@@ -55,7 +53,8 @@
     dates and months.
   </p>
 </div>
-<div class="feat">
+<br class="clear" clear="all">
+<div class="col">
   <h3>Styleable</h3>
   <p>
     You can design calendars that fit the overall feel of your
@@ -66,7 +65,7 @@
     use them for free.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>File size: 2.0 Kb</h3>
   <p>
     This tool give you all the features and configuration options
@@ -78,14 +77,16 @@
 </div>
 <br clear="all" />
 
-
+{% endblock %}
+{% block content %}
 
 <h2>Demos</h2>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'dateinput/index.html').category.demos}" var="demo">
-    <li> <a href="{{ content_url('demos/${demo.path}') }}">${demo.title}</a> </li>
-  </c:forEach>
+  {% set demoNode = site.content.node_from_relative_path('demos/dateinput') %}
+  {% for demo in demoNode.walk_resources_grouped_by_group() %}
+    <li> <a href="{{ content_url(demo.relative_path) }}">{{ demo.meta.title }}</a> </li>
+  {% endfor %}
 </ul>
 
 
@@ -93,6 +94,7 @@
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -209,7 +211,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="attributes"></a>
@@ -229,6 +231,7 @@
   valid HTML5 attributes.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -284,7 +287,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="values"></a>
@@ -350,7 +353,7 @@
   examples:
 </p>
 
-<pii:code>
+~~~js~~~
   $(".date").dateinput({
 
   // this is displayed to the user
@@ -363,7 +366,7 @@
   $("#backendValue").val(isoDate);
   }
   });
-</pii:code>
+~~~~
 
 <p>
   Formatting characters can be mixed with other characters and you can
@@ -372,6 +375,7 @@
 
 <h3>List of formatting characters</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -420,7 +424,7 @@
     <td>Year represented by four digits.</td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="skinning"></a>
@@ -463,6 +467,7 @@ $(".date").dateinput({
 
 <h3>CSS names</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -624,7 +629,7 @@ $(".date").dateinput({
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="api"></a>
@@ -636,6 +641,7 @@ $(".date").dateinput({
   scripting</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -782,7 +788,7 @@ $(".date").dateinput({
   </tr>
 
 </table>
-
+</div>
 
 
 <a name="events"></a>
@@ -803,6 +809,7 @@ $(":input.date").change(function(event, date) {
 });
 {% endfilter %}
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -842,7 +849,7 @@ $(":input.date").change(function(event, date) {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="localizing"></a>
