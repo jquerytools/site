@@ -1,0 +1,137 @@
+@import "include/vars"
+@import "include/fix"
+@import "include/mixins"
+@import "include/gradients"
+@import "include/code"
+@import "include/tables"
+
+
+#content h1#hero
+    background:url({{ media_url('img/hero/plain.jpg') }}) no-repeat -31px 16px;
+    font-size:75px;
+    letter-spacing:-3px;
+    padding:151px 0 0 217px;
+    text-transform:uppercase;
+    height:185px;
+    color:#055499;
+    text-indent:0;
+    line-height:45px;
+    position:relative;
+    width:704px !important;
+
+
+    em
+        display: block;
+        text-transform:none;
+        letter-spacing:0;
+        font-size:22px;
+        color:#000;
+        font-style normal
+        margin-top 6px
+
+        strong
+            color #666
+
+
+    span
+        background:transparent url({{ media_url('img/gradient/letters.png') }}) repeat-x 0 0;
+        height:80px;
+        position:absolute;
+        margin-top:-7px;
+        display:block;
+        width:704px !important;
+
+
+
+.tooltip {
+    background:#05345B url({{ media_url('img/gradient/h300.png') }}) repeat-x;
+    width:170px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+
+#content .tooltip p {
+    font-size:11px;
+}
+
+.tooltip h3 {
+    margin-top:0px;
+    color:#ffc;
+}
+
+.tooltip a {
+    color:yellow;
+    text-decoration:none;
+}
+
+.tooltip a:hover {
+    color:yellow !important;
+    text-decoration:underline;
+}
+
+label {
+    width:200px;
+    display:block;
+    padding:4px 0;
+    cursor:pointer;
+    color:#123;
+}
+
+#tool_jquery td {
+    border-bottom:30px solid #fff;
+}
+
+#tool_jquery label {
+    font-weight:bold;
+}
+
+#tool_js_core td {
+    padding-top:30px;
+}
+
+#combined td {
+    font-weight:bold;
+}
+
+#combined td em, #combined td a {
+    font-weight:normal;
+}
+
+#gzipped {
+    font-weight:bold;
+}
+
+div.table table
+    width 100%
+
+    td
+        padding 1px 2px
+        border-right 0
+        border-left 0
+
+        img
+            cursor pointer
+
+    .plugin
+        td
+            color #666
+
+        label
+            text-indent 15px
+            color #666
+            font-size 11px
+
+        a
+            font-size 11px
+
+    tr.selected
+        background #ECF9FA url({{ media_url('img/gradient/h80.png') }}) repeat-x !important
+
+        td
+            background-color transparent !important
+
+    tr.plugin.selected
+        background-color #FAFAFA !important
+
+        td
+            background-color transparent !important

@@ -1,3 +1,5 @@
 .DS_Store
 .hyde_deps
 deploy
+dist
+node_modules

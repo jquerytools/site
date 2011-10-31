@@ -18,7 +18,7 @@ context:
             js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
             v: 1.2.6
             size: 4.45
-            html_form:
+            form:
                 size: 100
         flowplayer:
             swf: /media/swf/flowplayer/flowplayer-3.2.7.swf
@@ -26,6 +26,8 @@ context:
             zip: http://releases.flowplayer.org/flowplayer/flowplayer-3.2.6.zip
             date: 2011-03-03
             v: 3.2.7
+    providers:
+        tools: tools.yaml
 meta:
     nodemeta: meta.yaml
     index: -1

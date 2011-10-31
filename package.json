@@ -1,0 +1,19 @@
+{
+  "author": "Lakshmi Vyasarajan <lakshmi.vyas@gmail.com>",
+  "name": "jquerytools.build",
+  "description": "Downloads and minifies jquerytools files for size calculation",
+  "version": "1.2.5-108-g47aa6c9",
+  "homepage": "http://jquerytools.org",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jquerytools/site.git"
+  },
+  "main": "build.js",
+  "engines": {
+    "node": "~v0.4.11"
+  },
+  "dependencies": {
+    "uglify-js": ">= 1.1.1"
+  },
+  "devDependencies": {}
+}

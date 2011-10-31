@@ -3,6 +3,7 @@
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{{ media_url('css/tooltip-generic.css') }}"/>
 <link rel="stylesheet" type="text/css" href="{{ media_url('css/download.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/syntax.css') }}"/>
 {% endblock %}
 
 {% block extra_script %}
@@ -106,12 +107,12 @@
 </p>
 
 <ol>
-  <li><a href="http://jquery.com" class="external">jQuery ${v.jquery}</a></li>
-  <c:forEach items="${metadata.tools}" var="tool" begin="1" end="12" varStatus="i">
-    <c:if test="${empty tool.plugin && empty tool.cat}">
-      <li><a href="{{ content_url('${tool.www}') }}">${tool.title}</a></li>
-    </c:if>
-  </c:forEach>
+  <li><a href="http://jquery.com" class="external">jQuery {{jquery.v}}</a></li>
+  {% for tool in jqt.tools %}
+  {% if tool.children|length > 0 %}
+  <li><a href="{{tool.link}}">{{tool.title}}</a></li>
+  {% endif %}
+  {% endfor %}
 </ol>
 
 <p>
@@ -146,57 +147,46 @@
   versions</strong> are available.
 </p>
 
+{% macro render_tool_row(tool, is_plugin) %}
+{% set base =  content_url('download/'~jqt.v~'/'~tool.file) %}
+{% set source = base~'.js' %}
+{% set min = base~'.min.js' %}
 
-<table class="listing">
-  <c:forEach items="${metadata.tools}" var="tool" varStatus="i">
-    <c:if test="${!empty tool.cat}">
-</table>
-<h3>${tool.cat}</h3>
-<table class="listing">
-</c:if>
-
-<c:if test="${empty tool.cat}">
-  <c:set var="base" value="{{ content_url('download/{{jqt.v }}/${tool.file}') }}"/>
-  <c:set var="source" value="${base}.js"/>
-  <c:set var="min" value="${base}.min.js"/>
-
-  <tr id="t_${tool.key}" ${!empty tool.plugin ? 'class="plugin"' : ''}>
+  <tr id="t_{{ tool.key }}" {% if is_plugin %}class="plugin"{% endif %}>
     <td>
-      <c:if test="${!empty tool.file}">
-	<label>
-	  <input type="checkbox" name="${tool.key}" value="${f:fileLength(min)}" /> ${tool.title}
-	</label>
-      </c:if>
-
-      <c:if test="${empty tool.file}">
-	<strong>${tool.title}</strong>
-      </c:if>
+     <label>
+       <input type="checkbox" name="{{ tool.key }}" value="{{ tool.min_size }}" /> {{ tool.name }}
+     </label>
     </td>
-    <td><small>${tool.requires}</small></td>
+    <td><small>{{ tool.requires }}</small></td>
+    <td><a href="{{ source }}?download=true">{{ tool.source_size }}</a></td>
+    <td><a href="{{ min }}?download=true">{{ tool.min_size }}</a></td>
 
-    <%-- download links --%>
-    <c:if test="${!empty tool.file}">
-      <td><a href="${source}?download=true">${f:fileSize(source)}</a></td>
-      <td><a href="${min}?download=true">${f:fileSize(min)}</a></td>
-    </c:if>
 
     <td style="text-align:right;padding-right:5px">
       <img src="{{ media_url('img/global/info_small.png') }}" />
       <div class="tooltip">
-	<h3>${tool.title}</h3>
-	<p>${tool.description}</p>
-	<c:if test="${i.index > 0}">
-	  <p> <a href="{{ content_url('${tool.www}') }}">documentation</a> </p>
-	</c:if>
+       <h3>{{ tool.name }}</h3>
+       <p>{{ tool.description }}</p>
+       <p> <a href="{{ content_url(tool.link) }}">documentation</a></p>
       </div>
     </td>
   </tr>
+{% endmacro %}
 
-</c:if>
-
-</c:forEach>
-
+{% for cat in tools.categories %}
+<h3>{{ cat.category }}</h3>
+<div class="table">
+<table class="listing">
+{% for tool in cat.tools %}
+{{ render_tool_row(tool, False) }}
+{% for plugin in tool.plugins %}
+{{ render_tool_row(plugin, True) }}
+{% endfor %}
+{% endfor %}
 </table>
+</div>
+{% endfor %}
 
 <a href="#" id="downloadLink">
   <img src="{{ media_url('img/global/commerce/download.png') }}"
@@ -217,10 +207,10 @@
 </p>
 
 {% filter syntax('html') %}
-<!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay (${v.jqtSize} Kb) -->
+<!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay ({{ jqt.size }} Kb) -->
 <script src="http://cdn.jquerytools.org/{{ jqt.v }}/tiny/jquery.tools.min.js"></script>
 
-<!-- Form tools: Dateinput, Rangeinput and Validator. No jQuery library. (${v.jqtFormSize} Kb) -->
+<!-- Form tools: Dateinput, Rangeinput and Validator. No jQuery library. ({{ jqt.form.size }} Kb) -->
 <script src="http://cdn.jquerytools.org/{{ jqt.v }}/form/jquery.tools.min.js"></script>
 
 <!-- ALL jQuery Tools. No jQuery library -->
@@ -241,7 +231,7 @@
 </p>
 
 {% filter syntax('html') %}
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/${v.jquery}/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/{{ jquery.v }}/jquery.min.js"></script>
 {% endfilter %}
 
 {% endblock %}

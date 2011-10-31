@@ -1,0 +1,133 @@
+categories:
+    -
+        category: UI Tools
+        description: The missing collection of UI widgets
+        tools:
+            -
+                name: Tabs
+                key: tabs
+                description: The most important UI tool
+                file: tabs/tabs
+                link: tabs/index.html
+                plugins:
+                    -
+                        name: Slideshow plugin
+                        key: tabs.slideshow
+                        description: Transforms tabs into a working slideshow
+                        file: tabs/tabs.slideshow
+                        link: tabs/slideshow.html
+            -
+                name: Tooltip
+                key: tooltip
+                description: The basics of UI design
+                file: tooltip/tooltip,
+                link: tooltip/index.html
+                plugins:
+                    -
+                        name: Slide effect
+                        key: tooltip.slide
+                        description: >
+                            A sliding tooltip effect with customized
+                            sliding directions, dimensions and speeds
+                        file: tooltip/tooltip.slide
+                        link: tooltip/slide.html
+                    -
+                        name: Dynamic plugin
+                        key: tooltip.dynamic
+                        description: >
+                            Dynamic positioning of the tooltip so
+                            that it always stays in the viewport
+                        file: tooltip/tooltip.dynamic
+                        link: tooltip/dynamic.html
+            -
+                name: Scrollable
+                key: scrollable
+                description: A generic HTML scrolling widget
+                file: scrollable/scrollable
+                link: scrollable/index.html
+                plugins:
+                    -
+                        name: Autoscroll plugin
+                        key: scrollable.autoscroll
+                        description: >
+                            Makes the scrolling behavior automatic.
+                            highly configurable
+                        file: scrollable/scrollable.autoscroll
+                        link: scrollable/autoscroll.html
+                    -
+                        name: Navigator plugin
+                        key: scrollable.navigator
+                        description: >
+                            Provides navigation buttons for switching
+                            between pages in scrollable
+                        file: scrollable/scrollable.navigator
+                        link: scrollable/navigator.html
+            -
+                name: Overlay
+                key: overlay
+                description: A generic HTML overlaying widget
+                file: overlay/overlay
+                link: overlay/index.html
+                plugins:
+                    -
+                        name: Apple effect
+                        key: overlay.apple
+                        description: >
+                            An overlay effect that you might have
+                            seen on apple.com
+                        file: overlay/overlay.apple
+                        link: overlay/apple.html
+    -
+        category: Form Tools
+        description: 20 year wait is over. HTML5 is here
+        tools:
+            -
+                name: Dateinput
+                key: dateinput
+                description: HTML5 date input for humans
+                file: dateinput/dateinput
+                link: dateinput/index.html
+            -
+                name: Rangeinput
+                key: rangeinput
+                description: HTML5 range input for humans
+                file: rangeinput/rangeinput
+                link: rangeinput/index.html
+            -
+                name: Validator
+                key: validator
+                description: HTML5 input validation for humans
+                file: validator/validator
+                link: validator/index.html
+    -
+        category: Toolbox
+        description: Important tools for your everyday scripting
+        tools:
+            -
+                name: Flashembed
+                key: toolbox.flashembed
+                description: >
+                    The future of Flash embedding. Works as a
+                    standalone tool and jQuery is not required.
+                file: toolbox/toolbox.flashembed
+                link: toolbox/flashembed.html
+            -
+                name: History
+                key: toolbox.history
+                description: Back button for AJAX apps
+                file: toolbox/toolbox.history
+                link: toolbox/history.html
+            -
+                name: Expose
+                key: toolbox.expose
+                description: >
+                    Makes your HTML stand out from its surroundings
+                file: toolbox/toolbox.expose
+                link: toolbox/expose.html
+            -
+                name: Mousewheel
+                key: toolbox.mousewheel
+                description: >
+                    A generic mousewheel support for jQuery
+                file: toolbox/toolbox.mousewheel
+                link: toolbox/mousewheel.html
