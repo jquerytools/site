@@ -64,3 +64,7 @@ Ensure that you are in the correct virtual environment(`workon jqt`).
 3. `hyde serve -c dev.yaml` - starts the built in web server with url's for
     swf files pointing to the local version sunder `content/swf`.
 
+# Building jquerytools for the download page
+
+1. `npm install` - Installs dependencies for the builder
+2. `node build.js` - Creates a dist directory under downloads and pulls the jquery tools source and compresses them.

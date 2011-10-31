@@ -5,6 +5,9 @@
 @import "include/code"
 @import "include/tables"
 
+.blurb
+    margin-top 0
+    clearfix()
 
 #content h1#hero
     background:url({{ media_url('img/hero/plain.jpg') }}) no-repeat -31px 16px;
@@ -101,16 +104,32 @@ label {
     font-weight:bold;
 }
 
-div.table table
-    width 100%
+.footer
+    clearfix()
+    margin 12px
+    float right
+    text-align right
 
+div.table table
+    border-bottom 1px solid almostwhite
+    width 100%
     td
         padding 1px 2px
         border-right 0
         border-left 0
 
+        &:first-child
+            width 420px
+
+        &.size
+            width 96px
+            font-size 11px
+
         img
             cursor pointer
+            margin-top 6px
+        a
+            font-size 11px
 
     .plugin
         td
@@ -119,9 +138,6 @@ div.table table
         label
             text-indent 15px
             color #666
-            font-size 11px
-
-        a
             font-size 11px
 
     tr.selected

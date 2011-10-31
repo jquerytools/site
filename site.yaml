@@ -17,9 +17,8 @@ context:
         jqt:
             js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
             v: 1.2.6
-            size: 4.45
-            form:
-                size: 100
+            dev:
+                v: 1.2.7-dev
         flowplayer:
             swf: /media/swf/flowplayer/flowplayer-3.2.7.swf
             js: /media/js/flowplayer/flowplayer-3.2.6.min.js

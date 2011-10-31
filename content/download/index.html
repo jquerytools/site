@@ -8,79 +8,131 @@
 
 {% block extra_script %}
 <script>
-    $(function() {
-	// global navi
-	$("#jqt2").addClass("active");
+$(function() {
 
-	var els = $(".listing :checkbox").attr("checked", false);
+  // global navi
+  $("#jqt2").addClass("active");
 
-	// tooltips
-	$(".listing img").tooltip(
-            { position: 'right top', offset: [60, 10], delay: 50 }
-        );
+  var els = $(".listing :checkbox, .listing :radio").attr("checked", false);
 
-	// checkbox change
-	els.change(function() {
+  // tooltips
+  $(".listing img").tooltip({ position: 'right top', offset: [60, 10], delay: 50 });
 
-	    // count size
-	    var size = 0,
-	    count = 0,
-	    tools = "";
+  var INFO;
+  $.ajax({
+    url: 'http://builder.jquerytools.org/info',
+    dataType: 'jsonp',
+    success: function (info) {
+      INFO = info;
+      $('input[name="build"]').change();
+    }
+  });
 
-	    els.filter(":checked").each(function() {
+  // returns a string representing the size in kb
+  var bytes_to_kb = function (bytes) {
+    return (Math.round(bytes / 102.4) / 10) + ' Kb';
+  };
 
-		// 170 bytes for stripping down comment size
-		size += parseFloat($(this).val()) - 170;
-		count++;
-		tools += "&t=" + this.name;
-	    });
+  // checkbox change
+  els.change(function() {
 
-	    // user information
-	    $("#selected").html('('+count+' of '+els.size()+' selected)');
-	    $("#minified").html(Math.round(size / 10) / 100 + ' Kb');
-	    $("#gzipped") .html(
-                Math.round(size * 0.0322) / 100 + ' Kb <em>gzipped</em>'
-            );
-
-
-	    // download link
-	    $("#downloadLink").attr("href", "{{ jqt.js }}?download=true"+tools);
-	    $("#tokens").html(tools);
+    // count size
+    var size = 0,
+       count = 0,
+       tools = "";
 
 
-	    // highlight row
-	    var tr = $(this).parents("tr"), checked = this.checked;
-
-	    if (checked) {
-		tr.addClass("selected");
-	    } else {
-		tr.removeClass("selected");
-	    }
-
-	    // show/hide plugins
-	    if (!tr.is(".plugin")) {
-		tr.nextAll().each(function()  {
-		    if ($(this).is(".plugin"))  {
-			if (checked) {
-			    $(this).fadeIn();
-			} else {
-			    $(this).hide().removeClass("selected").
-                                find(":checkbox").attr("checked", false);
-			}
-
-		    } else  {
-			return false;
-		    }
-		});
-	    }
-
-	});
-
-	// default selection
-	$("#t_tabs, #t_tooltip, #t_scrollable, #t_overlay").each(function() {
-	    $(this).find(":checkbox").click().triggerHandler("change");
-	});
+    var version_info;
+    $('input[name="build"]').each(function () {
+      var tr = $(this).parents('tr');
+      if (this.checked) {
+        tr.addClass('selected');
+        if (INFO) {
+          version_info = INFO[this.value];
+        }
+      }
+      else {
+        tr.removeClass('selected');
+      }
     });
+
+    if (version_info) {
+      $('#jquery_version').text(version_info.jquery.version);
+      $('#jquery_size').text(bytes_to_kb(version_info.jquery.size));
+      $('.listing :checkbox').each(function () {
+        if (this.name !== 'include_jquery') {
+          var size = version_info.sizes[decodeURIComponent(this.name)];
+          var el = $('.size', $(this).parent().parent().parent());
+          el.text(size ? bytes_to_kb(size): '');
+          this.value = size;
+        }
+      });
+    }
+
+    els.filter(":checked").each(function() {
+      if (this.name === 'include_jquery') {
+        tools += "&include_jquery=true";
+        if (version_info) {
+          size += version_info.jquery.size;
+        }
+      }
+      else if (this.name !== 'build') {
+        // 170 bytes for stripping down comment size
+        size += parseFloat($(this).val()) - 170;
+        count++;
+        tools += "&t=" + this.name;
+      }
+    });
+
+    // user information
+    $("#selected").html('(' +count+ ' of ' + els.size() + ' selected)');
+    $("#minified").html(bytes_to_kb(size));
+    $("#gzipped") .html(bytes_to_kb(size * 0.322) + ' <em>gzipped</em>');
+
+    // build choice
+    var build = $('input[name="build"]').filter(':checked').val() || 'v1.2.6';
+
+    // download link
+    $("#downloadLink").attr(
+      "href",
+      "http://builder.jquerytools.org/" + build + "/jquery.tools.min.js?" + tools
+    );
+    $("#tokens").html(tools);
+
+
+    // highlight row
+    var tr = $(this).parents("tr"), checked = this.checked;
+
+    if (checked) {
+      tr.addClass("selected");
+    } else {
+      tr.removeClass("selected");
+    }
+
+    // show/hide plugins
+    if (!tr.is(".plugin")) {
+      tr.nextAll().each(function()  {
+        if ($(this).is(".plugin"))  {
+          if (checked) {
+            $(this).fadeIn();
+          } else {
+            $(this).hide().removeClass("selected").find(":checkbox").attr("checked", false);
+          }
+
+        } else  {
+          return false;
+        }
+      });
+    }
+
+  });
+
+  // default selection
+  $("#t_tabs, #t_tooltip, #t_scrollable, #t_overlay").each(function() {
+    $(this).find(":checkbox").click().triggerHandler("change");
+  });
+  $("#build_stable").click().triggerHandler("change");
+});
 </script>
 {% endblock %}
 
@@ -147,21 +199,67 @@
   versions</strong> are available.
 </p>
 
+<div class="blurb">
+<h3>Version</h3>
+<div class="table">
+  <table class="listing">
+    <tr>
+      <td>
+        <label>
+          <input type="radio" checked="checked" value="v1.2.6" name="build" id="build_stable" />
+          {{ jqt.v }} stable
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <input type="radio" value="dev" name="build" id="build_dev" />
+          {{ jqt.dev.v }}
+        </label>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3>Include jQuery</h3>
+<div class="table">
+  <table class="listing">
+    <tr id="t_jquery" >
+        <td>
+          <label>
+            <input type="checkbox" name="include_jquery" value="72174" /> jQuery
+            <span id="jquery_version"></span>
+          </label>
+        </td>
+        <td><small></small></td>
+        <td class="size" id="jquery_size"></td>
+        <td style="text-align:right;padding-right:5px">
+          <img src="http://flowplayer.org/img/global/info_small.png" />
+          <div class="tooltip">
+            <h3>jQuery 1.6.4</h3>
+            <p>All tools depend on this library (except flashembed). Can alternatively be included from googleapis (see below)</p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+
 {% macro render_tool_row(tool, is_plugin) %}
-{% set base =  content_url('download/'~jqt.v~'/'~tool.file) %}
-{% set source = base~'.js' %}
-{% set min = base~'.min.js' %}
+{% set base =  'download/dist/v'~jqt.v~'/'~tool.file %}
+{% set src, min = (base~'.js', base~'.min.js') %}
+{% set min_size = site.content.resource_from_relative_path(min).source.size|default(0)|float %}
+{% set source_size = site.content.resource_from_relative_path(src).source.size|default(0)|float %}
+
 
   <tr id="t_{{ tool.key }}" {% if is_plugin %}class="plugin"{% endif %}>
     <td>
      <label>
-       <input type="checkbox" name="{{ tool.key }}" value="{{ tool.min_size }}" /> {{ tool.name }}
+       <input type="checkbox" name="{{ tool.file }}.js" value="{{ min_size }}" /> {{ tool.name }}
      </label>
     </td>
     <td><small>{{ tool.requires }}</small></td>
-    <td><a href="{{ source }}?download=true">{{ tool.source_size }}</a></td>
-    <td><a href="{{ min }}?download=true">{{ tool.min_size }}</a></td>
-
+    <td class="size">{{ source_size }}</td>
 
     <td style="text-align:right;padding-right:5px">
       <img src="{{ media_url('img/global/info_small.png') }}" />
@@ -188,16 +286,17 @@
 </div>
 {% endfor %}
 
-<a href="#" id="downloadLink">
-  <img src="{{ media_url('img/global/commerce/download.png') }}"
-       alt="Download jQuery Tools" />
-</a>
+<div class="footer">
+  <a href="#" id="downloadLink">
+    <img src="{{ media_url('img/global/commerce/download.png') }}"
+         alt="Download jQuery Tools" />
+  </a>
 
-<h3 style="margin:10px 0 20px 0">
-  <em>Size</em>: <span id="minified"></span> / <span id="gzipped"></span>
-</h3>
-
-
+  <h3>
+    <em>Size</em>: <span id="minified"></span> / <span id="gzipped"></span>
+  </h3>
+</div>
+</div>
 <a name="cdn"></a>
 <h2>jQuery Tools from CDN</h2>
 

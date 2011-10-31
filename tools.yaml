@@ -20,7 +20,7 @@ categories:
                 name: Tooltip
                 key: tooltip
                 description: The basics of UI design
-                file: tooltip/tooltip,
+                file: tooltip/tooltip
                 link: tooltip/index.html
                 plugins:
                     -

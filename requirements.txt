@@ -3,4 +3,5 @@ pygments
 -e git://github.com/hyde/hyde.git#egg=hyde
 argparse
 -e git://github.com/hyde/typogrify.git#egg=typogrify
+-e git://github.com/mitsuhiko/jinja2.git#egg=jinja2
 pyquery
