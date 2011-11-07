@@ -1,4 +1,5 @@
 mode: development
+site_root: localhost:8080
 media_root: media # Relative path from content folder.
 media_url: /media
 base_url: /

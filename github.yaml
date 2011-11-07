@@ -1,5 +1,6 @@
-mode: production
 extends: site.yaml
+mode: production
+site_root: jquerytools.github.com
 publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git

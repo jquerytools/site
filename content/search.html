@@ -1,0 +1,154 @@
+---
+extends: root.j2
+---
+
+{% block extra_head %}
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+{% endblock %}
+
+{% block extra_css %}
+<style type="text/css">
+.gsc-resultsHeader, .gs-visibleUrl, .gs-watermark, .gsc-trailing-more-results, .gsc-branding, .gsc-search-box {
+    display:none;
+}
+
+.gs-title {
+    font-family:"Lucida Grande","Lucida Sans Unicode","bitstream vera sans";
+    color:#295C72;
+    font-size:14px;
+    line-height:26px;
+}
+
+.gs-title:hover {
+    text-decoration: underline;
+}
+
+.gs-snippet {
+    margin-bottom:20px;
+    color:#444;
+    font-size:13px;
+    border-bottom:1px dotted #ddd;
+    padding-right:60px;
+}
+
+.gsc-cursor-page {
+    float:left;
+    margin:0 3px;
+    padding:0.1em 0.4em;
+    border:1px solid #5B67A2;
+    color:#444444;
+    text-decoration:none;
+    width:10px;
+    cursor:pointer;
+}
+
+.gsc-cursor-page:hover {
+    background-color: #ededed;
+}
+
+.gsc-cursor-current-page {
+    background-color:#333;
+    color:#fff;
+}
+
+.gsc-cursor-current-page:hover {
+    background-color:#333;
+}
+
+
+#pageHeader {
+
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 24px;
+}
+
+h2 {
+    color: black;
+    border-bottom: 0;
+}
+
+#searchTitle {
+    font-weight: normal;
+}
+
+.blurb {
+    margin-top: 12px;
+    padding: 24px 24px 48px;
+}
+
+</style>
+{% endblock %}
+
+{% block main %}
+
+<script type="text/javascript">
+
+google.load('search', '1.0', {"nocss" : true});
+
+function getParameterByName(name) {
+
+    var match = RegExp('[?&]' + name + '=([^&]*)')
+                    .exec(window.location.search);
+
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+
+}
+
+$(function() {
+
+    var q = getParameterByName("q");
+    $("#searchTitle strong").text(q);
+    $("#top-search input").val(q);
+
+    // Create a search control
+    var search = new google.search.SearchControl(),
+         site = new google.search.WebSearch(),
+         options = new google.search.SearcherOptions();
+
+    site.setSiteRestriction("{{ site.config.site_root }}");
+    options.setExpandMode(google.search.SearchControl.EXPAND_MODE_OPEN);
+
+
+    // perform search
+    search.addSearcher(site, options);
+    search.draw(document.getElementById("results"));
+    search.execute(q);
+
+    // after the search has been performed
+    search.setSearchCompleteCallback(this, function()  {
+
+        // show all results
+        $(".gsc-all-results").click();
+
+        // remove "Flowplayer" text from all results
+        $("a.gs-title").each(function() {
+             var el = $(this), html = el.html(), href = el.attr("href");
+
+             el.html(html.replace(/jQueryTools\s*[/-]?\s*/, ""))
+                .attr("href", href.replace("http://{{ site.config.site_root }}", ""))
+                .removeAttr("target");
+        });
+    });
+
+    // assign different action to search input
+    $("#top-search").submit(function(e) {
+        var q = $("input", this).val();
+        $("#searchTitle strong").text(q);
+        search.execute(q);
+        return e.preventDefault();
+    });
+
+    // DONE! happy stealing everyone.
+
+});
+</script>
+
+<div class="blurb">
+    <div id="pageHeader">
+        <h2> Search jQueryTools</h2>
+        <h3 id="searchTitle">Google-powered search for: <strong></strong></h3>
+    </div>
+
+    <div id="results"></div>
+</div>
+{% endblock %}
