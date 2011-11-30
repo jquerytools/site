@@ -28,12 +28,15 @@
     </li>
     {% else %}
     {% for group in section.groups -%}
+        {% set links = render_resources(group, resource.node.module) %}
+        {% if links|trim|count > 0 %}
         <li>
             <ol class="links">
                 <h3 title="{{ group.description }}">{{ group.name|title|typogrify }}</h3>
-                {{ render_resources(group, resource.node.module) }}
+                {{ links  }}
             </ol>
         </li>
+        {% endif %}
     {%- endfor %}
     {% endif %}
     </ol>
