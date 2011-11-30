@@ -1,6 +1,6 @@
 {% macro demo(ref, full=True, link=True, style=None, linkStyle=None) -%}
 <div class="box{% if full %} full{%- endif %}" {%if style-%}style="{{ style }}"{%-endif%}>
-{{standalone.body}}
+{{ref.body}}
 {% if (caller) -%}
 {{ caller() }}
 {%- endif %}
@@ -109,7 +109,7 @@
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="{{ content_url('release-notes/index.html') }}">
 	             <img src="{{ media_url('img/1.2/banner-small.jpg') }}"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>

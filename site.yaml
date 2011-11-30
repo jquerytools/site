@@ -5,8 +5,8 @@ media_url: /media
 base_url: /
 template: hyde.ext.jinja2
 plugins:
-    - hyde.ext.plugins.blockdown.BlockdownPlugin
     - hyde.ext.plugins.meta.MetaPlugin
+    - hyde.ext.plugins.blockdown.BlockdownPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.syntext.SyntextPlugin
@@ -16,8 +16,11 @@ plugins:
 context:
     data:
         jqt:
+            cdn: http://cdn.jquerytools.org
             js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
             v: 1.2.6
+            size: 4.45
+            formSize: 5.98
             dev:
                 v: 1.2.7-dev
         flowplayer:

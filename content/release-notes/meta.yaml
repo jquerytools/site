@@ -1,0 +1,2 @@
+extends: notes.j2
+default_block: main

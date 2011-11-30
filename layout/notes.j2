@@ -1,0 +1,112 @@
+{% extends "root.j2" %}
+
+{% block extra_css %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ media_url('css/syntax.css') }}"/>
+<style>
+
+{% if resource.meta.main %}
+#content {
+    margin:0;
+    padding:0;
+    width:100%;
+    background:none;
+}
+
+#right  {
+   display:none;
+}
+
+{% endif %}
+
+.herotitle h2 {
+    line-height: 80px;
+    border:0;
+}
+
+#breadcrumb {
+    top:0;
+    padding-top: 12px;
+    margin-bottom:-5px;
+    font-size:14px;
+}
+
+#breadcrumb a {
+    font-size:14px;
+}
+
+#breadcrumb a:hover {
+    color:#000;
+}
+
+#content h1 {
+    height:320px;
+    text-indent:-999em;
+    top:-40px;
+    margin-bottom:-80px;
+    z-index:-1;
+}
+
+
+#content h1#hero {
+    background:url({{ media_url('img/hero/plain.jpg') }}) no-repeat -31px 16px;
+    font-size:75px;
+    letter-spacing:-3px;
+    padding:151px 0 0 217px;
+    text-transform:uppercase;
+    height:185px;
+    color:#055499;
+    text-indent:0;
+    line-height:45px;
+    position:relative;
+    width:735px !important;
+}
+
+#content h1 em {
+    display:block;
+    font-size:20px;
+    color:#808080;
+    margin-top:-2px;
+    font-weight:normal;
+    font-style:normal;
+}
+
+#content h1#hero em {
+    text-transform:none;
+    letter-spacing:0;
+    font-size:22px;
+    color:#000;
+}
+
+#content h1 strong{
+    color: #505050;
+}
+
+#hero span {
+    background:transparent url({{ media_url('img/gradient/letters.png') }}) repeat-x 0 0;
+    height:80px;
+    position:absolute;
+    margin-top:-7px;
+    display:block;
+    width:735px !important;
+}
+
+.notes {
+    margin-top: 260px;
+}
+</style>
+{% endblock %}
+
+{% block right_navigation %}
+<div class="notes">
+<h2>Release Notes</h2>
+<ul>
+{% set notes = site.content.node_from_relative_path('release-notes') %}
+{% for note in notes.walk_resources_sorted_by_index()|reverse if not note.meta.main %}
+<li>
+<a href="{{ content_url(note.url) }}">{{ note.source.name_without_extension }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
