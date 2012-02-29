@@ -1,0 +1,6 @@
+extends: site.yaml
+mode: production
+base_url: /
+site_root: jquerytools.org
+site_url: http://jquerytools.org
+fpsite: http://flowplayer.org/

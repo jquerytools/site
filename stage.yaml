@@ -1,0 +1,6 @@
+extends: site.yaml
+mode: production
+base_url: /
+site_root: stage.jquerytools.org
+site_url: http://stage.jquerytools.org
+fpsite: http://stage.flowplayer.org/

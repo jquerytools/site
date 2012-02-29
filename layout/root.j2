@@ -61,12 +61,6 @@
                         >jQuery Tools</a>
                 </li>
                 <li class="spacer right"></li>
-                <li id="login_link" class="linkOnly">
-                    <a href="/account">Login</a>
-                </li>
-                <li id="logout_link" class="linkOnly">
-                    <a href="/logout.html">Logout</a>
-                </li>
             </ul>
             <form id="top-search" action="/search.html">
                 <input type="text" placeholder="Search site" name="q" />
@@ -88,7 +82,7 @@
                     <a href="/documentation">Documentation</a>
                 </li>
                 <li {% if resource.node.module.name == 'forum' %}class="active"{% endif %}>
-                    <a href="/forum">Forums</a>
+                    <a href="/forum/tools">Forums</a>
                 </li>
                 <li id="download" {% if resource.node.module.name == 'download' %}class="active"{% endif %}>
                     <a href="/download">Download</a>
