@@ -4,3 +4,7 @@ base_url: /
 site_root: jquerytools.org
 site_url: http://jquerytools.org
 fpsite: http://flowplayer.org/
+stylus:
+    app: %STYLUS_PATH
+uglify:
+    app: %UGLIFY_PATH

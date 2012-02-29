@@ -1,0 +1,10 @@
+extends: site.yaml
+mode: development
+base_url: /
+site_root: dev26.jquerytools.org
+site_url: http://dev26.jquerytools.org
+fpsite: http://dev26.flowplayer.org/
+stylus:
+    app: %STYLUS_PATH
+uglify:
+    app: %UGLIFY_PATH
