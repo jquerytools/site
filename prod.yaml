@@ -8,3 +8,5 @@ stylus:
     app: %STYLUS_PATH
 uglify:
     app: %UGLIFY_PATH
+analytics:
+    id: UA-5877901-1 #Google Analytics Tracking ID

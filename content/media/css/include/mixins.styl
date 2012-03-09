@@ -10,6 +10,9 @@ boxshadow(bsLeft, bsTop, bsBlur, bsColor)
     -o-box-shadow bsLeft bsTop bsBlur bsColor
     box-shadow bsLeft bsTop bsBlur bsColor
 
+    html.ie9 &
+        box-shadow -1px -1px 3px bsColor, bsLeft bsTop bsBlur bsColor
+
 radius(r=10px)
 
     -webkit-border-radius r
