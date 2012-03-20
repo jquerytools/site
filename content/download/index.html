@@ -235,7 +235,7 @@ $(function() {
         <td><small></small></td>
         <td class="size" id="jquery_size"></td>
         <td style="text-align:right;padding-right:5px">
-          <img src="http://flowplayer.org/img/global/info_small.png" />
+          <img src="/media/img/global/info_small.png" />
           <div class="tooltip">
             <h3>jQuery 1.6.4</h3>
             <p>All tools depend on this library (except flashembed). Can alternatively be included from googleapis (see below)</p>
@@ -266,7 +266,7 @@ $(function() {
       <div class="tooltip">
        <h3>{{ tool.name }}</h3>
        <p>{{ tool.description }}</p>
-       <p> <a href="{{ content_url(tool.link) }}">documentation</a></p>
+       <p> <a href="{{ content_url('documentation/'~tool.link) }}">documentation</a></p>
       </div>
     </td>
   </tr>
