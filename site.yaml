@@ -17,18 +17,18 @@ context:
     data:
         jqt:
             cdn: http://cdn.jquerytools.org
-            js: http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js
-            v: 1.2.6
+            js: http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js
+            v: 1.2.7
             size: 4.45
             formSize: 5.98
             dev:
-                v: 1.2.7-dev
+                v: 1.2.8-dev
         flowplayer:
-            swf: /media/swf/flowplayer/flowplayer-3.2.7.swf
-            js: /media/js/flowplayer/flowplayer-3.2.6.min.js
-            zip: http://releases.flowplayer.org/flowplayer/flowplayer-3.2.6.zip
-            date: 2011-03-03
-            v: 3.2.7
+            swf: /media/swf/flowplayer/flowplayer-3.2.9.swf
+            js: /media/js/flowplayer/flowplayer-3.2.9.min.js
+            zip: http://releases.flowplayer.org/flowplayer/flowplayer-3.2.9.zip
+            date: 2012-03-29
+            v: 3.2.9
     providers:
         tools: tools.yaml
 meta:
