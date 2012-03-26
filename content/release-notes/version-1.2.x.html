@@ -15,8 +15,31 @@ index: 6
 	<a href="index.html">Introducing v1.2.0 &raquo;</a> Bug fix releases
 </div>
 
+<a name="1.2.7"></a>
+<h2 class="first">March 28, 2012. Version <em>1.2.7</em></h2>
+
+<ul>
+<li>Updated code to be compatible with jQuery 1.7.1</li>
+<li>Attribute selectors are now wrapped about by quotes so that History
+and Tabs can point towards for complicated selectors.</li>
+<li>Better checking of data to hopefully prevent issues with the
+compressed version of RangeInput where the precision was returning
+null.</li>
+<li>Updated all test code to point to jQuery 1.7.1</li>
+<li>Fix in bug is DateInput where Sunday was not determined correctly
+(thanks to Nucc).</li>
+<li>Added ability to specify the formatters that is used to format the
+date when it is selected. Refer to this issue #375.</li>
+<li>Fixed a double scrolling bug in Scrollable (issue #571) thanks to poxd.</li>
+<li>Fixed an issue with Validator where it was removing events attached
+by other scripts, issue #390 thanks to rs.</li>
+<li>Fixed an issue with Validator where it was validating a pattern
+against an empty string, issue #605, again thanks to rs.</li>
+<li>Thanks to zeroasterisk for fixing the attribute selector bugs of Validator.</li>
+
+
 <a name="1.2.5"></a>
-<h2 class="first">Sep 22, 2010. Version <em>1.2.5</em></h2>
+<h2>Sep 22, 2010. Version <em>1.2.5</em></h2>
 
 <h3>Miscalleneous</h3>
 
