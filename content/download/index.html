@@ -90,7 +90,7 @@ $(function() {
     $("#gzipped") .html(bytes_to_kb(size * 0.322) + ' <em>gzipped</em>');
 
     // build choice
-    var build = $('input[name="build"]').filter(':checked').val() || 'v1.2.6';
+    var build = $('input[name="build"]').filter(':checked').val() || 'v{{ jqt.v }}';
 
     // download link
     $("#downloadLink").attr(
@@ -206,7 +206,7 @@ $(function() {
     <tr>
       <td>
         <label>
-          <input type="radio" checked="checked" value="v1.2.6" name="build" id="build_stable" />
+          <input type="radio" checked="checked" value="v{{ jqt.v }}" name="build" id="build_stable" />
           {{ jqt.v }} stable
         </label>
       </td>
