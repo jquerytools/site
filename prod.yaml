@@ -4,9 +4,10 @@ base_url: /
 site_root: jquerytools.org
 site_url: http://jquerytools.org
 fpsite: http://flowplayer.org/
-stylus:
-    app: %STYLUS_PATH
-uglify:
-    app: %UGLIFY_PATH
 analytics:
     id: UA-5877901-1 #Google Analytics Tracking ID
+publisher:
+    default:
+        type: hyde.ext.publishers.pyfs.PyFS
+        url: s3://jquerytools.org
+        check_etag: md5
