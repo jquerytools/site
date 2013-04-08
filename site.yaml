@@ -44,7 +44,7 @@ meta:
                 user interface library, web 2.0 ui library
     author: Tero Piirainen
 stylus:
-    app: /usr/local/bin/stylus
+    app: ./node_modules/stylus/bin/stylus
 sorter:
     index:
         attr:

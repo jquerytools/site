@@ -13,7 +13,8 @@
     "node": "~v0.4.11"
   },
   "dependencies": {
-    "uglify-js": ">= 1.1.1"
+    "uglify-js": ">= 1.1.1",
+    "stylus": ">= 0.32"
   },
   "devDependencies": {}
 }
